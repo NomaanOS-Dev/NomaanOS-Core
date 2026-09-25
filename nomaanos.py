@@ -13,11 +13,13 @@ from src.swarm_sync import SwarmSyncProtocol
 from src.health_check import MasterHealthCheck
 from src.fuzzer import SecurityFuzzer
 from src.snapshot_manager import SnapshotManager
+from src.banner import render_banner
 
 def print_help():
-    print("\033[1;36m" + "="*50)
-    print("      NOMAANOS SOVEREIGN AI STACK - MASTER CLI")
-    print("="*50 + "\033[0m")
+    render_banner()
+    print("\033[1;36m" + "="*60)
+    print("      NOMAANOS SOVEREIGN AI STACK - MASTER CLI REFERENCE")
+    print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
     print("  snapshot    - Create cryptographic state snapshot & backup bundle")
