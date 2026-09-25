@@ -36,6 +36,7 @@ from src.master_seal import MasterProductionSeal
 from src.quantum_shield import QuantumShield
 from src.sentinel_agent import SentinelAgent
 from src.hardware_bridge import HardwareEnclaveBridge
+from src.global_publisher import GlobalPublisher
 
 def print_help():
     render_banner()
@@ -44,6 +45,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  publish     - Generate global open-source release showcase manifest")
     print("  hardware    - Run hardware enclave root-of-trust attestation")
     print("  sentinel    - Run autonomous AI sentinel watchdog anomaly patrol")
     print("  quantum     - Generate post-quantum lattice cryptographic signature")
@@ -89,7 +91,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "hardware":
+    if cmd == "publish":
+        pub = GlobalPublisher()
+        print(json.dumps(pub.generate_showcase(), indent=2))
+    elif cmd == "hardware":
         bridge = HardwareEnclaveBridge()
         print(json.dumps(bridge.attest_hardware(), indent=2))
     elif cmd == "sentinel":
