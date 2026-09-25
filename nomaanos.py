@@ -19,6 +19,7 @@ from src.attestation_issuer import AttestationIssuer
 from src.streamer import TelemetryStreamer
 from src.diagnostics import MasterDiagnostics
 from src.report_exporter import SecurityReportExporter
+from src.stress_test import MasterStressTest
 
 def print_help():
     render_banner()
@@ -27,6 +28,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  stress      - Run master high-concurrency stress & durability test")
     print("  export-report - Export master enterprise security audit report")
     print("  diagnostics - Run deep enclave diagnostics & kernel inspection")
     print("  stream      - Stream real-time node security telemetry & heartbeat")
@@ -55,7 +57,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "export-report":
+    if cmd == "stress":
+        st = MasterStressTest()
+        print(json.dumps(st.run_stress_test(), indent=2))
+    elif cmd == "export-report":
         exporter = SecurityReportExporter()
         print(json.dumps(exporter.export_master_report(), indent=2))
     elif cmd == "diagnostics":
