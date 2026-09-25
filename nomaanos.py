@@ -17,6 +17,7 @@ from src.banner import render_banner
 from src.deploy_verifier import DeploymentVerifier
 from src.attestation_issuer import AttestationIssuer
 from src.streamer import TelemetryStreamer
+from src.diagnostics import MasterDiagnostics
 
 def print_help():
     render_banner()
@@ -25,6 +26,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  diagnostics - Run deep enclave diagnostics & kernel inspection")
     print("  stream      - Stream real-time node security telemetry & heartbeat")
     print("  cert-issue  - Issue cryptographic root attestation certificate")
     print("  deploy-check - Verify production deployment readiness & artifacts")
@@ -51,7 +53,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "stream":
+    if cmd == "diagnostics":
+        diag = MasterDiagnostics()
+        print(json.dumps(diag.run_deep_diagnostics(), indent=2))
+    elif cmd == "stream":
         streamer = TelemetryStreamer()
         print(json.dumps(streamer.stream_telemetry(), indent=2))
     elif cmd == "cert-issue":
