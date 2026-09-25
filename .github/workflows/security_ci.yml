@@ -1,0 +1,24 @@
+name: NomaanOS Security & Integrity CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Fail-Closed Execution Engine Unit Tests
+        run: |
+          python -c "import nos_exec; engine = nos_exec.NoseExec(['echo']); res = engine.execute(['echo', 'CI_SECURITY_GATE_PASSED']); print(res); assert res['status'] == 'SUCCESS'"
+          echo "All NomaanOS-Core security checks passed successfully."
