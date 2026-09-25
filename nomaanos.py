@@ -25,6 +25,7 @@ from src.badge_generator import SecurityBadgeGenerator
 from src.tui import SecurityTUI
 from src.benchmark import MasterBenchmark
 from src.bootstrapper import MasterBootstrapper
+from src.health_inspector import MasterHealthInspector
 
 def print_help():
     render_banner()
@@ -33,6 +34,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  inspect     - Run deep master health & runtime enclave inspection")
     print("  boot        - Run master boot sequence & subsystem initialization")
     print("  benchmark   - Run full-stack master security & integration benchmark")
     print("  tui         - Launch interactive terminal user interface (TUI) dashboard")
@@ -67,7 +69,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "boot":
+    if cmd == "inspect":
+        inspector = MasterHealthInspector()
+        print(json.dumps(inspector.inspect_health(), indent=2))
+    elif cmd == "boot":
         boot = MasterBootstrapper()
         print(json.dumps(boot.boot_sequence(), indent=2))
     elif cmd == "benchmark":
