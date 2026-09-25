@@ -16,6 +16,7 @@ from src.snapshot_manager import SnapshotManager
 from src.banner import render_banner
 from src.deploy_verifier import DeploymentVerifier
 from src.attestation_issuer import AttestationIssuer
+from src.streamer import TelemetryStreamer
 
 def print_help():
     render_banner()
@@ -24,6 +25,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  stream      - Stream real-time node security telemetry & heartbeat")
     print("  cert-issue  - Issue cryptographic root attestation certificate")
     print("  deploy-check - Verify production deployment readiness & artifacts")
     print("  snapshot    - Create cryptographic state snapshot & backup bundle")
@@ -49,7 +51,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "cert-issue":
+    if cmd == "stream":
+        streamer = TelemetryStreamer()
+        print(json.dumps(streamer.stream_telemetry(), indent=2))
+    elif cmd == "cert-issue":
         issuer = AttestationIssuer()
         print(json.dumps(issuer.issue_certificate(), indent=2))
     elif cmd == "deploy-check":
