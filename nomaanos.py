@@ -29,6 +29,7 @@ from src.health_inspector import MasterHealthInspector
 from src.packager import ReleasePackager
 from src.webhook_hub import MasterWebhookHub
 from src.log_rotator import MasterLogRotator
+from src.deployment_shield import DeploymentShield
 
 def print_help():
     render_banner()
@@ -37,6 +38,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  shield      - Run automated production deployment integrity shield")
     print("  rotate      - Rotate and archive master audit logs & telemetry")
     print("  webhook     - Broadcast real-time security alert webhook to SOC sink")
     print("  package     - Package entire core ecosystem into release ZIP archive")
@@ -75,7 +77,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "rotate":
+    if cmd == "shield":
+        shield = DeploymentShield()
+        print(json.dumps(shield.verify_shield(), indent=2))
+    elif cmd == "rotate":
         rotator = MasterLogRotator()
         print(json.dumps(rotator.rotate_logs(), indent=2))
     elif cmd == "webhook":
