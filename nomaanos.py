@@ -24,6 +24,7 @@ from src.chain_verifier import CryptographicChainVerifier
 from src.badge_generator import SecurityBadgeGenerator
 from src.tui import SecurityTUI
 from src.benchmark import MasterBenchmark
+from src.bootstrapper import MasterBootstrapper
 
 def print_help():
     render_banner()
@@ -32,6 +33,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  boot        - Run master boot sequence & subsystem initialization")
     print("  benchmark   - Run full-stack master security & integration benchmark")
     print("  tui         - Launch interactive terminal user interface (TUI) dashboard")
     print("  badges      - Generate professional SVG security shield badges")
@@ -65,7 +67,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "benchmark":
+    if cmd == "boot":
+        boot = MasterBootstrapper()
+        print(json.dumps(boot.boot_sequence(), indent=2))
+    elif cmd == "benchmark":
         bm = MasterBenchmark()
         print(json.dumps(bm.run_master_benchmark(), indent=2))
     elif cmd == "tui":
