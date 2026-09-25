@@ -7,6 +7,7 @@ from src.neural_lock import NeuralLock
 from src.compliance_auditor import ComplianceAuditor
 from src.threat_simulator import ThreatSimulator
 from src.sbom_generator import SBOMGenerator
+from src.hardening import SystemHardening
 
 def print_help():
     print("\033[1;36m" + "="*50)
@@ -20,6 +21,7 @@ def print_help():
     print("  audit       - Generate automated compliance & security report")
     print("  simulate    - Run automated red-team threat simulation suite")
     print("  sbom        - Generate Software Bill of Materials (SBOM) inventory")
+    print("  harden      - Run automated system hardening & pre-flight lockdown")
     print("  server      - Launch FastAPI local security REST API server")
     print("  run         - Execute sample orchestrator pipeline request")
     print("  help        - Show this help menu\n")
@@ -48,6 +50,9 @@ def main():
     elif cmd == "sbom":
         gen = SBOMGenerator()
         print(json.dumps(gen.generate_sbom(), indent=2))
+    elif cmd == "harden":
+        hardener = SystemHardening()
+        print(json.dumps(hardener.run_hardening_audit(), indent=2))
     elif cmd == "server":
         import uvicorn
         from src.server import app
