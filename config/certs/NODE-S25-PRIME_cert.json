@@ -1,0 +1,9 @@
+{
+  "certificate_id": "CERT-675E5621738E",
+  "node_name": "NODE-S25-PRIME",
+  "issuer": "NomaanOS Sovereign Root CA",
+  "issued_at": 1790378865,
+  "expires_at": 1821914865,
+  "cryptographic_fingerprint": "675e5621738e214b7c2e68f9414d0171dd36e0121152874a246035a723c8932d",
+  "status": "VALID_AND_TRUSTED"
+}
