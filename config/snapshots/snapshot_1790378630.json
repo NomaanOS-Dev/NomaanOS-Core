@@ -1,0 +1,8 @@
+{
+  "snapshot_id": "SNAP-1790378630",
+  "timestamp": 1790378630,
+  "audit_trail_exists": true,
+  "sbom_exists": true,
+  "release_manifest_exists": true,
+  "bundle_hash": "f9f626bc79081c4d9aeddab731910e93117a1df1c4f80b20b0fec9dc83bf2adb"
+}

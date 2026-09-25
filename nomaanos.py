@@ -12,6 +12,7 @@ from src.release_manifest import ReleaseManifest
 from src.swarm_sync import SwarmSyncProtocol
 from src.health_check import MasterHealthCheck
 from src.fuzzer import SecurityFuzzer
+from src.snapshot_manager import SnapshotManager
 
 def print_help():
     print("\033[1;36m" + "="*50)
@@ -19,6 +20,7 @@ def print_help():
     print("="*50 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  snapshot    - Create cryptographic state snapshot & backup bundle")
     print("  health      - Run master node health & subsystem attestation")
     print("  fuzz        - Run automated security fuzzing & payload mutation suite")
     print("  telemetry   - Render real-time SOC security telemetry dashboard")
@@ -41,7 +43,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "health":
+    if cmd == "snapshot":
+        sm = SnapshotManager()
+        print(json.dumps(sm.create_snapshot(), indent=2))
+    elif cmd == "health":
         hc = MasterHealthCheck()
         print(json.dumps(hc.run_full_attestation(), indent=2))
     elif cmd == "fuzz":
