@@ -1,3 +1,16 @@
+Metadata-Version: 2.4
+Name: nomaanos-core
+Version: 6.0.0
+Summary: Sovereign AI Stack (SAS) - Fail-Closed Execution & Cryptographic Audit Ledger
+Author-email: Nomaan Khan <nomaanos@duck.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
 <div align="center">
   <h1>NomaanOS-Core v6.0</h1>
   <p><strong>Sovereign AI Stack (SAS) & Fail-Closed Execution Engine</strong></p>
