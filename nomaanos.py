@@ -18,6 +18,7 @@ def print_help():
     print("  lock        - Generate L5 Neural Lock attestation token")
     print("  audit       - Generate automated compliance & security report")
     print("  simulate    - Run automated red-team threat simulation suite")
+    print("  server      - Launch FastAPI local security REST API server")
     print("  run         - Execute sample orchestrator pipeline request")
     print("  help        - Show this help menu\n")
 
@@ -42,6 +43,11 @@ def main():
     elif cmd == "simulate":
         sim = ThreatSimulator()
         sim.run_simulation()
+    elif cmd == "server":
+        import uvicorn
+        from src.server import app
+        print("\033[1;32m[+] Launching NomaanOS REST API Server on http://127.0.0.1:8000\033[0m")
+        uvicorn.run(app, host="127.0.0.1", port=8000)
     elif cmd == "run":
         os_core = NomaanOSOrchestrator()
         res = os_core.process_request("Execute secure file check", ["ls"])
