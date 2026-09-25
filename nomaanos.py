@@ -22,6 +22,7 @@ from src.report_exporter import SecurityReportExporter
 from src.stress_test import MasterStressTest
 from src.chain_verifier import CryptographicChainVerifier
 from src.badge_generator import SecurityBadgeGenerator
+from src.tui import SecurityTUI
 
 def print_help():
     render_banner()
@@ -30,6 +31,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  tui         - Launch interactive terminal user interface (TUI) dashboard")
     print("  badges      - Generate professional SVG security shield badges")
     print("  chain-verify - Verify cryptographic append-only audit chain integrity")
     print("  stress      - Run master high-concurrency stress & durability test")
@@ -61,7 +63,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "badges":
+    if cmd == "tui":
+        tui = SecurityTUI()
+        tui.render_tui()
+    elif cmd == "badges":
         bg = SecurityBadgeGenerator()
         print(json.dumps(bg.generate_badges(), indent=2))
     elif cmd == "chain-verify":
