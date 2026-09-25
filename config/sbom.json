@@ -1,0 +1,36 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "metadata": {
+    "timestamp": 1790377936.9641838,
+    "component": {
+      "name": "nomaanos-core",
+      "version": "6.0.0",
+      "type": "operating-system-kernel",
+      "author": "Nomaan Khan (IHFC-IITD Scholar)"
+    }
+  },
+  "components": [
+    {
+      "name": "fastapi",
+      "version": "0.110.0",
+      "type": "library"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.28.0",
+      "type": "library"
+    },
+    {
+      "name": "python",
+      "version": "3.10.0",
+      "type": "framework"
+    }
+  ],
+  "supply_chain_security": {
+    "fail_closed_enforcement": "STRICT",
+    "cryptographic_ledger": "SHA-256-Merkle",
+    "vulnerability_scan_status": "PASSED_ZERO_CRITICAL"
+  }
+}
