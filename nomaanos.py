@@ -27,6 +27,7 @@ from src.benchmark import MasterBenchmark
 from src.bootstrapper import MasterBootstrapper
 from src.health_inspector import MasterHealthInspector
 from src.packager import ReleasePackager
+from src.webhook_hub import MasterWebhookHub
 
 def print_help():
     render_banner()
@@ -35,6 +36,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  webhook     - Broadcast real-time security alert webhook to SOC sink")
     print("  package     - Package entire core ecosystem into release ZIP archive")
     print("  inspect     - Run deep master health & runtime enclave inspection")
     print("  boot        - Run master boot sequence & subsystem initialization")
@@ -71,7 +73,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "package":
+    if cmd == "webhook":
+        hub = MasterWebhookHub()
+        print(json.dumps(hub.dispatch_alert(), indent=2))
+    elif cmd == "package":
         pkg = ReleasePackager()
         print(json.dumps(pkg.package_release(), indent=2))
     elif cmd == "inspect":
