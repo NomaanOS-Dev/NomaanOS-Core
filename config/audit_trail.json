@@ -1,0 +1,70 @@
+[
+  {
+    "index": 0,
+    "event": "GENESIS_BLOCK",
+    "timestamp": 1790376385.2523072,
+    "hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "index": 1,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "CHALLENGE.md\nREADME.md\nSECURITY.md\nconfig\ndocs\nnomaanos_cli.py\nscripts\nsrc\ntests",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1790376385.2635953,
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hash": "1c14d89034d0d6d4c6ec86f1077c76cff94799fc574aed45eed4e365c15f6af1"
+  },
+  {
+    "index": 2,
+    "action": "INTENT_BLOCKED",
+    "details": {
+      "pipeline_status": "BLOCKED_AT_INTENT_LAYER",
+      "details": {
+        "status": "REJECTED_BY_SENTINEL",
+        "reason": "Dangerous destructive pattern detected in intent: 'rm -rf'",
+        "action": "HALT"
+      }
+    },
+    "timestamp": 1790376385.263853,
+    "previous_hash": "1c14d89034d0d6d4c6ec86f1077c76cff94799fc574aed45eed4e365c15f6af1",
+    "hash": "38da3736fd9b2e094978e240b5ec3031104457c079455d30ab6eb53d1f9aba49"
+  },
+  {
+    "index": 3,
+    "action": "INTENT_BLOCKED",
+    "details": {
+      "pipeline_status": "BLOCKED_AT_INTENT_LAYER",
+      "details": {
+        "status": "REJECTED_BY_SENTINEL",
+        "reason": "Dangerous destructive pattern detected in intent: 'rm -rf'",
+        "action": "HALT"
+      }
+    },
+    "timestamp": 1790376521.6075082,
+    "previous_hash": "38da3736fd9b2e094978e240b5ec3031104457c079455d30ab6eb53d1f9aba49",
+    "hash": "8b1270ab344db297f5ec5a720c7e301d58be3d79fd5edddde31e0c6eff6ee479"
+  },
+  {
+    "index": 4,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "CHALLENGE.md\nREADME.md\nSECURITY.md\nconfig\ndocs\nnomaanos_cli.py\nscripts\nsrc\ntests",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1790376521.6151748,
+    "previous_hash": "8b1270ab344db297f5ec5a720c7e301d58be3d79fd5edddde31e0c6eff6ee479",
+    "hash": "d4e0c4f33be907333820b1b3fb1050855d7a4d69b64c9ba415375ed9939b76e4"
+  }
+]
