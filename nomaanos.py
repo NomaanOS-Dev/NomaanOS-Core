@@ -32,6 +32,7 @@ from src.log_rotator import MasterLogRotator
 from src.deployment_shield import DeploymentShield
 from src.summary_exporter import MasterSummaryExporter
 from src.master_verifier import MasterCodeVerifier
+from src.master_seal import MasterProductionSeal
 
 def print_help():
     render_banner()
@@ -40,6 +41,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  seal        - Apply master production cryptographic sign-off seal")
     print("  verify-repo - Run master repository code & syntax integrity verifier")
     print("  summary     - Export master sovereign stack telemetry summary report")
     print("  shield      - Run automated production deployment integrity shield")
@@ -81,7 +83,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "verify-repo":
+    if cmd == "seal":
+        seal = MasterProductionSeal()
+        print(json.dumps(seal.apply_seal(), indent=2))
+    elif cmd == "verify-repo":
         verifier = MasterCodeVerifier()
         print(json.dumps(verifier.verify_all_modules(), indent=2))
     elif cmd == "summary":
