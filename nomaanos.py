@@ -26,6 +26,7 @@ from src.tui import SecurityTUI
 from src.benchmark import MasterBenchmark
 from src.bootstrapper import MasterBootstrapper
 from src.health_inspector import MasterHealthInspector
+from src.packager import ReleasePackager
 
 def print_help():
     render_banner()
@@ -34,6 +35,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  package     - Package entire core ecosystem into release ZIP archive")
     print("  inspect     - Run deep master health & runtime enclave inspection")
     print("  boot        - Run master boot sequence & subsystem initialization")
     print("  benchmark   - Run full-stack master security & integration benchmark")
@@ -69,7 +71,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "inspect":
+    if cmd == "package":
+        pkg = ReleasePackager()
+        print(json.dumps(pkg.package_release(), indent=2))
+    elif cmd == "inspect":
         inspector = MasterHealthInspector()
         print(json.dumps(inspector.inspect_health(), indent=2))
     elif cmd == "boot":
