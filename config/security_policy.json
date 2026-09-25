@@ -1,0 +1,6 @@
+{
+  "system_version": "NomaanOS-Core v6.0",
+  "fail_closed_default": true,
+  "strict_allowlist": ["echo", "cat", "uname", "ls"],
+  "max_execution_timeout_sec": 5
+}
