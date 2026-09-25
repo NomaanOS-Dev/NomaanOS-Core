@@ -8,6 +8,7 @@ from src.compliance_auditor import ComplianceAuditor
 from src.threat_simulator import ThreatSimulator
 from src.sbom_generator import SBOMGenerator
 from src.hardening import SystemHardening
+from src.release_manifest import ReleaseManifest
 
 def print_help():
     print("\033[1;36m" + "="*50)
@@ -22,6 +23,7 @@ def print_help():
     print("  simulate    - Run automated red-team threat simulation suite")
     print("  sbom        - Generate Software Bill of Materials (SBOM) inventory")
     print("  harden      - Run automated system hardening & pre-flight lockdown")
+    print("  release     - Generate secure release manifest bundle")
     print("  server      - Launch FastAPI local security REST API server")
     print("  run         - Execute sample orchestrator pipeline request")
     print("  help        - Show this help menu\n")
@@ -53,6 +55,9 @@ def main():
     elif cmd == "harden":
         hardener = SystemHardening()
         print(json.dumps(hardener.run_hardening_audit(), indent=2))
+    elif cmd == "release":
+        rm = ReleaseManifest()
+        print(json.dumps(rm.generate_manifest(), indent=2))
     elif cmd == "server":
         import uvicorn
         from src.server import app

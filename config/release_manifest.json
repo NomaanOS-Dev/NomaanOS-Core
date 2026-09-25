@@ -1,0 +1,19 @@
+{
+  "distribution": "NomaanOS Sovereign AI Stack (SAS)",
+  "release_version": "v6.0.0-STABLE",
+  "release_timestamp": 1790378223.1292462,
+  "architect": "Nomaan Khan (IHFC-IITD Scholar)",
+  "components_included": [
+    "NoseExec (Fail-Closed Engine)",
+    "AIAgentBridge (Intent Sanitizer)",
+    "AuditLogger (SHA-256 Ledger)",
+    "PhoenixEngine (Self-Healing)",
+    "NeuralLock (L5 Attestation)",
+    "ComplianceAuditor",
+    "ThreatSimulator",
+    "SBOMGenerator",
+    "SystemHardening",
+    "FastAPI Server"
+  ],
+  "release_status": "VERIFIED_AND_SIGNED"
+}
