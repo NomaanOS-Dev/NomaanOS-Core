@@ -10,6 +10,7 @@ from src.sbom_generator import SBOMGenerator
 from src.hardening import SystemHardening
 from src.release_manifest import ReleaseManifest
 from src.swarm_sync import SwarmSyncProtocol
+from src.health_check import MasterHealthCheck
 
 def print_help():
     print("\033[1;36m" + "="*50)
@@ -17,6 +18,7 @@ def print_help():
     print("="*50 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  health      - Run master node health & subsystem attestation")
     print("  telemetry   - Render real-time SOC security telemetry dashboard")
     print("  verify      - Run Phoenix auto-remediation & integrity check")
     print("  lock        - Generate L5 Neural Lock attestation token")
@@ -37,7 +39,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "telemetry":
+    if cmd == "health":
+        hc = MasterHealthCheck()
+        print(json.dumps(hc.run_full_attestation(), indent=2))
+    elif cmd == "telemetry":
         render_dashboard()
     elif cmd == "verify":
         phoenix = PhoenixEngine()
