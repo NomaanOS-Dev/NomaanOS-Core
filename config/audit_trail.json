@@ -66,5 +66,63 @@
     "timestamp": 1790376521.6151748,
     "previous_hash": "8b1270ab344db297f5ec5a720c7e301d58be3d79fd5edddde31e0c6eff6ee479",
     "hash": "d4e0c4f33be907333820b1b3fb1050855d7a4d69b64c9ba415375ed9939b76e4"
+  },
+  {
+    "index": 5,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "BLOCKED_AT_EXEC_LAYER",
+      "execution_details": {
+        "status": "BLOCKED",
+        "reason": "Binary not in strict allowlist"
+      }
+    },
+    "timestamp": 1790377575.5375779,
+    "previous_hash": "d4e0c4f33be907333820b1b3fb1050855d7a4d69b64c9ba415375ed9939b76e4",
+    "hash": "66b2856759cf6283f30a8f9004e1b777c4c20d1da887d46a9b38ce22519693f3"
+  },
+  {
+    "index": 6,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "BLOCKED_AT_EXEC_LAYER",
+      "execution_details": {
+        "status": "BLOCKED",
+        "reason": "Binary not in strict allowlist"
+      }
+    },
+    "timestamp": 1790377575.5398898,
+    "previous_hash": "66b2856759cf6283f30a8f9004e1b777c4c20d1da887d46a9b38ce22519693f3",
+    "hash": "da9c9f98b96c6463601b3f059da85fee9d461c65029d35edf753820e3d1eaae2"
+  },
+  {
+    "index": 7,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "BLOCKED_AT_EXEC_LAYER",
+      "execution_details": {
+        "status": "BLOCKED",
+        "reason": "Binary not in strict allowlist"
+      }
+    },
+    "timestamp": 1790377575.5401006,
+    "previous_hash": "da9c9f98b96c6463601b3f059da85fee9d461c65029d35edf753820e3d1eaae2",
+    "hash": "0f89404a5c8998fec4d2167852944066acf74cbdb2e545425dfdd10dfa55f2c3"
+  },
+  {
+    "index": 8,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "CHALLENGE.md\nCONTRIBUTING.md\nLICENSE\nREADME.md\nSECURITY.md\nconfig\ndocs\nnomaanos.py\nnomaanos_cli.py\npyproject.toml\nscripts\nsrc\ntests",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1790377575.5489392,
+    "previous_hash": "0f89404a5c8998fec4d2167852944066acf74cbdb2e545425dfdd10dfa55f2c3",
+    "hash": "ad799e76a34e16acaeec934a67f2e3879058f3e80095b825a15e6cbc7b7df02a"
   }
 ]

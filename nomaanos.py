@@ -5,6 +5,7 @@ from src.telemetry_dashboard import render_dashboard
 from src.phoenix_engine import PhoenixEngine
 from src.neural_lock import NeuralLock
 from src.compliance_auditor import ComplianceAuditor
+from src.threat_simulator import ThreatSimulator
 
 def print_help():
     print("\033[1;36m" + "="*50)
@@ -12,10 +13,11 @@ def print_help():
     print("="*50 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
-    print("  telemetry   - Render real-time SOC security dashboard")
+    print("  telemetry   - Render real-time SOC security telemetry dashboard")
     print("  verify      - Run Phoenix auto-remediation & integrity check")
     print("  lock        - Generate L5 Neural Lock attestation token")
     print("  audit       - Generate automated compliance & security report")
+    print("  simulate    - Run automated red-team threat simulation suite")
     print("  run         - Execute sample orchestrator pipeline request")
     print("  help        - Show this help menu\n")
 
@@ -37,6 +39,9 @@ def main():
     elif cmd == "audit":
         auditor = ComplianceAuditor()
         print(json.dumps(auditor.generate_compliance_report(), indent=2))
+    elif cmd == "simulate":
+        sim = ThreatSimulator()
+        sim.run_simulation()
     elif cmd == "run":
         os_core = NomaanOSOrchestrator()
         res = os_core.process_request("Execute secure file check", ["ls"])
