@@ -37,6 +37,7 @@ from src.quantum_shield import QuantumShield
 from src.sentinel_agent import SentinelAgent
 from src.hardware_bridge import HardwareEnclaveBridge
 from src.global_publisher import GlobalPublisher
+from src.analytics_hub import EnterpriseAnalyticsHub
 
 def print_help():
     render_banner()
@@ -45,6 +46,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  analytics   - Compute enterprise performance & throughput analytics")
     print("  publish     - Generate global open-source release showcase manifest")
     print("  hardware    - Run hardware enclave root-of-trust attestation")
     print("  sentinel    - Run autonomous AI sentinel watchdog anomaly patrol")
@@ -91,7 +93,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "publish":
+    if cmd == "analytics":
+        hub = EnterpriseAnalyticsHub()
+        print(json.dumps(hub.compute_analytics(), indent=2))
+    elif cmd == "publish":
         pub = GlobalPublisher()
         print(json.dumps(pub.generate_showcase(), indent=2))
     elif cmd == "hardware":
