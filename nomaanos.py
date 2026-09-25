@@ -11,6 +11,7 @@ from src.hardening import SystemHardening
 from src.release_manifest import ReleaseManifest
 from src.swarm_sync import SwarmSyncProtocol
 from src.health_check import MasterHealthCheck
+from src.fuzzer import SecurityFuzzer
 
 def print_help():
     print("\033[1;36m" + "="*50)
@@ -19,6 +20,7 @@ def print_help():
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
     print("  health      - Run master node health & subsystem attestation")
+    print("  fuzz        - Run automated security fuzzing & payload mutation suite")
     print("  telemetry   - Render real-time SOC security telemetry dashboard")
     print("  verify      - Run Phoenix auto-remediation & integrity check")
     print("  lock        - Generate L5 Neural Lock attestation token")
@@ -42,6 +44,9 @@ def main():
     if cmd == "health":
         hc = MasterHealthCheck()
         print(json.dumps(hc.run_full_attestation(), indent=2))
+    elif cmd == "fuzz":
+        fuzzer = SecurityFuzzer()
+        print(json.dumps(fuzzer.run_fuzz_test(), indent=2))
     elif cmd == "telemetry":
         render_dashboard()
     elif cmd == "verify":
