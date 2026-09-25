@@ -9,6 +9,7 @@ from src.threat_simulator import ThreatSimulator
 from src.sbom_generator import SBOMGenerator
 from src.hardening import SystemHardening
 from src.release_manifest import ReleaseManifest
+from src.swarm_sync import SwarmSyncProtocol
 
 def print_help():
     print("\033[1;36m" + "="*50)
@@ -24,6 +25,7 @@ def print_help():
     print("  sbom        - Generate Software Bill of Materials (SBOM) inventory")
     print("  harden      - Run automated system hardening & pre-flight lockdown")
     print("  release     - Generate secure release manifest bundle")
+    print("  swarm       - Broadcast P2P swarm heartbeat & sync state")
     print("  server      - Launch FastAPI local security REST API server")
     print("  run         - Execute sample orchestrator pipeline request")
     print("  help        - Show this help menu\n")
@@ -58,6 +60,9 @@ def main():
     elif cmd == "release":
         rm = ReleaseManifest()
         print(json.dumps(rm.generate_manifest(), indent=2))
+    elif cmd == "swarm":
+        swarm = SwarmSyncProtocol()
+        print(json.dumps(swarm.broadcast_heartbeat(), indent=2))
     elif cmd == "server":
         import uvicorn
         from src.server import app
