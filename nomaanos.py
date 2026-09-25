@@ -21,6 +21,7 @@ from src.diagnostics import MasterDiagnostics
 from src.report_exporter import SecurityReportExporter
 from src.stress_test import MasterStressTest
 from src.chain_verifier import CryptographicChainVerifier
+from src.badge_generator import SecurityBadgeGenerator
 
 def print_help():
     render_banner()
@@ -29,6 +30,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  badges      - Generate professional SVG security shield badges")
     print("  chain-verify - Verify cryptographic append-only audit chain integrity")
     print("  stress      - Run master high-concurrency stress & durability test")
     print("  export-report - Export master enterprise security audit report")
@@ -59,7 +61,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "chain-verify":
+    if cmd == "badges":
+        bg = SecurityBadgeGenerator()
+        print(json.dumps(bg.generate_badges(), indent=2))
+    elif cmd == "chain-verify":
         cv = CryptographicChainVerifier()
         print(json.dumps(cv.verify_full_chain(), indent=2))
     elif cmd == "stress":
