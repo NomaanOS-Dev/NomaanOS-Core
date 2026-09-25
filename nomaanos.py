@@ -31,6 +31,7 @@ from src.webhook_hub import MasterWebhookHub
 from src.log_rotator import MasterLogRotator
 from src.deployment_shield import DeploymentShield
 from src.summary_exporter import MasterSummaryExporter
+from src.master_verifier import MasterCodeVerifier
 
 def print_help():
     render_banner()
@@ -39,6 +40,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  verify-repo - Run master repository code & syntax integrity verifier")
     print("  summary     - Export master sovereign stack telemetry summary report")
     print("  shield      - Run automated production deployment integrity shield")
     print("  rotate      - Rotate and archive master audit logs & telemetry")
@@ -79,7 +81,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "summary":
+    if cmd == "verify-repo":
+        verifier = MasterCodeVerifier()
+        print(json.dumps(verifier.verify_all_modules(), indent=2))
+    elif cmd == "summary":
         exporter = MasterSummaryExporter()
         print(json.dumps(exporter.export_summary(), indent=2))
     elif cmd == "shield":
