@@ -40,6 +40,7 @@ from src.global_publisher import GlobalPublisher
 from src.analytics_hub import EnterpriseAnalyticsHub
 from src.doc_generator import MasterDocGenerator
 from src.kernel_boot import MasterKernelBoot
+from src.ci_runner import MasterCIRunner
 
 def print_help():
     render_banner()
@@ -48,6 +49,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  ci-run      - Run automated master CI/CD regression test pipeline")
     print("  kernel-boot - Boot sovereign security kernel & attest all modules")
     print("  docs        - Generate master architecture & documentation markdown")
     print("  analytics   - Compute enterprise performance & throughput analytics")
@@ -97,7 +99,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "kernel-boot":
+    if cmd == "ci-run":
+        ci = MasterCIRunner()
+        print(json.dumps(ci.run_pipeline(), indent=2))
+    elif cmd == "kernel-boot":
         kernel = MasterKernelBoot()
         print(json.dumps(kernel.boot_kernel(), indent=2))
     elif cmd == "docs":
