@@ -38,6 +38,8 @@ from src.sentinel_agent import SentinelAgent
 from src.hardware_bridge import HardwareEnclaveBridge
 from src.global_publisher import GlobalPublisher
 from src.analytics_hub import EnterpriseAnalyticsHub
+from src.doc_generator import MasterDocGenerator
+from src.kernel_boot import MasterKernelBoot
 
 def print_help():
     render_banner()
@@ -46,6 +48,8 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  kernel-boot - Boot sovereign security kernel & attest all modules")
+    print("  docs        - Generate master architecture & documentation markdown")
     print("  analytics   - Compute enterprise performance & throughput analytics")
     print("  publish     - Generate global open-source release showcase manifest")
     print("  hardware    - Run hardware enclave root-of-trust attestation")
@@ -93,7 +97,13 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "analytics":
+    if cmd == "kernel-boot":
+        kernel = MasterKernelBoot()
+        print(json.dumps(kernel.boot_kernel(), indent=2))
+    elif cmd == "docs":
+        doc_gen = MasterDocGenerator()
+        print(json.dumps(doc_gen.generate_documentation(), indent=2))
+    elif cmd == "analytics":
         hub = EnterpriseAnalyticsHub()
         print(json.dumps(hub.compute_analytics(), indent=2))
     elif cmd == "publish":
