@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sas-core-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nomaanos-core-engine
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      # Optional read-only host thermal sensor access
+      - /sys/class/thermal:/sys/class/thermal:ro
+      - ./data:/app/data
+    environment:
+      - SAS_ENV=production
