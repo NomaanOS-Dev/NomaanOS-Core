@@ -1,0 +1,26 @@
+name: NomaanOS-Core CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile Python sources
+        run: python -m compileall -q .
+      - name: Check packaging metadata
+        run: python -m pip install --upgrade build && python -m build --sdist --wheel
+      - name: Check whitespace
+        run: git diff --check
