@@ -12,9 +12,15 @@ def show_banner():
     print("\033[92m[+] Status: Enclave Hardened & Cryptographically Verified\033[0m\n")
 
 def main():
-    show_banner()
     args = sys.argv[1:]
     cmd = args[0] if args else "help"
+
+    if cmd == "tui":
+        from tui_dashboard import render_tui
+        render_tui(3)
+        return
+
+    show_banner()
 
     if cmd in ("--status", "status", "health"):
         print("[*] Performing Subsystem Health Attestation:")
@@ -45,6 +51,7 @@ def main():
         print("  nomaanos --status      Attest operational health of all stack modules")
         print("  nomaanos telemetry     Read live host sysfs hardware telemetry")
         print("  nomaanos chain-verify  Verify persistent cryptographic audit chain")
+        print("  nomaanos tui           Launch visual ANSI terminal console dashboard")
         print("  nomaanos server        Run foreground REST API service daemon")
 
 if __name__ == "__main__":
