@@ -41,6 +41,7 @@ from src.analytics_hub import EnterpriseAnalyticsHub
 from src.doc_generator import MasterDocGenerator
 from src.kernel_boot import MasterKernelBoot
 from src.ci_runner import MasterCIRunner
+from src.master_dashboard_ui import MasterEnterpriseDashboard
 
 def print_help():
     render_banner()
@@ -49,6 +50,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  dash        - Render live enterprise master health & telemetry dashboard")
     print("  ci-run      - Run automated master CI/CD regression test pipeline")
     print("  kernel-boot - Boot sovereign security kernel & attest all modules")
     print("  docs        - Generate master architecture & documentation markdown")
@@ -99,7 +101,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "ci-run":
+    if cmd == "dash":
+        dash = MasterEnterpriseDashboard()
+        dash.render_live_dashboard()
+    elif cmd == "ci-run":
         ci = MasterCIRunner()
         print(json.dumps(ci.run_pipeline(), indent=2))
     elif cmd == "kernel-boot":
