@@ -43,6 +43,7 @@ from src.kernel_boot import MasterKernelBoot
 from src.ci_runner import MasterCIRunner
 from src.master_dashboard_ui import MasterEnterpriseDashboard
 from src.release_notes import MasterReleaseNotesGenerator
+from src.sovereign_license import SovereignLicenseManager
 
 def print_help():
     render_banner()
@@ -51,6 +52,7 @@ def print_help():
     print("="*60 + "\033[0m")
     print("Usage: python nomaanos.py [command]\n")
     print("Available Commands:")
+    print("  license     - Issue master sovereign institutional license watermark")
     print("  release-notes - Generate enterprise release notes & changelog markdown")
     print("  dash        - Render live enterprise master health & telemetry dashboard")
     print("  ci-run      - Run automated master CI/CD regression test pipeline")
@@ -103,7 +105,10 @@ def main():
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "release-notes":
+    if cmd == "license":
+        lm = SovereignLicenseManager()
+        print(json.dumps(lm.issue_license(), indent=2))
+    elif cmd == "release-notes":
         rn = MasterReleaseNotesGenerator()
         print(json.dumps(rn.generate_release_notes(), indent=2))
     elif cmd == "dash":
