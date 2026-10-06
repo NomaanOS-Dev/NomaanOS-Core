@@ -1,137 +1,126 @@
-# NomaanOS-Core: Sovereign AI Stack (SAS) Kernel
-
-[![CI](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions/workflows/ci.yml/badge.svg)](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions)
-[![Release](https://img.shields.io/github/v/release/NomaanOS-Dev/NomaanOS-Core?color=blue)](https://github.com/NomaanOS-Dev/NomaanOS-Core/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Standard](https://img.shields.io/badge/OpenAPI-3.0.3-green.svg)](openapi.json)
-
-**Architect & Author:** Nomaan Khan | Scholar @ IHFC - IIT Delhi  
-**Kernel Level:** Sovereign Security Kernel v6.0  
-**Current Tag:** `v1.1.0` (Production Stable)
+# ⚡ NomaanOS Core — Sovereign AI Stack (SAS)
+> **An enterprise-hardened, zero-cloud execution kernel designed to run AI workloads completely offline with cryptographic verification and real-time host telemetry.**
 
 ---
 
-## Overview
-
-The **Sovereign AI Stack (SAS)** is an immutable, hardware-attested, zero-trust execution environment designed for sovereign edge intelligence and cryptographically verified agent autonomy.
-
-Complete architecture specifications, threat modeling, and formal mathematical proofs are detailed in [ARCHITECTURE.md](ARCHITECTURE.md).
-
----
-
-## Core Capabilities
-
-* **Unified CLI Engine:** System-wide `nomaanos` command binary providing multi-subsystem attestation, terminal TUI, and telemetry probes.
-* **Zero-Dependency REST API:** Built-in HTTP micro-daemon listening on `127.0.0.1:8080` conforming to [OpenAPI 3.0.3](openapi.json).
-* **Hardware-Grounded Telemetry:** Direct Linux `sysfs` virtual filesystem binding querying live thermal zones without simulation wrappers.
-* **Persistent Evidence Ledger:** Merkle-linked append-only JSONL event journal with automatic cold-boot chain verification.
-* **Zero-Trust Identity Enclave:** Cryptographic SHA-256 HMAC nonces for secure inter-agent challenge handshakes.
+### 💡 What is NomaanOS Core? (In 10 Seconds)
+Most AI tools send your private data and prompts to public cloud servers. **NomaanOS Core is a self-sovereign operating environment**:
+- Runs entirely on local bare-metal / edge hardware (Linux, Raspberry Pi, Android/Termux).
+- Zero external cloud dependencies or telemetry leaks.
+- Cryptographically signs and audits every operation with tamper-proof ledgers.
+- Features a built-in real-time SOC web console for hardware and security metrics.
 
 ---
 
-## Quickstart
+## 🏗️ System Architecture
 
-### 1. Global CLI Usage
+```text
+       +-------------------------------------------------------+
+       |             NomaanOS Host Telemetry & SOC             |
+       |     [CPU Temp / Memory / Process / Cryptographic ID]   |
+       +---------------------------+---------------------------+
+                                   |
+                     Raw Linux Sysfs & Kernel IPC
+                                   |
+       +---------------------------v---------------------------+
+       |               Sovereign Core Kernel                   |
+       |       - Execution Engine & Memory Enclave             |
+       |       - Keyed HMAC Node Authentication                |
+       |       - Red-Team & Fault-Tolerance Monitor            |
+       +---------------------------+---------------------------+
+                                   |
+                  Tamper-Proof Audit Pipeline
+                                   |
+       +---------------------------v---------------------------+
+       |          Immutable Evidence Hash Ledger               |
+       |   [Cryptographic Verification Chain & State Seals]    |
+       +-------------------------------------------------------+
 
-```bash
-# Health attestation across all modules
-nomaanos --status
+🚀 Quickstart & Interactive SOC Console
+​Run the full local environment and interactive web telemetry in under 30 seconds:
+​1. Run Core CLI
+# Clone the repository
+git clone [https://github.com/NomaanOS-Dev/NomaanOS-Core.git](https://github.com/NomaanOS-Dev/NomaanOS-Core.git)
+cd NomaanOS-Core
 
-# Genuine Linux thermal & hardware load probe
-nomaanos telemetry
+# Launch Core Engine CLI
+python nomaanos_cli.py
 
-# Verify persistent SHA-256 cryptographic ledger
-nomaanos chain-verify
+2. Launch Local SOC Console
+​Open web/index.html directly in your browser, or serve it locally:
+python -m http.server 8080 -d web/
 
-# Launch live visual ANSI terminal console
-nomaanos tui
-
-# Run foreground REST API daemon
-nomaanos server
-
-REST API Endpoints
-# Core attestation
-curl -s [http://127.0.0.1:8080/health](http://127.0.0.1:8080/health)
-
-# Hardware telemetry
-curl -s [http://127.0.0.1:8080/telemetry](http://127.0.0.1:8080/telemetry)
-
-# Audit chain verification
-curl -s [http://127.0.0.1:8080/audit/verify](http://127.0.0.1:8080/audit/verify)
-
-
-cat << 'EOF' > README.md
-# NomaanOS-Core: Sovereign AI Stack (SAS) Kernel
-
-[![CI](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions/workflows/ci.yml/badge.svg)](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions)
-[![Release](https://img.shields.io/github/v/release/NomaanOS-Dev/NomaanOS-Core?color=blue)](https://github.com/NomaanOS-Dev/NomaanOS-Core/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Standard](https://img.shields.io/badge/OpenAPI-3.0.3-green.svg)](openapi.json)
-
-**Architect & Author:** Nomaan Khan | Scholar @ IHFC - IIT Delhi  
-**Kernel Level:** Sovereign Security Kernel v6.0  
-**Current Tag:** `v1.1.0` (Production Stable)
-
----
-
-## Overview
-
-The **Sovereign AI Stack (SAS)** is an immutable, hardware-attested, zero-trust execution environment designed for sovereign edge intelligence and cryptographically verified agent autonomy.
-
-Complete architecture specifications, threat modeling, and formal mathematical proofs are detailed in [ARCHITECTURE.md](ARCHITECTURE.md).
-
----
-
-## Core Capabilities
-
-* **Unified CLI Engine:** System-wide `nomaanos` command binary providing multi-subsystem attestation, terminal TUI, and telemetry probes.
-* **Zero-Dependency REST API:** Built-in HTTP micro-daemon listening on `127.0.0.1:8080` conforming to [OpenAPI 3.0.3](openapi.json).
-* **Hardware-Grounded Telemetry:** Direct Linux `sysfs` virtual filesystem binding querying live thermal zones without simulation wrappers.
-* **Persistent Evidence Ledger:** Merkle-linked append-only JSONL event journal with automatic cold-boot chain verification.
-* **Zero-Trust Identity Enclave:** Cryptographic SHA-256 HMAC nonces for secure inter-agent challenge handshakes.
-
----
-
-## Quickstart
-
-### 1. Global CLI Usage
-
-```bash
-# Health attestation across all modules
-nomaanos --status
-
-# Genuine Linux thermal & hardware load probe
-nomaanos telemetry
-
-# Verify persistent SHA-256 cryptographic ledger
-nomaanos chain-verify
-
-# Launch live visual ANSI terminal console
-nomaanos tui
-
-# Run foreground REST API daemon
-nomaanos server
-
-REST API Endpoints
-# Core attestation
-curl -s [http://127.0.0.1:8080/health](http://127.0.0.1:8080/health)
-
-# Hardware telemetry
-curl -s [http://127.0.0.1:8080/telemetry](http://127.0.0.1:8080/telemetry)
-
-# Audit chain verification
-curl -s [http://127.0.0.1:8080/audit/verify](http://127.0.0.1:8080/audit/verify)
-
-Container Deployment (Docker)
-# Run via docker compose
+Visit http://localhost:8080 to interact with real-time telemetry gauges and endpoint probing.
+​3. Docker Deployment
 docker compose up -d
 
-# Check live API container logs
-docker compose logs -f
+cat << 'EOF' > README.md
+# ⚡ NomaanOS Core — Sovereign AI Stack (SAS)
+> **An enterprise-hardened, zero-cloud execution kernel designed to run AI workloads completely offline with cryptographic verification and real-time host telemetry.**
 
-Architecture Matrix
-Subsystem RepoOperational RoleRelease Target
-NomaanOS-CoreControl plane, CLI binary, REST API enginev1.1.0
-NomaanOS-ShieldSOCLinux sysfs thermal sensor & telemetry probesv1.1.0
-NomaanOS-EvidenceLedgerAppend-only JSONL persistent cryptographic ledgerv1.1.0
-NomaanOS-GhostNodeZero-trust enclave identity & keyed HMAC attestationv1.0.0
+---
+
+### 💡 What is NomaanOS Core? (In 10 Seconds)
+Most AI tools send your private data and prompts to public cloud servers. **NomaanOS Core is a self-sovereign operating environment**:
+- Runs entirely on local bare-metal / edge hardware (Linux, Raspberry Pi, Android/Termux).
+- Zero external cloud dependencies or telemetry leaks.
+- Cryptographically signs and audits every operation with tamper-proof ledgers.
+- Features a built-in real-time SOC web console for hardware and security metrics.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+       +-------------------------------------------------------+
+       |             NomaanOS Host Telemetry & SOC             |
+       |     [CPU Temp / Memory / Process / Cryptographic ID]   |
+       +---------------------------+---------------------------+
+                                   |
+                     Raw Linux Sysfs & Kernel IPC
+                                   |
+       +---------------------------v---------------------------+
+       |               Sovereign Core Kernel                   |
+       |       - Execution Engine & Memory Enclave             |
+       |       - Keyed HMAC Node Authentication                |
+       |       - Red-Team & Fault-Tolerance Monitor            |
+       +---------------------------+---------------------------+
+                                   |
+                  Tamper-Proof Audit Pipeline
+                                   |
+       +---------------------------v---------------------------+
+       |          Immutable Evidence Hash Ledger               |
+       |   [Cryptographic Verification Chain & State Seals]    |
+       +-------------------------------------------------------+
+
+🚀 Quickstart & Interactive SOC Console
+​Run the full local environment and interactive web telemetry in under 30 seconds:
+​1. Run Core CLI
+# Clone the repository
+git clone [https://github.com/NomaanOS-Dev/NomaanOS-Core.git](https://github.com/NomaanOS-Dev/NomaanOS-Core.git)
+cd NomaanOS-Core
+
+# Launch Core Engine CLI
+python nomaanos_cli.py
+
+2. Launch Local SOC Console
+​Open web/index.html directly in your browser, or serve it locally:
+python -m http.server 8080 -d web/
+
+Visit http://localhost:8080 to interact with real-time telemetry gauges and endpoint probing.
+​3. Docker Deployment
+docker compose up -d
+
+
+🛡️ Key Features & Modules
+Module / ComponentReal-World Role
+nomaanos.py / nomaanos_cli.pySovereign engine runtime, command execution, and state isolation.
+mobile_node.pyEdge node adapter for low-power and mobile edge devices.
+redteam_benchmark.jsonSynthetic security threat simulation vectors and resilience tests.
+web/index.htmlWeb-based SOC operations interface for live probe monitoring.
+Dockerfile & docker-compose.ymlOne-click containerized deployment for air-gapped infrastructure.
+
+📜 Compliance & Security Specs
+​Cryptographic Standard: Keyed HMAC SHA-256
+​Dependency Model: Python 3.8+ Standard Library Only (Zero third-party attack surface)
+​Target Platforms: Linux, Raspberry Pi, POSIX Edge Nodes
