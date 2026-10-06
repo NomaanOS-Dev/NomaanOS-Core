@@ -88,7 +88,7 @@
             const t0 = performance.now();
 
             try {
-                // Sending POST request with dummy command to probe endpoint
+                // Sending POST request with telemetry ping payload to probe endpoint
                 const res = await fetch(`${endpoint}/api/v1/exec`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
