@@ -1,10 +1,10 @@
-[![Tests](https://img.shields.io/badge/Tests-Passed-brightgreen.svg?style=for-the-badge&logo=pytest)](https://github.com/NomaanOS-Dev/NomaanOS-Core)
-[![Security Audit](https://img.shields.io/badge/Security-Verified-success.svg?style=for-the-badge&logo=openaccess)](https://github.com/NomaanOS-Dev)
+[![NomaanOS Core CI](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions/workflows/tests.yml/badge.svg)](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions/workflows/tests.yml)
+[![Release](https://img.shields.io/badge/Release-v0.1.0--alpha-blue.svg?style=for-the-badge)](https://github.com/NomaanOS-Dev/NomaanOS-Core)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 # ⚡ NomaanOS Core — Sovereign AI Stack (SAS)
-> **An enterprise-hardened, zero-cloud execution kernel designed to run AI workloads completely offline with cryptographic verification and real-time host telemetry.**
+> **An experimental, zero-cloud, zero-cloud execution kernel designed to run AI workloads completely offline with cryptographic verification and real-time host telemetry.**
 
 ---
 
