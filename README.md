@@ -1,33 +1,137 @@
-<div align="center">
-  <h1>NomaanOS-Core v6.0</h1>
-  <p><strong>Sovereign AI Stack (SAS) & Fail-Closed Execution Engine</strong></p>
-  <p><em>Architect & Founder: Nomaan Khan | Scholar @ IHFC – IIT Delhi</em></p>
-</div>
+# NomaanOS-Core: Sovereign AI Stack (SAS) Kernel
+
+[![CI](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions/workflows/ci.yml/badge.svg)](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions)
+[![Release](https://img.shields.io/github/v/release/NomaanOS-Dev/NomaanOS-Core?color=blue)](https://github.com/NomaanOS-Dev/NomaanOS-Core/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![API Standard](https://img.shields.io/badge/OpenAPI-3.0.3-green.svg)](openapi.json)
+
+**Architect & Author:** Nomaan Khan | Scholar @ IHFC - IIT Delhi  
+**Kernel Level:** Sovereign Security Kernel v6.0  
+**Current Tag:** `v1.1.0` (Production Stable)
 
 ---
 
-## 🏛️ Architecture Dataflow
-```text
-[ Natural Language Intent ] 
-          │
-          ▼
-   ( AI Agent Bridge ) ──> [ Malicious Prompt Detection / HALT ]
-          │
-          ▼ ( Approved )
-    ( Sentinel Proxy )
-          │
-          ▼
-   ( NOS Exec L2 )      ──> [ Strict Allowlist & shell=False Enforcement ]
-          │
-          ▼
-   ( Audit Logger )     ──> [ Merkle-Style SHA-256 Tamper-Evident Ledger ]
-          │
-          ▼
-   ( Phoenix Engine )   ──> [ Real-Time Self-Healing Integrity Supervisor ]
+## Overview
 
-🛡️ Core Security Modules
-src/engine.py: Fail-closed execution engine eliminating shell injection vectors.
-src/agent_bridge.py: AI intent parser intercepting prompt injections.
-src/audit_logger.py: Cryptographic append-only chain for Section 65B forensics.
-src/phoenix_engine.py: Auto-remediation and state integrity supervisor.
-src/neural_lock.py: L5 behavioral biometrics and attestation token generator.
+The **Sovereign AI Stack (SAS)** is an immutable, hardware-attested, zero-trust execution environment designed for sovereign edge intelligence and cryptographically verified agent autonomy.
+
+Complete architecture specifications, threat modeling, and formal mathematical proofs are detailed in [ARCHITECTURE.md](ARCHITECTURE.md).
+
+---
+
+## Core Capabilities
+
+* **Unified CLI Engine:** System-wide `nomaanos` command binary providing multi-subsystem attestation, terminal TUI, and telemetry probes.
+* **Zero-Dependency REST API:** Built-in HTTP micro-daemon listening on `127.0.0.1:8080` conforming to [OpenAPI 3.0.3](openapi.json).
+* **Hardware-Grounded Telemetry:** Direct Linux `sysfs` virtual filesystem binding querying live thermal zones without simulation wrappers.
+* **Persistent Evidence Ledger:** Merkle-linked append-only JSONL event journal with automatic cold-boot chain verification.
+* **Zero-Trust Identity Enclave:** Cryptographic SHA-256 HMAC nonces for secure inter-agent challenge handshakes.
+
+---
+
+## Quickstart
+
+### 1. Global CLI Usage
+
+```bash
+# Health attestation across all modules
+nomaanos --status
+
+# Genuine Linux thermal & hardware load probe
+nomaanos telemetry
+
+# Verify persistent SHA-256 cryptographic ledger
+nomaanos chain-verify
+
+# Launch live visual ANSI terminal console
+nomaanos tui
+
+# Run foreground REST API daemon
+nomaanos server
+
+REST API Endpoints
+# Core attestation
+curl -s [http://127.0.0.1:8080/health](http://127.0.0.1:8080/health)
+
+# Hardware telemetry
+curl -s [http://127.0.0.1:8080/telemetry](http://127.0.0.1:8080/telemetry)
+
+# Audit chain verification
+curl -s [http://127.0.0.1:8080/audit/verify](http://127.0.0.1:8080/audit/verify)
+
+
+cat << 'EOF' > README.md
+# NomaanOS-Core: Sovereign AI Stack (SAS) Kernel
+
+[![CI](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions/workflows/ci.yml/badge.svg)](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions)
+[![Release](https://img.shields.io/github/v/release/NomaanOS-Dev/NomaanOS-Core?color=blue)](https://github.com/NomaanOS-Dev/NomaanOS-Core/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![API Standard](https://img.shields.io/badge/OpenAPI-3.0.3-green.svg)](openapi.json)
+
+**Architect & Author:** Nomaan Khan | Scholar @ IHFC - IIT Delhi  
+**Kernel Level:** Sovereign Security Kernel v6.0  
+**Current Tag:** `v1.1.0` (Production Stable)
+
+---
+
+## Overview
+
+The **Sovereign AI Stack (SAS)** is an immutable, hardware-attested, zero-trust execution environment designed for sovereign edge intelligence and cryptographically verified agent autonomy.
+
+Complete architecture specifications, threat modeling, and formal mathematical proofs are detailed in [ARCHITECTURE.md](ARCHITECTURE.md).
+
+---
+
+## Core Capabilities
+
+* **Unified CLI Engine:** System-wide `nomaanos` command binary providing multi-subsystem attestation, terminal TUI, and telemetry probes.
+* **Zero-Dependency REST API:** Built-in HTTP micro-daemon listening on `127.0.0.1:8080` conforming to [OpenAPI 3.0.3](openapi.json).
+* **Hardware-Grounded Telemetry:** Direct Linux `sysfs` virtual filesystem binding querying live thermal zones without simulation wrappers.
+* **Persistent Evidence Ledger:** Merkle-linked append-only JSONL event journal with automatic cold-boot chain verification.
+* **Zero-Trust Identity Enclave:** Cryptographic SHA-256 HMAC nonces for secure inter-agent challenge handshakes.
+
+---
+
+## Quickstart
+
+### 1. Global CLI Usage
+
+```bash
+# Health attestation across all modules
+nomaanos --status
+
+# Genuine Linux thermal & hardware load probe
+nomaanos telemetry
+
+# Verify persistent SHA-256 cryptographic ledger
+nomaanos chain-verify
+
+# Launch live visual ANSI terminal console
+nomaanos tui
+
+# Run foreground REST API daemon
+nomaanos server
+
+REST API Endpoints
+# Core attestation
+curl -s [http://127.0.0.1:8080/health](http://127.0.0.1:8080/health)
+
+# Hardware telemetry
+curl -s [http://127.0.0.1:8080/telemetry](http://127.0.0.1:8080/telemetry)
+
+# Audit chain verification
+curl -s [http://127.0.0.1:8080/audit/verify](http://127.0.0.1:8080/audit/verify)
+
+Container Deployment (Docker)
+# Run via docker compose
+docker compose up -d
+
+# Check live API container logs
+docker compose logs -f
+
+Architecture Matrix
+Subsystem RepoOperational RoleRelease Target
+NomaanOS-CoreControl plane, CLI binary, REST API enginev1.1.0
+NomaanOS-ShieldSOCLinux sysfs thermal sensor & telemetry probesv1.1.0
+NomaanOS-EvidenceLedgerAppend-only JSONL persistent cryptographic ledgerv1.1.0
+NomaanOS-GhostNodeZero-trust enclave identity & keyed HMAC attestationv1.0.0

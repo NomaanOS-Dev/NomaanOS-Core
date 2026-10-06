@@ -19,5 +19,20 @@ classifiers = [
 ]
 requires-python = ">=3.8"
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+    "bandit",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [project.scripts]
 nomaanos = "nomaanos:main"

@@ -1,12 +1,17 @@
-# Contributing to NomaanOS-Core
+# Contributing
 
-Thank you for your interest in contributing to **NomaanOS-Core**! We welcome security researchers, systems architects, and open-source developers to help secure sovereign edge AI stacks.
+Thank you for contributing to NomaanOS-Core.
 
-## Guidelines for Contribution
-1. **Fork the Repository** and create your feature branch from `main`.
-2. **Adhere to Fail-Closed Principles:** Any new execution wrapper must implement strict allowlists and `shell=False`.
-3. **Write Unit Tests:** Ensure all modules include automated test coverage under the `tests/` directory.
-4. **Cryptographic Integrity:** Do not alter ledger hashing or audit chain mechanics without updating verification suites.
-5. **Submit a Pull Request** with a detailed description of your architectural changes.
+## Before opening a pull request
 
-*Architect: Nomaan Khan | IHFC-IITD Scholar*
+- Keep changes focused and explain security implications.
+- Add or update tests for changed behavior.
+- Run the repository validation commands from `README.md`.
+- Run `python -m compileall .` and `git diff --check`.
+- Never commit credentials, private keys, generated caches, or real forensic data.
+
+Security-sensitive changes require a clear threat model, failure behavior, and reviewer attention. Do not describe an unimplemented control as verified or compliant.
+
+## Pull requests
+
+Use a descriptive title, identify affected components, document test results, and call out backward-incompatible changes. Maintainers may request additional review for execution, cryptography, identity, or evidence-chain changes.

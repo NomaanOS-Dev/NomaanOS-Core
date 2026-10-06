@@ -1,0 +1,46 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Sovereign AI Stack (SAS) Core API",
+    "version": "1.1.0",
+    "description": "Zero-dependency HTTP attestation, genuine sysfs telemetry, and cryptographic chain validation engine."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8080",
+      "description": "Local SAS Daemon"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Attest Subsystem Operational Health",
+        "responses": {
+          "200": {
+            "description": "Core kernel healthy and verified."
+          }
+        }
+      }
+    },
+    "/telemetry": {
+      "get": {
+        "summary": "Direct sysfs Hardware Telemetry",
+        "responses": {
+          "200": {
+            "description": "Live host temperature, load average, and architecture descriptors."
+          }
+        }
+      }
+    },
+    "/audit/verify": {
+      "get": {
+        "summary": "Cryptographic Hash Chain Attestation",
+        "responses": {
+          "200": {
+            "description": "Verification status of the append-only evidence store."
+          }
+        }
+      }
+    }
+  }
+}

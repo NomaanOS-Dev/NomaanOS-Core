@@ -1,22 +1,17 @@
 version: '3.8'
 
 services:
-  nomaanos-core:
-    build: .
-    container_name: nomaanos-core
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - .:/app
-    command: python3 stress_test.py
-
-  vaultwarden:
-    image: vaultwarden/server:latest
-    container_name: nomaanos-vault
-    restart: always
-    environment:
-      - WEBSOCKET_ENABLED=true
+  sas-core-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nomaanos-core-engine
+    restart: unless-stopped
     ports:
-      - "8080:80"
+      - "8080:8080"
     volumes:
-      - ./data/vault:/data
+      # Optional read-only host thermal sensor access
+      - /sys/class/thermal:/sys/class/thermal:ro
+      - ./data:/app/data
+    environment:
+      - SAS_ENV=production

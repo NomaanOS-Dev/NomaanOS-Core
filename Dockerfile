@@ -1,11 +1,16 @@
-FROM python:3.10-slim
+FROM python:3.11-alpine
+
+LABEL maintainer="Nomaan Khan <scholar@ihfc-iitd>"
+LABEL description="Sovereign AI Stack (SAS) - Core REST Engine & Security Kernel"
 
 WORKDIR /app
 
-# Copy repository contents
-COPY . /app
+# Copy Core codebase
+COPY . /app/NomaanOS-Core/
 
-ENV PYTHONUNBUFFERED=1
+# Set Python search path across unified modules
+ENV PYTHONPATH="/app/NomaanOS-Core:/app/NomaanOS-ShieldSOC:/app/NomaanOS-EvidenceLedger:/app/NomaanOS-GhostNode"
 
-# Default command: Run Aegis Red-Team Stress Test
-CMD ["python3", "stress_test.py"]
+EXPOSE 8080
+
+CMD ["python", "/app/NomaanOS-Core/api_server.py"]
