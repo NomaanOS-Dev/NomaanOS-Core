@@ -1,9 +1,8 @@
 <div align="center">
 
 # NomaanOS-Core
-### Local-First Edge AI Security Kernel
+### Local-first edge AI security research kernel
 
-[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg?style=flat-square)](https://github.com/NomaanOS-Dev/NomaanOS-Core/actions)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?style=flat-square)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange.svg?style=flat-square)](#status)
@@ -12,131 +11,108 @@
 
 ## Status
 
-**This is a research-stage experimental prototype.** It is not a certified production security platform. Use for local experimentation, research, and learning only. Independent validation required before any high-assurance deployment.
+This project is an experimental research prototype. It is not a certified production security platform and should not be deployed as one without independent validation, threat modeling, and environment-specific testing.
 
-## What is NomaanOS-Core?
+## What this project is
 
-NomaanOS-Core is an experimental local orchestration and execution kernel designed for:
+NomaanOS-Core provides a local-first execution and orchestration layer for research experiments focused on:
 
-- **Offline AI execution** — run workloads completely locally without cloud dependencies
-- **Cryptographic audit logging** — append-only tamper-evident records of all operations
-- **Host telemetry** — real-time system health and anomaly monitoring
-- **Air-gapped coordination** — peer-to-peer sync in disconnected environments
+- offline AI execution
+- host telemetry and anomaly observation
+- cryptographic audit trails
+- disconnected or low-trust coordination patterns
 
-## Quick Start
+## Quick start
 
 ### Prerequisites
 
 - Python 3.8+
-- Linux, macOS, or Android (Termux)
+- Linux, macOS, or Android/Termux
 - Git
 
-### Installation
+### Setup
 
 ```bash
 git clone https://github.com/NomaanOS-Dev/NomaanOS-Core.git
 cd NomaanOS-Core
 python3 -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install --upgrade pip
+source .venv/bin/activate
+python -m pip install --upgrade pip
 pip install -r requirements-dev.txt
 ```
 
-### Validation
+### Validate the stack
 
 ```bash
-# Run system status check
 python nomaanos.py --status
-
-# Check cryptographic audit chain
-python nomaanos.py chain-verify
-
-# View live telemetry
 python nomaanos.py telemetry
-
-# Run test suite
-pytest -v
+python nomaanos.py chain-verify
+pytest -q
 ```
 
 ## Architecture
 
+```text
+Linux / POSIX host
+    ↓
+ShieldSOC telemetry layer
+    ↓
+NomaanOS-Core orchestration/runtime
+    ↓
+EvidenceLedger audit chain
+    ↓
+GhostNode / disconnected coordination layer
 ```
-Host Kernel (Linux/POSIX)
-    ↓
-ShieldSOC (Telemetry & Monitoring)
-    ↓
-NomaanOS-Core (Orchestration & Execution)
-    ↓
-EvidenceLedger (Cryptographic Audit)
-    ↓
-GhostNode (P2P Coordination)
-```
 
-## Key Components
+## Key components
 
-| Component | Purpose | Status |
-|-----------|---------|--------|
-| `nomaanos.py` | CLI dispatcher and main entry point | Working |
-| `api_server.py` | REST API for status and telemetry | Experimental |
-| `tui_dashboard.py` | Terminal UI for monitoring | Experimental |
-| `src/engine.py` | Execution engine with allowlist control | Working |
-| `src/orchestrator.py` | Workload orchestration | Experimental |
-| `tests/` | Unit test suite | Partial coverage |
+- `nomaanos.py` — CLI and operational entry point
+- `api_server.py` — local HTTP service for status and telemetry endpoints
+- `tui_dashboard.py` — terminal dashboard for interactive viewing
+- `src/engine.py` — fail-closed execution layer
+- `src/orchestrator.py` — orchestration logic for request processing
+- `tests/` — validation and behavior checks
 
-## Known Limitations
+## Known limitations
 
-- ❌ No external security audit
-- ❌ Not tested in production environments
-- ❌ Limited error recovery mechanisms
-- ❌ Local-only operation (no cloud integration planned)
-- ⚠️ Cryptographic assumptions based on SHA-256 (not post-quantum)
-- ⚠️ Single-node operation (multi-node coordination is experimental)
+- no external security audit or formal compliance review
+- not a validated enterprise deployment platform
+- cryptographic assumptions are local and experimental
+- multi-node role testing is still limited
+- some modules are research scaffolding rather than hardened production services
 
 ## Development
 
-### Running Tests
+### Run tests
 
 ```bash
 pytest -q
 ```
 
-### Code Quality
+### Compile and lint checks
 
 ```bash
-# Lint with ruff
+python -m py_compile nomaanos.py api_server.py tui_dashboard.py
 ruff check .
-
-# Type check
-mypy src/
-
-# Security scan
-bandit -r src/
-
-# Compile check
-python -m py_compile nomaanos.py api_server.py
 ```
-
-### Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## Security
 
-See [SECURITY.md](SECURITY.md) for vulnerability reporting and threat model details.
+See [SECURITY.md](SECURITY.md) for responsible disclosure expectations and threat-model notes.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development expectations and review workflow.
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](LICENSE).
 
-## Authors
+## Maintainer
 
-- **Nomaan Khan** — Architect, IHFC IIT Delhi
-
-## Contact
-
-- GitHub: [@NomaanOS-Dev](https://github.com/NomaanOS-Dev)
-- Email: nomaanos@duck.com (for general inquiries)
+- Nomaan Khan
+- GitHub: https://github.com/NomaanOS-Dev
 
 ## Disclaimer
 
-This project is provided as-is for research and educational purposes. Security controls are intentionally designed as defense-in-depth examples, not production-grade security guarantees. Do not rely on this software for protecting sensitive data without independent security review and validation for your specific threat model.
+This repository is distributed as an experimental research project. It is provided as-is for local experimentation and engineering exploration. It should not be treated as a deployable production security platform without independent validation.

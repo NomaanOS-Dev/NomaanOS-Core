@@ -1,15 +1,24 @@
 # Security Policy
 
 ## Scope
-This repository contains security-focused NomaanOS components. Treat all security controls as defense-in-depth until independently validated.
+
+This repository contains experimental and research-oriented security tooling. Treat all security claims as defense-in-depth ideas unless independently validated in the target environment.
 
 ## Reporting a vulnerability
-Please do not open a public issue for an undisclosed vulnerability. Contact the maintainers privately through the repository owner or the security contact documented by the NomaanOS project.
 
-Include affected version/commit, reproduction steps, impact, and a suggested mitigation when available. Do not include secrets or personal data in reports.
+Please do not disclose sensitive findings publicly. Open a private discussion or contact the maintainer through the repository owner and provide:
 
-## Disclosure
-We will acknowledge reports as soon as practical, investigate privately, and coordinate disclosure after a fix or mitigation is available.
+- affected version or commit
+- reproduction steps
+- impact assessment
+- suggested mitigation if known
 
-## Security claims
-Cryptographic hashing, allowlists, or test results do not by themselves establish legal compliance, forensic admissibility, or complete security. Deployments must be threat-modeled and independently reviewed.
+Do not include secrets, credentials, or personal/sensitive data in reports.
+
+## Disclosure expectations
+
+Reports will be reviewed and addressed as soon as practical. Security issues should be handled with reasonable caution and confidentiality while a fix is prepared.
+
+## Important note
+
+Hashing, allowlists, telemetry checks, and local validation do not by themselves guarantee production security, compliance, or forensic admissibility. Independent review remains necessary for high-assurance environments.

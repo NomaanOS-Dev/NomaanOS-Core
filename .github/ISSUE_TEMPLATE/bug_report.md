@@ -1,45 +1,26 @@
 name: Bug report
-about: Report a reproducible bug in NomaanOS-Core
-title: ""
+about: Report a reproducible issue in NomaanOS-Core
 labels: bug
-assignees: ""
-
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug. Please provide the details below.
-
+        Thanks for reporting a bug.
   - type: textarea
     id: description
     attributes:
       label: Bug description
-      description: What happened, and what did you expect?
-      placeholder: Describe the bug
-    validations:
+      description: What happened and what did you expect?
       required: true
-
   - type: textarea
     id: steps
     attributes:
       label: Reproduction steps
-      description: Tell us how to reproduce the issue.
-      placeholder: 1. Run ...\n2. See error ...
-    validations:
+      description: Provide the steps to reproduce the issue.
       required: true
-
   - type: textarea
     id: environment
     attributes:
       label: Environment
-      description: OS, Python version, commit/hash, and relevant configuration.
-      placeholder: Ubuntu 22.04, Python 3.11, commit abc123
-    validations:
+      description: OS, Python version, and relevant setup information.
       required: true
-
-  - type: textarea
-    id: logs
-    attributes:
-      label: Logs / console output
-      description: Paste logs or errors if available.
-      render: shell

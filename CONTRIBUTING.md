@@ -1,17 +1,42 @@
-# Contributing
+# Contributing to NomaanOS-Core
 
-Thank you for contributing to NomaanOS-Core.
+Thanks for contributing.
+
+## Scope
+
+This repository is an experimental research project. Contributions should be clear, focused, and easy to review.
 
 ## Before opening a pull request
 
-- Keep changes focused and explain security implications.
-- Add or update tests for changed behavior.
-- Run the repository validation commands from `README.md`.
-- Run `python -m compileall .` and `git diff --check`.
-- Never commit credentials, private keys, generated caches, or real forensic data.
+- keep the change narrow and easy to reason about
+- update docs when behavior or setup changes
+- run relevant validation commands locally
+- avoid committing secrets, private keys, or captured forensic data
 
-Security-sensitive changes require a clear threat model, failure behavior, and reviewer attention. Do not describe an unimplemented control as verified or compliant.
+## Minimum validation
 
-## Pull requests
+Run the most relevant checks before opening a PR:
 
-Use a descriptive title, identify affected components, document test results, and call out backward-incompatible changes. Maintainers may request additional review for execution, cryptography, identity, or evidence-chain changes.
+```bash
+python -m py_compile nomaanos.py api_server.py tui_dashboard.py
+pytest -q
+```
+
+## Pull request expectations
+
+- include a short summary of what changed and why
+- explain the security or operational impact
+- call out any limitations or caveats
+- note if the change is experimental or partial
+
+## Security-sensitive changes
+
+Any change affecting runtime execution, telemetry, or audit integrity should include a brief note on:
+
+- threat model assumptions
+- expected failure behavior
+- risk surface or constraints
+
+## Review standard
+
+Contributions should be reviewed with the same caution expected for any security-adjacent or local execution code.

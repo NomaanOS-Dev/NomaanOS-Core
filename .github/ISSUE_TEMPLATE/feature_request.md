@@ -1,36 +1,16 @@
 name: Feature request
-about: Suggest a capability or enhancement for NomaanOS-Core
-title: ""
+about: Suggest an enhancement or capability
 labels: enhancement
-assignees: ""
-
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Suggest a useful enhancement for the project.
-
-  - type: textarea
-    id: problem
-    attributes:
-      label: Problem or use case
-      description: What need are you trying to satisfy?
-      placeholder: Example: better offline telemetry for mobile devices
-    validations:
-      required: true
-
   - type: textarea
     id: proposal
     attributes:
       label: Proposal
-      description: Describe the proposed design or behavior.
-      placeholder: Describe the idea
-    validations:
+      description: Describe the feature or enhancement.
       required: true
-
   - type: textarea
-    id: alternatives
+    id: rationale
     attributes:
-      label: Alternatives considered
-      description: List other approaches you examined.
-      placeholder: None
+      label: Rationale
+      description: Why is this needed and what problem does it address?
+      required: true

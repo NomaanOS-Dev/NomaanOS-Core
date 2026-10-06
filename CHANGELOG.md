@@ -1,34 +1,28 @@
 # NomaanOS-Core Changelog
 
-All notable changes to NomaanOS-Core will be documented in this file.
-
-The format is based on Keep a Changelog and this project is currently in active research/prototype stage.
+All notable changes to NomaanOS-Core are documented here.
 
 ## [Unreleased]
 
 ### Added
 - clearer project positioning and honest maturity messaging
-- project-level documentation for security, contribution, and release flow
-- CI workflow and Python test scaffolding
-- development tooling for local validation
+- better local setup instructions
+- contributor and security workflow guidance
+- standardized issue and PR templates
 
 ### Changed
-- README rewritten to emphasize research prototype status instead of unsupported production claims
-- security posture wording refined to avoid overstating guarantees
-- architecture docs focused on documented capabilities and known limitations
-
-### Fixed
-- inconsistent branding and overclaim language
-- lack of basic contributor and issue intake workflows
-- limited local validation guidance for contributors
+- README rewritten to emphasize research/prototype status
+- wording made more precise to avoid unsupported production claims
+- architecture messaging aligned with actual implementation maturity
 
 ## [0.1.0-alpha]
 
 ### Added
-- sovereign kernel CLI
-- cryptographic verification logic
-- telemetry and health monitoring scaffolding
-- local API server and docs
+- initial CLI and orchestration scaffolding
+- hash-chain verification logic
+- telemetry and health checking pathways
+- local API server and terminal dashboard layout
 
 ### Notes
-- This is an alpha-stage research prototype. It is not a certified production security platform.
+- This is an alpha-stage research prototype.
+- It is not a certified production platform.
