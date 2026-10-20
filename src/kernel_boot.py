@@ -1,6 +1,7 @@
-import json
 import time
+
 from src.banner import render_banner
+
 
 class MasterKernelBoot:
     """

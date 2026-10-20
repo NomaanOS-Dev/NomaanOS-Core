@@ -3,6 +3,7 @@ import json
 import time
 from pathlib import Path
 
+
 class AuditLogger:
     """
     Cryptographic Audit Logger for NomaanOS Operations.

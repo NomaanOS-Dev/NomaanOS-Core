@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from src.telemetry_dashboard import render_dashboard
-from src.phoenix_engine import PhoenixEngine
-from src.neural_lock import NeuralLock
+
 from src.compliance_auditor import ComplianceAuditor
+from src.neural_lock import NeuralLock
 from src.orchestrator import NomaanOSOrchestrator
+from src.phoenix_engine import PhoenixEngine
 
 app = FastAPI(
     title="NomaanOS Sovereign AI Stack (SAS)",

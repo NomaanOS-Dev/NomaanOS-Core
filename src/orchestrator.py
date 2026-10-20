@@ -1,7 +1,9 @@
 import json
-from src.engine import NoseExec
+
 from src.agent_bridge import AIAgentBridge
 from src.audit_logger import AuditLogger
+from src.engine import NoseExec
+
 
 class NomaanOSOrchestrator:
     """

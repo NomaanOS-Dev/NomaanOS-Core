@@ -1,6 +1,6 @@
-import json
 import zipfile
 from pathlib import Path
+
 
 class ReleasePackager:
     """
@@ -25,7 +25,7 @@ class ReleasePackager:
                 zipf.write("nomaanos.py")
                 
         print(f"    --> Created Release Archive: {archive_name}")
-        print(f"    --> Archive Status: 100% SECURE & PACKAGED")
+        print("    --> Archive Status: 100% SECURE & PACKAGED")
         print("-" * 60)
         print("[+] Release Packaging Completed Successfully.\n")
         

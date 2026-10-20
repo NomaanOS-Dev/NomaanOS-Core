@@ -1,6 +1,7 @@
-import unittest
 import hashlib
 import hmac
+import unittest
+
 
 class TestSecurityPrimitives(unittest.TestCase):
     def setUp(self):

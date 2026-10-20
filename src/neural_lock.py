@@ -1,6 +1,9 @@
-import time
+from __future__ import annotations
+
 import hashlib
-from typing import Dict, Any
+import time
+from typing import Any
+
 
 class NeuralLock:
     """
@@ -11,7 +14,7 @@ class NeuralLock:
         self.fingerprint = node_fingerprint
         self.session_start = time.time()
 
-    def generate_attestation_token(self, operation: str) -> Dict[str, Any]:
+    def generate_attestation_token(self, operation: str) -> dict[str, Any]:
         current_time = time.time()
         cadence_delta = round(current_time - self.session_start, 4)
         

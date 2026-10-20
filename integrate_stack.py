@@ -1,6 +1,6 @@
-import sys
 import os
 import secrets
+import sys
 
 # Workspace relative paths
 sys.path.append(os.path.expanduser("~/NomaanOS-Work/NomaanOS-ShieldSOC"))
@@ -8,9 +8,9 @@ sys.path.append(os.path.expanduser("~/NomaanOS-Work/NomaanOS-GhostNode"))
 sys.path.append(os.path.expanduser("~/NomaanOS-Work/NomaanOS-EvidenceLedger"))
 
 try:
-    from shield_monitor import ShieldSOCMonitor
     from ghost_node import GhostNodeEngine
     from ledger import EvidenceLedger
+    from shield_monitor import ShieldSOCMonitor
 except ImportError as e:
     print(f"[-] Dependency Import Failed: {e}")
     sys.exit(1)

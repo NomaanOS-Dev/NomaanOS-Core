@@ -1,7 +1,6 @@
-import json
 import time
-import subprocess
 from pathlib import Path
+
 
 class MasterCIRunner:
     """
@@ -12,7 +11,7 @@ class MasterCIRunner:
         self.src_path = Path("src")
 
     def run_pipeline(self) -> dict:
-        print(f"\n[!] INITIATING MASTER CI/CD AUTOMATED PIPELINE...")
+        print("\n[!] INITIATING MASTER CI/CD AUTOMATED PIPELINE...")
         print("-" * 60)
         
         stages = [

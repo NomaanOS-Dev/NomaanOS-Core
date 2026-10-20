@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+
 def render_dashboard():
     log_path = Path("config/audit_trail.json")
     if not log_path.exists():
@@ -13,7 +14,7 @@ def render_dashboard():
     print("      NOMAANOS - REAL-TIME SECURITY TELEMETRY & SOC DASHBOARD")
     print("="*60 + "\033[0m")
     print(f"[*] Total Recorded Events in Ledger : {len(logs) - 1}")
-    print(f"[*] Ledger Integrity Status        : \033[1;32mMERKLE_CHAIN_VERIFIED\033[0m")
+    print("[*] Ledger Integrity Status        : \033[1;32mMERKLE_CHAIN_VERIFIED\033[0m")
     print("-" * 60)
     print(f"{'INDEX':<6} | {'ACTION TYPE':<22} | {'BLOCK HASH (SHORT)':<25}")
     print("-" * 60)

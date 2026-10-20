@@ -1,5 +1,7 @@
 import unittest
+
 from src.engine import NoseExec
+
 
 class TestNoseExec(unittest.TestCase):
     def test_allowed_command(self):

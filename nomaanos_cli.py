@@ -1,6 +1,7 @@
-import sys
 import time
+
 from src.engine import NoseExec
+
 
 def print_banner():
     print("\033[1;36m")

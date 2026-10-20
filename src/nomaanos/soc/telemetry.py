@@ -1,6 +1,6 @@
-import os
 import platform
 import time
+
 
 class HostTelemetryProbe:
     def __init__(self):

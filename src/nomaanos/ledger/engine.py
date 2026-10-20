@@ -2,6 +2,7 @@ import hashlib
 import json
 import time
 
+
 class EvidenceLedger:
     def __init__(self, storage_path="ledger.jsonl"):
         self.storage_path = storage_path

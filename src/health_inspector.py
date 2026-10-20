@@ -1,5 +1,5 @@
-import json
 import time
+
 
 class MasterHealthInspector:
     """
@@ -10,7 +10,7 @@ class MasterHealthInspector:
         self.version = "v6.0.0-STABLE"
 
     def inspect_health(self) -> dict:
-        print(f"\n[!] INITIATING MASTER HEALTH & ENCLAVE INSPECTION...")
+        print("\n[!] INITIATING MASTER HEALTH & ENCLAVE INSPECTION...")
         print("-" * 60)
         
         checks = {

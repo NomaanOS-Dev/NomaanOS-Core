@@ -2,6 +2,7 @@ import json
 import time
 from pathlib import Path
 
+
 class GlobalPublisher:
     """
     NomaanOS Automated Global Release & Public Showcase Generator.
@@ -12,7 +13,7 @@ class GlobalPublisher:
         self.author = "Nomaan Khan (IHFC-IITD Scholar)"
 
     def generate_showcase(self) -> dict:
-        print(f"\n[!] GENERATING GLOBAL OPEN-SOURCE SHOWCASE MANIFEST...")
+        print("\n[!] GENERATING GLOBAL OPEN-SOURCE SHOWCASE MANIFEST...")
         print("-" * 60)
         
         manifest = {

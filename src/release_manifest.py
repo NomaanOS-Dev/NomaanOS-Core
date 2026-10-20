@@ -2,6 +2,7 @@ import json
 import time
 from pathlib import Path
 
+
 class ReleaseManifest:
     """
     NomaanOS Secure Release Manifest Generator.

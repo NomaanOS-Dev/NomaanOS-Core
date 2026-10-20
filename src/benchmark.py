@@ -1,9 +1,10 @@
-import json
 import time
+
+from src.chain_verifier import CryptographicChainVerifier
+from src.neural_lock import NeuralLock
 from src.orchestrator import NomaanOSOrchestrator
 from src.phoenix_engine import PhoenixEngine
-from src.neural_lock import NeuralLock
-from src.chain_verifier import CryptographicChainVerifier
+
 
 class MasterBenchmark:
     """
@@ -23,17 +24,17 @@ class MasterBenchmark:
         start_time = time.time()
         
         # 1. Pipeline Test
-        res_safe = self.orchestrator.process_request("Benchmark safe ls", ["ls"])
-        res_unsafe = self.orchestrator.process_request("Benchmark unsafe rm", ["rm", "-rf", "/"])
+        self.orchestrator.process_request("Benchmark safe ls", ["ls"])
+        self.orchestrator.process_request("Benchmark unsafe rm", ["rm", "-rf", "/"])
         
         # 2. Phoenix Self-Healing
-        heal_res = self.phoenix.verify_and_heal()
+        self.phoenix.verify_and_heal()
         
         # 3. Neural Lock
-        token_res = self.lock.generate_attestation_token("BENCHMARK_EXEC")
+        self.lock.generate_attestation_token("BENCHMARK_EXEC")
         
         # 4. Chain Verification
-        chain_res = self.chain_verifier.verify_full_chain()
+        self.chain_verifier.verify_full_chain()
         
         duration = time.time() - start_time
         

@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+
 class PhoenixEngine:
     """
     NomaanOS Phoenix Auto-Remediation & Integrity Supervisor.
@@ -32,7 +33,7 @@ class PhoenixEngine:
                 "total_blocks_verified": len(logs) - 1,
                 "action": "NO_REMEDIATION_NEEDED"
             }
-        except Exception as e:
+        except (json.JSONDecodeError, OSError) as e:
             return {"status": "CRITICAL_ERROR", "reason": str(e)}
 
 if __name__ == "__main__":

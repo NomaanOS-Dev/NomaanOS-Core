@@ -1,6 +1,5 @@
-import json
-import os
 import platform
+
 
 class HardwareEnclaveBridge:
     """
@@ -12,7 +11,7 @@ class HardwareEnclaveBridge:
         self.os_platform = platform.system()
 
     def attest_hardware(self) -> dict:
-        print(f"\n[!] INITIATING HARDWARE ENCLAVE ATTESTATION...")
+        print("\n[!] INITIATING HARDWARE ENCLAVE ATTESTATION...")
         print("-" * 60)
         
         attestation = {

@@ -1,5 +1,5 @@
-import json
 import time
+
 
 class MasterProductionSeal:
     """
@@ -10,7 +10,7 @@ class MasterProductionSeal:
         self.version = "v6.0.0-STABLE"
 
     def apply_seal(self) -> dict:
-        print(f"\n[!] APPLYING NOMAANOS MASTER PRODUCTION CRYPTOGRAPHIC SEAL...")
+        print("\n[!] APPLYING NOMAANOS MASTER PRODUCTION CRYPTOGRAPHIC SEAL...")
         print("-" * 60)
         
         seal_info = {

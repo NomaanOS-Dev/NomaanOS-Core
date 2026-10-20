@@ -2,6 +2,7 @@ import json
 import time
 from pathlib import Path
 
+
 class MasterSummaryExporter:
     """
     NomaanOS Automated Master Enterprise Summary & Telemetry Exporter.

@@ -2,6 +2,7 @@ import json
 import time
 from pathlib import Path
 
+
 class SBOMGenerator:
     """
     NomaanOS Software Bill of Materials (SBOM) & Artifact Generator.

@@ -1,7 +1,9 @@
-import unittest
 import time
+import unittest
+
 from src.orchestrator import NomaanOSOrchestrator
 from src.phoenix_engine import PhoenixEngine
+
 
 class TestNomaanOSBenchmark(unittest.TestCase):
     def setUp(self):

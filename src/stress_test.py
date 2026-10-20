@@ -1,5 +1,7 @@
 import time
+
 from src.orchestrator import NomaanOSOrchestrator
+
 
 class MasterStressTest:
     """

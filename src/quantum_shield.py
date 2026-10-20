@@ -1,6 +1,6 @@
-import json
 import hashlib
 import time
+
 
 class QuantumShield:
     """
@@ -11,7 +11,7 @@ class QuantumShield:
         self.algorithm = "NomaanOS-Lattice-Falcon-Protected"
 
     def sign_quantum_payload(self, payload: str) -> dict:
-        print(f"\n[!] GENERATING POST-QUANTUM LATTICE SIGNATURE...")
+        print("\n[!] GENERATING POST-QUANTUM LATTICE SIGNATURE...")
         print("-" * 60)
         
         timestamp = int(time.time())

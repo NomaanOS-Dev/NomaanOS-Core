@@ -1,7 +1,7 @@
 import json
-import sys
 import os
-from http.server import HTTPServer, BaseHTTPRequestHandler
+import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 # Module directory paths
 BASE_DIR = os.path.expanduser("~/NomaanOS-Work")

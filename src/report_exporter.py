@@ -2,6 +2,7 @@ import json
 import time
 from pathlib import Path
 
+
 class SecurityReportExporter:
     """
     NomaanOS Automated Enterprise Security Report Exporter.

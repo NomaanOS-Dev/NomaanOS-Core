@@ -1,6 +1,6 @@
-import json
 import time
 from pathlib import Path
+
 
 class MasterReleaseNotesGenerator:
     """
@@ -11,7 +11,7 @@ class MasterReleaseNotesGenerator:
         self.output_path = Path("RELEASE_NOTES.md")
 
     def generate_release_notes(self) -> dict:
-        print(f"\n[!] GENERATING MASTER ENTERPRISE RELEASE NOTES...")
+        print("\n[!] GENERATING MASTER ENTERPRISE RELEASE NOTES...")
         print("-" * 60)
         
         notes_content = f"""# NomaanOS-Core v6.0.0-PRIME: Release Notes & Changelog
@@ -40,7 +40,7 @@ NomaanOS-Core represents a paradigm shift in decentralized, localized sovereign 
         self.output_path.write_text(notes_content)
         
         print(f"    --> Release Notes File : {self.output_path}")
-        print(f"    --> Status             : PUBLISHED_AND_SEALED")
+        print("    --> Status             : PUBLISHED_AND_SEALED")
         print("-" * 60)
         print("[+] Master Release Notes Generated Successfully.\n")
         

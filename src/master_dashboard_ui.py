@@ -1,5 +1,7 @@
 import time
+
 from src.banner import render_banner
+
 
 class MasterEnterpriseDashboard:
     """
@@ -14,10 +16,10 @@ class MasterEnterpriseDashboard:
         print("\033[1;36m" + "="*60)
         print("          NOMAANOS ENTERPRISE MASTER HEALTH DASHBOARD")
         print("="*60 + "\033[0m")
-        print(f" Architect     : Nomaan Khan (IHFC-IITD Scholar)")
+        print(" Architect     : Nomaan Khan (IHFC-IITD Scholar)")
         print(f" Core Version  : {self.version}")
-        print(f" Security Tier : Military-Grade Post-Quantum Hardened")
-        print(f" Active Nodes  : 53 Sovereign Subsystems")
+        print(" Security Tier : Military-Grade Post-Quantum Hardened")
+        print(" Active Nodes  : 53 Sovereign Subsystems")
         print("-" * 60)
         
         metrics = [

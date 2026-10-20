@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, "NomaanOS-EvidenceLedger"))
 from host_telemetry import get_genuine_telemetry
 from ledger_persistent import PersistentEvidenceLedger
 
+
 def render_tui(iterations=3):
     ledger = PersistentEvidenceLedger(os.path.join(BASE_DIR, "NomaanOS-EvidenceLedger", "audit_store.jsonl"))
     

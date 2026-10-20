@@ -1,6 +1,7 @@
-import json
 import hashlib
+import json
 from pathlib import Path
+
 
 class CryptographicChainVerifier:
     """
@@ -44,7 +45,7 @@ class CryptographicChainVerifier:
             valid_blocks += 1
 
         print(f"    --> Verified {valid_blocks} cryptographic blocks in append-only chain.")
-        print(f"    --> Chain Verdict: LEDGER_CRYPTOGRAPHIC_CHAIN_100_PERCENT_VALID")
+        print("    --> Chain Verdict: LEDGER_CRYPTOGRAPHIC_CHAIN_100_PERCENT_VALID")
         print("-" * 60)
         print("[+] Chain Verification Completed Successfully.\n")
         

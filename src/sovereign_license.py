@@ -1,7 +1,8 @@
+import hashlib
 import json
 import time
-import hashlib
 from pathlib import Path
+
 
 class SovereignLicenseManager:
     """
@@ -13,7 +14,7 @@ class SovereignLicenseManager:
         self.license_type = "SOVEREIGN-ENTERPRISE-AIR-GAPPED-LICENSE"
 
     def issue_license(self) -> dict:
-        print(f"\n[!] ISSUING MASTER SOVEREIGN INSTITUTIONAL LICENSE...")
+        print("\n[!] ISSUING MASTER SOVEREIGN INSTITUTIONAL LICENSE...")
         print("-" * 60)
         
         timestamp = int(time.time())

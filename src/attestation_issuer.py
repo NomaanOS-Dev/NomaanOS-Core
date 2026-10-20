@@ -1,7 +1,8 @@
+import hashlib
 import json
 import time
-import hashlib
 from pathlib import Path
+
 
 class AttestationIssuer:
     """

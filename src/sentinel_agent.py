@@ -1,5 +1,5 @@
 import time
-import json
+
 
 class SentinelAgent:
     """
@@ -10,7 +10,7 @@ class SentinelAgent:
         self.agent_id = "SENTINEL-AI-WATCHDOG-01"
 
     def patrol_enclave(self) -> dict:
-        print(f"\n[!] INITIATING AUTONOMOUS AI SENTINEL PATROL...")
+        print("\n[!] INITIATING AUTONOMOUS AI SENTINEL PATROL...")
         print("-" * 60)
         
         checks = [

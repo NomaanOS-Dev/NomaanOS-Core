@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+
 class ComplianceAuditor:
     """
     NomaanOS Automated Compliance & Security Auditor.
@@ -17,7 +18,7 @@ class ComplianceAuditor:
             try:
                 logs = json.loads(self.audit_path.read_text())
                 total_events = len(logs) - 1
-            except Exception:
+            except (json.JSONDecodeError, OSError):
                 total_events = 0
 
         report = {

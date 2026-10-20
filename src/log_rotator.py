@@ -1,6 +1,7 @@
 import time
 from pathlib import Path
 
+
 class MasterLogRotator:
     """
     NomaanOS Automated Master Log & Audit Trail Rotator.
@@ -18,7 +19,7 @@ class MasterLogRotator:
         
         # Simulate log rotation
         print(f"    --> Rotated active audit trail to: {archive_name.name}")
-        print(f"    --> Storage Status: OPTIMIZED_AND_COMPRESSED")
+        print("    --> Storage Status: OPTIMIZED_AND_COMPRESSED")
         print("-" * 60)
         print("[+] Log Rotation Completed Successfully.\n")
         

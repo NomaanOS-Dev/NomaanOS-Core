@@ -1,5 +1,8 @@
+from __future__ import annotations
+
 import json
-from typing import Dict, Any
+from typing import Any
+
 
 class AIAgentBridge:
     """
@@ -9,7 +12,7 @@ class AIAgentBridge:
     def __init__(self):
         self.risk_patterns = ["rm -rf", "mkfs", "dd if=", "> /dev/", "chmod 777"]
 
-    def parse_llm_intent(self, natural_language_intent: str) -> Dict[str, Any]:
+    def parse_llm_intent(self, natural_language_intent: str) -> dict[str, Any]:
         intent_lower = natural_language_intent.lower()
         
         # Check for dangerous injection signatures

@@ -1,6 +1,6 @@
 import time
-import json
 from pathlib import Path
+
 
 class TelemetryStreamer:
     """

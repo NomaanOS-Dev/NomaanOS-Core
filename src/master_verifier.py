@@ -1,5 +1,5 @@
-import json
 from pathlib import Path
+
 
 class MasterCodeVerifier:
     """
@@ -17,7 +17,7 @@ class MasterCodeVerifier:
         module_count = len(py_files)
         
         print(f"    --> Discovered and verified {module_count} core source modules.")
-        print(f"    --> Repository Syntax Status: 100% CLEAN & ERROR-FREE")
+        print("    --> Repository Syntax Status: 100% CLEAN & ERROR-FREE")
         print("-" * 60)
         print("[+] Repository Master Verification Completed Successfully.\n")
         

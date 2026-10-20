@@ -1,6 +1,6 @@
-import sys
-import os
 import json
+import os
+import sys
 
 BASE_DIR = os.path.expanduser("~/NomaanOS-Work")
 sys.path.insert(0, os.path.join(BASE_DIR, "NomaanOS-ShieldSOC"))
@@ -19,7 +19,7 @@ def main():
         try:
             from tui_dashboard import render_tui
             render_tui(3)
-        except Exception as e:
+        except (RuntimeError, OSError) as e:
             print(f"[-] TUI console initialization error: {e}")
         return
 
@@ -54,7 +54,7 @@ def main():
     elif cmd == "server":
         import subprocess
         print("[*] Launching Unified Sovereign AI REST API Server...")
-        subprocess.run([sys.executable, os.path.join(os.path.dirname(__file__), "api_server.py")])
+        subprocess.run([sys.executable, os.path.join(os.path.dirname(__file__), "api_server.py")], check=False)
 
     else:
         print("Available Production SAS Commands:")
