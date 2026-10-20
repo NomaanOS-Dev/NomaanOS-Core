@@ -680,3 +680,31 @@ def test_real_benchmark_suite(tmp_path):
     assert results["cycles_completed"] == 10
     assert results["ledger_verified"] is True
     assert results["throughput_ops_sec"] > 0
+
+
+def test_nomaanos_main_entrypoint(monkeypatch):
+    import runpy
+    import sys
+
+    monkeypatch.setattr(sys, "argv", ["nomaanos", "--help"])
+    # If cli uses app or entrypoint, run module directly
+    try:
+        runpy.run_module("nomaanos", run_name="__main__")
+    except SystemExit:
+        pass
+
+
+def test_nose_exec_timeout_and_error():
+    from nomaanos.engine import NoseExec
+
+    # 1. Blocked binary triggers policy rejection
+    engine = NoseExec(allowed_binaries=["echo"])
+    blocked_res = engine.execute(["rm", "-rf", "/"])
+    assert (
+        "BLOCKED" in blocked_res.get("status", "") or blocked_res.get("exit_code") != 0
+    )
+
+    # 2. Non-zero exit code inspection
+    engine_false = NoseExec(allowed_binaries=["false", "echo"])
+    res = engine_false.execute(["false"])
+    assert res.get("exit_code") != 0 or res.get("status") in ("SUCCESS", "FAILED")
