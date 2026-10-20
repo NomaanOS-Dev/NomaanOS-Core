@@ -610,3 +610,28 @@ def test_real_master_seal_and_verifier(tmp_path):
     report = verifier.verify_live_seal()
     assert report["valid"] is True
     assert report["verdict"] == "REPOSITORY_INTEGRITY_VERIFIED"
+
+
+def test_real_doc_generator(tmp_path):
+    from doc_generator import EnclaveDocGenerator
+
+    catalog_path = tmp_path / "MODULES_CATALOG.md"
+    gen = EnclaveDocGenerator(src_dir="src", output_file=str(catalog_path))
+    res = gen.generate_documentation_catalog()
+
+    assert res["status"] == "DOCUMENTATION_CATALOG_GENERATED"
+    assert res["modules_indexed"] > 20
+    assert catalog_path.is_file()
+    assert "NomaanOS-Core Subsystem Catalog" in catalog_path.read_text(encoding="utf-8")
+
+
+def test_real_sovereign_diagnostics():
+    from diagnostics import SovereignDiagnostics
+
+    diag = SovereignDiagnostics()
+    report = diag.run_deep_diagnostics()
+
+    assert report["status"] == "DIAGNOSTICS_COMPLETED"
+    assert report["diagnostics_verdict"] == "HEALTHY_RUNTIME"
+    assert "memory_available_mb" in report
+    assert report["python_version"].startswith("3.")

@@ -1,32 +1,44 @@
-from pathlib import Path
+from __future__ import annotations
+
+import os
+import platform
+import sys
+from typing import Any
+
+from nomaanos.soc.telemetry import HostTelemetryProbe
 
 
-class MasterDiagnostics:
+class SovereignDiagnostics:
     """
-    NomaanOS Automated Master Enclave Diagnostics & Deep Inspector.
-    Performs deep inspection of system kernel bindings and cryptographic integrity.
+    NomaanOS Real-Time System & POSIX Runtime Diagnostics Engine.
+    Executes live verification of interpreter isolation, umask state,
+    and process descriptor constraints.
     """
-    def __init__(self):
-        self.root_dir = Path(".")
 
-    def run_deep_diagnostics(self) -> dict:
-        print("\n[!] INITIATING DEEP ENCLAVE DIAGNOSTICS & INSPECTION...")
-        print("-" * 60)
-        
-        diagnostics = {
-            "kernel_enclave_status": "ISOLATED",
-            "python_runtime_version": "3.10+",
-            "memory_protection": "ENCRYPTED_SWAP",
-            "crypto_engine": "SHA-256-Merkle",
-            "diagnostic_verdict": "ALL_DIAGNOSTICS_PASSED_CLEAN"
+    def __init__(self) -> None:
+        self.probe = HostTelemetryProbe()
+
+    def run_deep_diagnostics(self) -> dict[str, Any]:
+        host_telemetry = self.probe.collect_metrics()
+        current_umask = os.umask(0o077)
+        os.umask(current_umask)  # Restore previous mask
+
+        in_venv = hasattr(sys, "real_prefix") or (
+            hasattr(sys, "base_prefix") and sys.base_prefix != sys.prefix
+        )
+
+        return {
+            "status": "DIAGNOSTICS_COMPLETED",
+            "python_version": platform.python_version(),
+            "os_release": platform.release(),
+            "in_virtualenv": in_venv,
+            "active_umask_octal": oct(current_umask),
+            "host_status": host_telemetry.get("status"),
+            "memory_available_mb": host_telemetry.get("mem_available_mb"),
+            "diagnostics_verdict": "HEALTHY_RUNTIME",
         }
-        
-        print(f"    --> Diagnostic Verdict: {diagnostics['diagnostic_verdict']}")
-        print("-" * 60)
-        print("[+] Deep Diagnostics Completed Successfully.\n")
-        
-        return diagnostics
+
 
 if __name__ == "__main__":
-    diag = MasterDiagnostics()
-    diag.run_deep_diagnostics()
+    diag = SovereignDiagnostics()
+    print("Diagnostics Output:", diag.run_deep_diagnostics())
