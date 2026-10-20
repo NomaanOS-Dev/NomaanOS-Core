@@ -257,3 +257,82 @@ def test_real_attestation_issuer(tmp_path):
     tampered = dict(attestation)
     tampered["claim"] = "UNAUTHORIZED_CLAIM"
     assert issuer.verify_attestation(tampered) is False
+
+
+def test_real_phoenix_engine_auto_healing(tmp_path):
+    from nomaanos.ledger.engine import EvidenceLedger
+    from phoenix_engine import PhoenixEngine
+
+    ledger_file = tmp_path / "test_phoenix.jsonl"
+    ledger = EvidenceLedger(storage_path=str(ledger_file))
+    ledger.record_entry("auth", "login_ok")
+    ledger.record_entry("audit", "policy_grant")
+    assert len(ledger.chain) == 2
+
+    # Tamper with block 2 payload without recalculating hash
+    ledger.chain[1]["artifact"] = "malicious_injection"
+    with open(ledger_file, "w") as f:
+        for b in ledger.chain:
+            import json
+
+            f.write(json.dumps(b) + "\n")
+
+    phoenix = PhoenixEngine(audit_file=str(ledger_file))
+    heal_report = phoenix.verify_and_heal()
+    assert heal_report["status"] == "INTEGRITY_BREACH_DETECTED"
+    assert heal_report["remedial_status"] == "STATE_ROLLED_BACK_TO_SECURE_BASELINE"
+    assert heal_report["retained_valid_blocks"] == 1
+
+    # Verify that the healed ledger on disk is now intact
+    recovered_ledger = EvidenceLedger(storage_path=str(ledger_file))
+    assert len(recovered_ledger.chain) == 1
+    assert recovered_ledger.verify_integrity() is True
+
+
+def test_real_cryptographic_chain_verifier(tmp_path):
+    from chain_verifier import CryptographicChainVerifier
+    from nomaanos.ledger.engine import EvidenceLedger
+
+    ledger_file = tmp_path / "test_verifier.jsonl"
+    ledger = EvidenceLedger(storage_path=str(ledger_file))
+    ledger.record_entry("kernel", "boot_ok")
+    ledger.record_entry("network", "socket_bind")
+
+    verifier = CryptographicChainVerifier(audit_file=str(ledger_file))
+    res = verifier.verify_full_chain()
+    assert res["status"] == "SUCCESS"
+    assert res["verified_blocks"] == 2
+    assert res["chain_verdict"] == "CRYPTOGRAPHICALLY_SOUND"
+
+
+def test_real_snapshot_manager(tmp_path):
+    from snapshot_manager import SnapshotManager
+
+    snap_dir = tmp_path / "snapshots"
+    test_target = tmp_path / "config" / "test_state.json"
+    test_target.parent.mkdir(parents=True, exist_ok=True)
+    test_target.write_text('{"state": "HEALTHY_BASELINE"}', encoding="utf-8")
+
+    mgr = SnapshotManager(backup_dir=str(snap_dir))
+    snap = mgr.create_snapshot(targets=[str(test_target)])
+    assert snap["file_count"] == 1
+    assert len(snap["bundle_hash"]) == 64
+
+    # Tamper with file
+    test_target.write_text('{"state": "CORRUPTED_STATE"}', encoding="utf-8")
+    assert "CORRUPTED_STATE" in test_target.read_text()
+
+    # Restore snapshot and verify recovery
+    success = mgr.restore_snapshot(snap["snapshot_id"])
+    assert success is True
+    assert "HEALTHY_BASELINE" in test_target.read_text()
+
+
+def test_real_security_fuzzer():
+    from fuzzer import SecurityFuzzer
+
+    fuzzer = SecurityFuzzer()
+    res = fuzzer.run_fuzz_test(max_payloads=8)
+    assert res["status"] == "FUZZING_COMPLETED"
+    assert res["total_tested"] == 8
+    assert res["blocked_count"] > 0
