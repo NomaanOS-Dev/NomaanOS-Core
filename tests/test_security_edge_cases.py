@@ -101,3 +101,25 @@ def test_neural_lock_dynamic_attestation():
     assert token_data["l5_status"] == "LOCKED_AND_VERIFIED"
     assert len(token_data["node_fingerprint"]) >= 16
     assert len(token_data["attestation_token"]) == 64
+
+
+def test_real_sbom_generator(tmp_path):
+    from sbom_generator import SBOMGenerator
+
+    out_file = tmp_path / "sbom.json"
+    gen = SBOMGenerator(output_path=str(out_file))
+    doc = gen.generate_sbom()
+    assert doc["bomFormat"] == "CycloneDX-Compatible"
+    assert doc["total_dependencies"] > 0
+    assert len(doc["manifest_sha256"]) == 64
+    assert out_file.exists()
+
+
+def test_real_kernel_boot():
+    from kernel_boot import KernelBootstrapper
+
+    booter = KernelBootstrapper()
+    res = booter.bootstrap()
+    assert res["status"] in ("BOOT_SUCCESS_ALL_SYSTEMS_GO", "BOOT_DEGRADED")
+    assert res["phases"]["runtime_binary_valid"] is True
+    assert res["phases"]["config_storage_writable"] is True

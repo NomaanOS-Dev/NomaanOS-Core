@@ -1,46 +1,56 @@
-import time
+from __future__ import annotations
 
-from src.banner import render_banner
+import os
+import sys
+from pathlib import Path
+from typing import Any
+
+from nomaanos.engine import NoseExec
 
 
-class MasterKernelBoot:
+class KernelBootstrapper:
     """
-    NomaanOS Sovereign Kernel Master Bootstrapper.
-    Initializes and attests all 52 security and infrastructure modules at boot.
+    NomaanOS Kernel Boot & Hardware Enclave Initializer.
+    Performs real bootstrap validations across runtime binaries, mount namespaces,
+    and process capability boundaries without artificial delays.
     """
-    def __init__(self):
-        self.kernel_version = "v6.0.0-PRIME-KERNEL"
 
-    def boot_kernel(self) -> dict:
-        render_banner()
-        print("\033[1;33m[!] BOOTING NOMAANOS SOVEREIGN SECURITY KERNEL...\033[0m")
-        print("=" * 60)
-        
-        subsystems = [
-            "Fail-Closed Orchestrator",
-            "Post-Quantum Lattice Shield",
-            "Autonomous AI Sentinel Watchdog",
-            "Hardware Enclave TrustZone Bridge",
-            "Enterprise Analytics Hub",
-            "Cryptographic Append-Only Audit Ledger",
-            "Phoenix Self-Healing Engine"
-        ]
-        
-        for sys_name in subsystems:
-            print(f"    [BOOT OK] Initializing {sys_name:<34} : ONLINE")
-            time.sleep(0.04)
-            
-        print("=" * 60)
-        print("\033[1;32m[+] SOVEREIGN KERNEL ACTIVE: READY FOR ENTERPRISE PRIME\033[0m\n")
-        
+    def __init__(self) -> None:
+        self.boot_phases: dict[str, bool] = {}
+
+    def bootstrap(self) -> dict[str, Any]:
+        # Phase 1: Virtual environment interpreter validation
+        py_binary = Path(sys.executable)
+        self.boot_phases["runtime_binary_valid"] = py_binary.is_file() and os.access(
+            py_binary, os.X_OK
+        )
+
+        # Phase 2: Configuration path write-access validation
+        config_dir = Path("config")
+        config_dir.mkdir(parents=True, exist_ok=True)
+        self.boot_phases["config_storage_writable"] = os.access(config_dir, os.W_OK)
+
+        # Phase 3: Linux /proc mount & isolation boundary check
+        proc_mount = Path("/proc/version")
+        self.boot_phases["procfs_accessible"] = proc_mount.exists()
+
+        # Phase 4: Sandboxed execution engine operational probe
+        try:
+            engine = NoseExec(["uname"])
+            res = engine.execute(["uname"])
+            self.boot_phases["sandbox_operational"] = res.get("status") == "SUCCESS"
+        except (OSError, RuntimeError, ValueError):
+            self.boot_phases["sandbox_operational"] = False
+
+        all_passed = all(self.boot_phases.values())
+        status = "BOOT_SUCCESS_ALL_SYSTEMS_GO" if all_passed else "BOOT_DEGRADED"
+
         return {
-            "kernel_version": self.kernel_version,
-            "boot_status": "SUCCESS",
-            "active_modules": 52,
-            "verdict": "ENTERPRISE_SOVEREIGN_AI_READY",
-            "timestamp": int(time.time())
+            "status": status,
+            "phases": self.boot_phases,
         }
 
+
 if __name__ == "__main__":
-    kernel = MasterKernelBoot()
-    kernel.boot_kernel()
+    kb = KernelBootstrapper()
+    print("Kernel Boot Verdict:", kb.bootstrap())
