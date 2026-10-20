@@ -1,14 +1,36 @@
-def render_banner():
-    banner_art = r"""
-  _  _                     _    ___  ____     ____          
- | \| |___ _ __  __ _ _ _ /_\  / __|/ __|   / __ \ ___ _ _ 
- | .` / _ \ '  \/ _` | ' \ _ \ \__ \\__ \  | ffff |/ -_) '_|
- |_|\_\___/_|_|_\__,_|_||_/_/ \_|___/___/   \____/ \___|_|  
+from __future__ import annotations
+
+import platform
+import shutil
+
+
+def render_banner(version: str = "6.0.0-PRIME") -> str:
     """
-    print("\033[1;36m" + banner_art + "\033[0m")
-    print("\033[1;32m[+] Sovereign AI Stack (SAS) - Enterprise Security Kernel v6.0\033[0m")
-    print("\033[1;33m[+] Architect & Founder: Nomaan Khan | Scholar @ IHFC-IITD\033[0m")
-    print("\033[1;35m[+] Status: Enclave Hardened & Cryptographically Verified\033[0m\n")
+    Renders the dynamic NomaanOS Sovereign Console Header Banner.
+    """
+    cols = shutil.get_terminal_size((80, 24)).columns
+    art = [
+        r" _   _                               _____ _____ ",
+        r"| \ | |                             |  _  /  ___|",
+        r"|  \| | ___  _ __ ___   __ _  __ _ _ | | | \ `--. ",
+        r"| . ` |/ _ \| '_ ` _ \ / _` |/ _` | '_  | | `--. \\",
+        r"| |\  | (_) | | | | | | (_| | (_| | | \ \_/\/\__/ /",
+        r"\_| \_/\___/|_| |_| |_|\__,_|\__,_|_|  \___/\____/ ",
+    ]
+
+    lines: list[str] = [""]
+    for row in art:
+        lines.append(row.center(cols))
+
+    tagline = f"Sovereign AI Stack (SAS) | Enclave Core {version} | Linux {platform.machine()}"
+    lines.append(tagline.center(cols))
+    lines.append(("=" * min(cols, 80)).center(cols))
+    lines.append("")
+
+    rendered = "\n".join(lines)
+    print(rendered)
+    return rendered
+
 
 if __name__ == "__main__":
     render_banner()

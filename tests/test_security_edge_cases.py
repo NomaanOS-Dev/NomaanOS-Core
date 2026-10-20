@@ -635,3 +635,24 @@ def test_real_sovereign_diagnostics():
     assert report["diagnostics_verdict"] == "HEALTHY_RUNTIME"
     assert "memory_available_mb" in report
     assert report["python_version"].startswith("3.")
+
+
+def test_real_global_publisher(tmp_path):
+    from global_publisher import GlobalEnclavePublisher
+
+    receipt_file = tmp_path / "receipt.json"
+    publisher = GlobalEnclavePublisher(output_receipt=str(receipt_file))
+    res = publisher.publish_enclave_release(version="6.0.0-PROD")
+
+    assert res["status"] == "PUBLISHED"
+    assert res["version"] == "6.0.0-PROD"
+    assert len(res["publisher_signature"]) == 64
+    assert receipt_file.is_file()
+
+
+def test_real_render_banner():
+    from banner import render_banner
+
+    out = render_banner(version="6.0.0-TEST")
+    assert "NomaanOS" in out or "SAS" in out
+    assert "6.0.0-TEST" in out

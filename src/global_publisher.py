@@ -1,42 +1,63 @@
+from __future__ import annotations
+
+import hashlib
+import hmac
 import json
 import time
 from pathlib import Path
+from typing import Any
+
+from packager import DistributionPackager
+from release_manifest import ReleaseManifestGenerator
 
 
-class GlobalPublisher:
+class GlobalEnclavePublisher:
     """
-    NomaanOS Automated Global Release & Public Showcase Generator.
-    Prepares professional open-source release manifests and global badges.
+    NomaanOS Secure Global Distribution & Swarm Publishing Engine.
+    Validates distribution wheels, packaging manifests, and issues
+    cryptographically signed publication release receipts.
     """
-    def __init__(self):
-        self.version = "v6.0.0-PRIME"
-        self.author = "Nomaan Khan (IHFC-IITD Scholar)"
 
-    def generate_showcase(self) -> dict:
-        print("\n[!] GENERATING GLOBAL OPEN-SOURCE SHOWCASE MANIFEST...")
-        print("-" * 60)
-        
-        manifest = {
-            "project": "NomaanOS-Core Sovereign AI Stack",
-            "version": self.version,
-            "architect": self.author,
-            "modules_count": 51,
-            "security_tier": "MILITARY_GRADE_POST_QUANTUM",
-            "status": "READY_FOR_GLOBAL_DOMINATION",
-            "timestamp": int(time.time())
+    def __init__(
+        self,
+        signing_key: bytes = b"NOMAANOS_GLOBAL_PUBLISHER_KEY",
+        output_receipt: str = "config/publish_receipt.json",
+    ) -> None:
+        self.signing_key = signing_key
+        self.output_path = Path(output_receipt)
+        self.packager = DistributionPackager()
+        self.manifest_gen = ReleaseManifestGenerator()
+
+    def publish_enclave_release(self, version: str = "6.0.0") -> dict[str, Any]:
+        spec_audit = self.packager.verify_packaging_spec()
+        manifest = self.manifest_gen.generate_manifest(version=version)
+
+        is_valid = spec_audit.get("status") == "VALID" and "root_sha256" in manifest
+        timestamp = time.time()
+
+        payload = f"PUBLISH:{version}:{manifest.get('root_sha256')}:{timestamp}"
+        receipt_signature = hmac.new(
+            self.signing_key, payload.encode("utf-8"), hashlib.sha256
+        ).hexdigest()
+
+        receipt = {
+            "status": "PUBLISHED" if is_valid else "PUBLICATION_FAILED",
+            "version": version,
+            "root_sha256": manifest.get("root_sha256"),
+            "timestamp": timestamp,
+            "publisher_signature": receipt_signature,
+            "institutional_tier": "SOVEREIGN_ENTERPRISE_L5",
         }
-        
-        showcase_file = Path("config/reports/global_showcase_manifest.json")
-        showcase_file.parent.mkdir(parents=True, exist_ok=True)
-        showcase_file.write_text(json.dumps(manifest, indent=2))
-        
-        print(f"    --> Showcase Manifest : {showcase_file}")
-        print(f"    --> Global Status     : {manifest['status']}")
-        print("-" * 60)
-        print("[+] Global Release Showcase Generated Successfully.\n")
-        
-        return manifest
+
+        try:
+            self.output_path.parent.mkdir(parents=True, exist_ok=True)
+            self.output_path.write_text(json.dumps(receipt, indent=2), encoding="utf-8")
+        except OSError:
+            pass
+
+        return receipt
+
 
 if __name__ == "__main__":
-    pub = GlobalPublisher()
-    pub.generate_showcase()
+    publisher = GlobalEnclavePublisher()
+    print("Publisher Receipt:", publisher.publish_enclave_release())
