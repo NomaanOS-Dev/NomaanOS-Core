@@ -37,4 +37,4 @@ where = ["src"]
 nomaanos = "nomaanos:main"
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = ["src", "."]
