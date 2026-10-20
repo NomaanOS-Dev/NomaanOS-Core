@@ -530,3 +530,39 @@ def test_real_summary_exporter(tmp_path):
         "EXECUTIVE_SECURITY_SUMMARY"
         in (report_dir / "security_summary.json").read_text()
     )
+
+
+def test_real_security_report_exporter(tmp_path):
+    from report_exporter import SecurityReportExporter
+
+    report_dir = tmp_path / "reports"
+    ledger_path = tmp_path / "report_ledger.jsonl"
+
+    exporter = SecurityReportExporter(
+        ledger_path=str(ledger_path), output_dir=str(report_dir)
+    )
+    res = exporter.export_full_compliance_report()
+
+    assert res["status"] == "REPORTS_GENERATED"
+    assert (report_dir / "compliance_report.json").is_file()
+    assert (report_dir / "compliance_report.html").is_file()
+    assert (
+        "Enterprise SOC Compliance"
+        in (report_dir / "compliance_report.html").read_text()
+    )
+
+
+def test_real_release_notes_generator(tmp_path):
+    from release_notes import ReleaseNotesGenerator
+
+    notes_file = tmp_path / "RELEASE_NOTES.md"
+    generator = ReleaseNotesGenerator(output_file=str(notes_file))
+    res = generator.generate_release_notes(version="v6.0.0-PROD")
+
+    assert res["version"] == "v6.0.0-PROD"
+    assert res["total_commits_audited"] > 0
+    assert notes_file.is_file()
+    assert (
+        "# NomaanOS Sovereign Core Release Notes - v6.0.0-PROD"
+        in notes_file.read_text()
+    )
