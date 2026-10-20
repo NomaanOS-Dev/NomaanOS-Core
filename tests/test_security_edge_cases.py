@@ -656,3 +656,27 @@ def test_real_render_banner():
     out = render_banner(version="6.0.0-TEST")
     assert "NomaanOS" in out or "SAS" in out
     assert "6.0.0-TEST" in out
+
+
+def test_real_system_hardening():
+    from hardening import SystemHardening
+
+    hardening = SystemHardening()
+    report = hardening.audit_kernel_hardening()
+
+    assert report["status"] == "HARDENING_AUDIT_COMPLETE"
+    assert "compliance_level" in report
+    assert "non_root_execution" in report["checks"]
+
+
+def test_real_benchmark_suite(tmp_path):
+    from benchmark import EnclaveBenchmarkSuite
+
+    ledger_path = tmp_path / "bench_ledger.jsonl"
+    suite = EnclaveBenchmarkSuite(ledger_path=str(ledger_path))
+    results = suite.run_benchmark(cycles=10)
+
+    assert results["status"] == "BENCHMARK_COMPLETE"
+    assert results["cycles_completed"] == 10
+    assert results["ledger_verified"] is True
+    assert results["throughput_ops_sec"] > 0

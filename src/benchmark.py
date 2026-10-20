@@ -1,57 +1,46 @@
+from __future__ import annotations
+
 import time
+from typing import Any
 
-from src.chain_verifier import CryptographicChainVerifier
-from src.neural_lock import NeuralLock
-from src.orchestrator import NomaanOSOrchestrator
-from src.phoenix_engine import PhoenixEngine
+from nomaanos.engine import NoseExec
+from nomaanos.ledger.engine import EvidenceLedger
 
 
-class MasterBenchmark:
+class EnclaveBenchmarkSuite:
     """
-    NomaanOS Master Security & Integration Benchmark.
-    Runs full-stack validation across core engines to certify release readiness.
+    NomaanOS High-Speed Performance & Latency Benchmark Engine.
+    Executes live throughput testing over sandboxed execution and
+    cryptographic ledger signing to measure real microsecond latency.
     """
-    def __init__(self):
-        self.orchestrator = NomaanOSOrchestrator()
-        self.phoenix = PhoenixEngine()
-        self.lock = NeuralLock()
-        self.chain_verifier = CryptographicChainVerifier()
 
-    def run_master_benchmark(self) -> dict:
-        print("\n[!] INITIATING MASTER SECURITY & INTEGRATION BENCHMARK...")
-        print("-" * 60)
-        
-        start_time = time.time()
-        
-        # 1. Pipeline Test
-        self.orchestrator.process_request("Benchmark safe ls", ["ls"])
-        self.orchestrator.process_request("Benchmark unsafe rm", ["rm", "-rf", "/"])
-        
-        # 2. Phoenix Self-Healing
-        self.phoenix.verify_and_heal()
-        
-        # 3. Neural Lock
-        self.lock.generate_attestation_token("BENCHMARK_EXEC")
-        
-        # 4. Chain Verification
-        self.chain_verifier.verify_full_chain()
-        
-        duration = time.time() - start_time
-        
-        benchmark_report = {
-            "benchmark_status": "PASSED_ALL_SUITES",
-            "execution_time_sec": round(duration, 4),
-            "subsystems_tested": 4,
-            "master_verdict": "NOMAANOS_CORE_FULLY_CERTIFIED_STABLE"
+    def __init__(self, ledger_path: str = "config/benchmark_ledger.jsonl") -> None:
+        self.engine = NoseExec(allowed_binaries=["echo"])
+        self.ledger = EvidenceLedger(storage_path=ledger_path)
+
+    def run_benchmark(self, cycles: int = 25) -> dict[str, Any]:
+        start = time.perf_counter()
+
+        for i in range(cycles):
+            self.engine.execute(["echo", f"bench_{i}"])
+            self.ledger.record_entry("bench_worker", f"cycle_{i}_attestation")
+
+        total_duration = time.perf_counter() - start
+        ops_per_second = round(cycles / max(total_duration, 0.0001), 2)
+        ledger_valid = self.ledger.verify_integrity()
+
+        return {
+            "status": "BENCHMARK_COMPLETE",
+            "cycles_completed": cycles,
+            "total_duration_sec": round(total_duration, 4),
+            "throughput_ops_sec": ops_per_second,
+            "ledger_verified": ledger_valid,
+            "benchmark_verdict": "PERFORMANCE_HEALTHY"
+            if ledger_valid
+            else "LEDGER_CORRUPTED",
         }
-        
-        print(f"    --> Benchmark Status: {benchmark_report['benchmark_status']}")
-        print(f"    --> Master Verdict: {benchmark_report['master_verdict']}")
-        print("-" * 60)
-        print("[+] Master Benchmark Completed Successfully.\n")
-        
-        return benchmark_report
+
 
 if __name__ == "__main__":
-    bm = MasterBenchmark()
-    bm.run_master_benchmark()
+    bench = EnclaveBenchmarkSuite()
+    print("Benchmark Results:", bench.run_benchmark(15))
