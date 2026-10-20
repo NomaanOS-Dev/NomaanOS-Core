@@ -1,18 +1,20 @@
 import hashlib
 import json
 import time
+from typing import Any, Dict, List
 
 
 class EvidenceLedger:
-    def __init__(self, storage_path="ledger.jsonl"):
+    def __init__(self, storage_path: str = "ledger.jsonl"):
         self.storage_path = storage_path
-        self.chain = []
+        self.chain: List[Dict[str, Any]] = []
 
-    def compute_hash(self, block):
-        serialized = json.dumps(block, sort_keys=True)
+    def compute_hash(self, block: Dict[str, Any]) -> str:
+        block_copy = {k: v for k, v in block.items() if k != "current_hash"}
+        serialized = json.dumps(block_copy, sort_keys=True)
         return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
 
-    def record_entry(self, artifact_name, payload):
+    def record_entry(self, artifact_name: str, payload: str) -> Dict[str, Any]:
         prev_hash = self.chain[-1]["current_hash"] if self.chain else "0" * 64
         entry = {
             "index": len(self.chain) + 1,
@@ -25,10 +27,23 @@ class EvidenceLedger:
         self.chain.append(entry)
         return entry
 
-    def verify_integrity(self):
-        for i in range(1, len(self.chain)):
-            curr = self.chain[i]
-            prev = self.chain[i - 1]
-            if curr["previous_hash"] != prev["current_hash"]:
+    def verify_integrity(self) -> bool:
+        if not self.chain:
+            return True
+
+        for i, curr in enumerate(self.chain):
+            # Check recalculation of current block's hash
+            expected_hash = self.compute_hash(curr)
+            if curr.get("current_hash") != expected_hash:
                 return False
+
+            # Check chain link to previous block
+            if i == 0:
+                if curr.get("previous_hash") != "0" * 64:
+                    return False
+            else:
+                prev = self.chain[i - 1]
+                if curr.get("previous_hash") != prev.get("current_hash"):
+                    return False
+
         return True
