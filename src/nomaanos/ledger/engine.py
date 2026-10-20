@@ -1,20 +1,22 @@
+from __future__ import annotations
+
 import hashlib
 import json
 import time
-from typing import Any, Dict, List
+from typing import Any
 
 
 class EvidenceLedger:
     def __init__(self, storage_path: str = "ledger.jsonl"):
         self.storage_path = storage_path
-        self.chain: List[Dict[str, Any]] = []
+        self.chain: list[dict[str, Any]] = []
 
-    def compute_hash(self, block: Dict[str, Any]) -> str:
+    def compute_hash(self, block: dict[str, Any]) -> str:
         block_copy = {k: v for k, v in block.items() if k != "current_hash"}
         serialized = json.dumps(block_copy, sort_keys=True)
         return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
 
-    def record_entry(self, artifact_name: str, payload: str) -> Dict[str, Any]:
+    def record_entry(self, artifact_name: str, payload: str) -> dict[str, Any]:
         prev_hash = self.chain[-1]["current_hash"] if self.chain else "0" * 64
         entry = {
             "index": len(self.chain) + 1,
