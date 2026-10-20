@@ -368,3 +368,57 @@ def test_real_stress_tester(tmp_path):
     assert res["exec_failures"] == 0
     assert res["ledger_verified"] is True
     assert res["p50_exec_latency_ms"] >= 0.0
+
+
+def test_real_webhook_hub(tmp_path):
+    import time
+
+    from webhook_hub import WebhookHub
+
+    ledger_path = tmp_path / "webhook_ledger.jsonl"
+    hub = WebhookHub(ledger_path=str(ledger_path))
+
+    payload = {"event": "security_alert", "severity": "HIGH"}
+    ts = time.time()
+    sig = hub.generate_signature(payload, ts)
+
+    # 1. Valid webhook submission
+    res = hub.process_incoming_webhook(payload, sig, ts)
+    assert res["status"] == "ACCEPTED"
+    assert res["ledger_blocks"] == 1
+    assert res["ledger_verified"] is True
+
+    # 2. Tampered signature rejection
+    tampered_res = hub.process_incoming_webhook(payload, "invalid_signature_hex", ts)
+    assert tampered_res["status"] == "REJECTED"
+    assert tampered_res["reason"] == "INVALID_SIGNATURE"
+
+    # 3. Clock skew / replay rejection
+    expired_res = hub.process_incoming_webhook(payload, sig, ts - 600.0)
+    assert expired_res["status"] == "REJECTED"
+    assert expired_res["reason"] == "TIMESTAMP_EXPIRED_REPLAY_ATTEMPT"
+
+
+def test_real_sovereign_api_handler():
+    from io import BytesIO
+    from unittest.mock import MagicMock
+
+    from server import SovereignAPIHandler
+
+    # Mock request and socket for isolated unit test
+    handler = SovereignAPIHandler.__new__(SovereignAPIHandler)
+    handler.rfile = BytesIO()
+    handler.wfile = BytesIO()
+    handler.send_response = MagicMock()
+    handler.send_header = MagicMock()
+    handler.end_headers = MagicMock()
+
+    # Test /telemetry endpoint
+    handler.path = "/telemetry"
+    handler.do_GET()
+    handler.send_response.assert_called_with(200)
+
+    # Test unknown 404 endpoint
+    handler.path = "/invalid_route"
+    handler.do_GET()
+    handler.send_response.assert_called_with(404)
