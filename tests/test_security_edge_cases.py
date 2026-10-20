@@ -465,3 +465,29 @@ def test_real_telemetry_dashboard():
     assert view["status"] == "ACTIVE"
     assert view["cpu_cores"] >= 1
     assert "mem_available_mb" in view
+
+
+def test_real_sovereign_tui(capsys):
+    from tui import SovereignTUI
+
+    tui = SovereignTUI()
+    res = tui.draw_screen()
+    captured = capsys.readouterr()
+    assert "NOMAANOS SOVEREIGN CONSOLE INTERFACE" in captured.out
+    assert res["status"] == "RENDERED"
+    assert "metrics" in res
+
+
+def test_real_badge_generator(tmp_path):
+    from badge_generator import EnclaveBadgeGenerator
+
+    badge_dir = tmp_path / "badges"
+    generator = EnclaveBadgeGenerator(output_dir=str(badge_dir))
+    report = generator.generate_all_badges(total_tests=48, ledger_ok=True)
+
+    assert report["badge_count"] == 2
+    tests_svg = (badge_dir / "tests.svg").read_text(encoding="utf-8")
+    assert "<svg" in tests_svg
+    assert "48 passing" in tests_svg
+    ledger_svg = (badge_dir / "ledger.svg").read_text(encoding="utf-8")
+    assert "verified" in ledger_svg
