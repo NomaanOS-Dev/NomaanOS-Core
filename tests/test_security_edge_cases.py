@@ -708,3 +708,72 @@ def test_nose_exec_timeout_and_error():
     engine_false = NoseExec(allowed_binaries=["false", "echo"])
     res = engine_false.execute(["false"])
     assert res.get("exit_code") != 0 or res.get("status") in ("SUCCESS", "FAILED")
+
+
+def test_nose_exec_sandboxing_limits():
+    from nomaanos.engine import NoseExec
+
+    # Test custom rlimits and execution dispatch
+    engine = NoseExec(allowed_binaries=["echo", "sh"])
+    res = engine.execute(["echo", "sandbox_limits_verified"])
+    assert res.get("code") == 0
+    assert res["status"] == "SUCCESS"
+    assert "sandbox_limits_verified" in res.get("stdout", "")
+
+
+def test_packager_error_and_wheel_audit(tmp_path):
+    from packager import DistributionPackager
+
+    # 1. Invalid pyproject.toml syntax branch
+    bad_toml = tmp_path / "pyproject.toml"
+    bad_toml.write_text("invalid [toml syntax =====", encoding="utf-8")
+    packager = DistributionPackager(pyproject_path=str(bad_toml))
+    spec = packager.verify_packaging_spec()
+    assert spec["status"] == "ERROR"
+
+    # 2. Missing pyproject.toml branch
+    missing_packager = DistributionPackager(
+        pyproject_path=str(tmp_path / "nonexistent.toml")
+    )
+    missing_spec = missing_packager.verify_packaging_spec()
+    assert missing_spec["status"] == "ERROR"
+
+    # 3. Dist directory with mock wheel
+    dist_dir = tmp_path / "dist"
+    dist_dir.mkdir(parents=True, exist_ok=True)
+    wheel_file = dist_dir / "nomaanos_core-6.0.0-py3-none-any.whl"
+    wheel_file.write_bytes(b"PK\x03\x04mock_wheel_payload")
+
+    audit = packager.audit_dist_artifacts(dist_dir=str(dist_dir))
+    assert audit["status"] == "ARTIFACTS_AUDITED"
+    assert audit["artifact_count"] == 1
+    assert len(audit["artifacts"][0]["sha256"]) == 64
+
+
+def test_log_rotator_sweep_workflow(tmp_path):
+    from log_rotator import EnclaveLogRotator
+
+    log_dir = tmp_path / "sweep_logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+
+    # Write files below and above rotation threshold
+    small_log = log_dir / "small.log"
+    small_log.write_text("small log", encoding="utf-8")
+
+    big_log = log_dir / "big.log"
+    big_log.write_text("X" * 2048, encoding="utf-8")
+
+    rotator = EnclaveLogRotator(target_dir=str(log_dir), max_bytes=1024, max_archives=3)
+
+    # Test rotate_file_if_needed on missing file
+    missing_res = rotator.rotate_file_if_needed(log_dir / "missing.log")
+    assert missing_res["rotated"] is False
+    assert missing_res["reason"] == "FILE_NOT_FOUND"
+
+    # Test small log (should not rotate)
+    small_res = rotator.rotate_file_if_needed(small_log)
+    assert small_res["rotated"] is False
+
+    # Test big log (should rotate)
+    big_res = rotator.rotate_file_if_needed(big_log)
+    assert big_res["rotated"] is True
