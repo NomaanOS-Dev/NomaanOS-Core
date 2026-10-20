@@ -7778,5 +7778,1667 @@
     "timestamp": 1792485693.4902024,
     "previous_hash": "353e43a028bb160fa6d9138da5ec7cca89db0759b66311d5d253901d4cb52eb9",
     "hash": "5b320af90704f3014a7e77d9238a5e3f7d7193f71a8f653e5c6afd0b045c7f65"
+  },
+  {
+    "index": 491,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.381086,
+    "previous_hash": "5b320af90704f3014a7e77d9238a5e3f7d7193f71a8f653e5c6afd0b045c7f65",
+    "hash": "6bda8ccb52e4657710c6ec3a61448292106ab28c0a7b80bb05e2a67c1b5ac569"
+  },
+  {
+    "index": 492,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.3915544,
+    "previous_hash": "6bda8ccb52e4657710c6ec3a61448292106ab28c0a7b80bb05e2a67c1b5ac569",
+    "hash": "839667aa7b662142e880488727a69f6907044ada334f30d3da70e88c3a6b5f26"
+  },
+  {
+    "index": 493,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4039714,
+    "previous_hash": "839667aa7b662142e880488727a69f6907044ada334f30d3da70e88c3a6b5f26",
+    "hash": "b46709dc860ec865b44ec6597f61ce47321aba33af1f8e79b00f1f5d40973253"
+  },
+  {
+    "index": 494,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4146605,
+    "previous_hash": "b46709dc860ec865b44ec6597f61ce47321aba33af1f8e79b00f1f5d40973253",
+    "hash": "191b4354a3286c143480e177cec469a97f93d00f7049451c4f9bd9399b22401d"
+  },
+  {
+    "index": 495,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4253604,
+    "previous_hash": "191b4354a3286c143480e177cec469a97f93d00f7049451c4f9bd9399b22401d",
+    "hash": "ab36b97899e730055e27e50aed526c46d7198bc2bee1459e392c82bc6be92fcf"
+  },
+  {
+    "index": 496,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4347525,
+    "previous_hash": "ab36b97899e730055e27e50aed526c46d7198bc2bee1459e392c82bc6be92fcf",
+    "hash": "ce333d40ef67455451944065aebeaa20bdfa96f9354facd87e0c01620a1b47eb"
+  },
+  {
+    "index": 497,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4454665,
+    "previous_hash": "ce333d40ef67455451944065aebeaa20bdfa96f9354facd87e0c01620a1b47eb",
+    "hash": "ba936d482c8912fdae450ad1d99d098b50adb74acc08ecc665fc52bcb13e3c19"
+  },
+  {
+    "index": 498,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4563873,
+    "previous_hash": "ba936d482c8912fdae450ad1d99d098b50adb74acc08ecc665fc52bcb13e3c19",
+    "hash": "e3f74679e90bb55c34e6b7b397b79f10dcd7a8ea5aee0f6129478c4759a9c4d3"
+  },
+  {
+    "index": 499,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4660792,
+    "previous_hash": "e3f74679e90bb55c34e6b7b397b79f10dcd7a8ea5aee0f6129478c4759a9c4d3",
+    "hash": "f113747d74e2e291c37e10b8cbd6dcc3669c2f84d2fe616080c7561f0d30f6fe"
+  },
+  {
+    "index": 500,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4766736,
+    "previous_hash": "f113747d74e2e291c37e10b8cbd6dcc3669c2f84d2fe616080c7561f0d30f6fe",
+    "hash": "adc52a6cb7e6985e0cc464c26d047c382a2cad96514a82f2b555b62c95677d3d"
+  },
+  {
+    "index": 501,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.4874237,
+    "previous_hash": "adc52a6cb7e6985e0cc464c26d047c382a2cad96514a82f2b555b62c95677d3d",
+    "hash": "51549477137aa351268fe0f45013b057ce92fa514a3fb51f17f8d6b074bc478d"
+  },
+  {
+    "index": 502,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.497049,
+    "previous_hash": "51549477137aa351268fe0f45013b057ce92fa514a3fb51f17f8d6b074bc478d",
+    "hash": "6cf4a0d940fa5b1db9a778ccb4e31dc07170bf233b66cad33dd9f3458d051efb"
+  },
+  {
+    "index": 503,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.5068362,
+    "previous_hash": "6cf4a0d940fa5b1db9a778ccb4e31dc07170bf233b66cad33dd9f3458d051efb",
+    "hash": "ee657ffc81bf20922f1a49db7a466b5e1d41b80848843b941a789cc4dcb761eb"
+  },
+  {
+    "index": 504,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.5173945,
+    "previous_hash": "ee657ffc81bf20922f1a49db7a466b5e1d41b80848843b941a789cc4dcb761eb",
+    "hash": "deb35f37bad7d85feab8d9ac9fbfdcf3428b27f59cf718c4658d2b8222c9b6c6"
+  },
+  {
+    "index": 505,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.5268803,
+    "previous_hash": "deb35f37bad7d85feab8d9ac9fbfdcf3428b27f59cf718c4658d2b8222c9b6c6",
+    "hash": "f25d95ba88d32c0dc565b2bde3ab0b0724e6e5ef4f136ab15e8126e31d4d2fa6"
+  },
+  {
+    "index": 506,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.5380943,
+    "previous_hash": "f25d95ba88d32c0dc565b2bde3ab0b0724e6e5ef4f136ab15e8126e31d4d2fa6",
+    "hash": "989d8eda2573d026562314dacd13987fc63f2423a76929597177a609c586ecfb"
+  },
+  {
+    "index": 507,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.550483,
+    "previous_hash": "989d8eda2573d026562314dacd13987fc63f2423a76929597177a609c586ecfb",
+    "hash": "7ab628ed309b866dd1690032493be7a519dc4da7d2ec5bff3176c6f4b862b1d0"
+  },
+  {
+    "index": 508,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.562353,
+    "previous_hash": "7ab628ed309b866dd1690032493be7a519dc4da7d2ec5bff3176c6f4b862b1d0",
+    "hash": "e6f3849597ed9a89a096a7b630fbbecceea4a203556a87258ccc3f1c0295bb49"
+  },
+  {
+    "index": 509,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.5748024,
+    "previous_hash": "e6f3849597ed9a89a096a7b630fbbecceea4a203556a87258ccc3f1c0295bb49",
+    "hash": "c31e405bc49645480a7969c932d38367e3759091aa874c70565ae0e4f5e32349"
+  },
+  {
+    "index": 510,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.5869138,
+    "previous_hash": "c31e405bc49645480a7969c932d38367e3759091aa874c70565ae0e4f5e32349",
+    "hash": "da4810ed3edb6e76231c723ef3597814c1200b21ad4c758f996620c83e5e2ab3"
+  },
+  {
+    "index": 511,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.5988402,
+    "previous_hash": "da4810ed3edb6e76231c723ef3597814c1200b21ad4c758f996620c83e5e2ab3",
+    "hash": "efc7d5387ee1657eddb4f1b49b5f77ba120444ce9254cb801e9189a7bf243252"
+  },
+  {
+    "index": 512,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.6169426,
+    "previous_hash": "efc7d5387ee1657eddb4f1b49b5f77ba120444ce9254cb801e9189a7bf243252",
+    "hash": "cf005492c57d6b4e43057e28774875e0fce42d7807390b994799e4ca0d258659"
+  },
+  {
+    "index": 513,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.6288621,
+    "previous_hash": "cf005492c57d6b4e43057e28774875e0fce42d7807390b994799e4ca0d258659",
+    "hash": "49b13934351348ffbbee0b96757648dcc08085870157300ec97bffea7031f11b"
+  },
+  {
+    "index": 514,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.6408327,
+    "previous_hash": "49b13934351348ffbbee0b96757648dcc08085870157300ec97bffea7031f11b",
+    "hash": "33e1fab0c0501a0212900f7998aba0fe60526274e0d417f04285b91a62cec2da"
+  },
+  {
+    "index": 515,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.6525311,
+    "previous_hash": "33e1fab0c0501a0212900f7998aba0fe60526274e0d417f04285b91a62cec2da",
+    "hash": "2d410a0be43d09cac04ee79d619a4f0095a7742fca9a03e1e929128648243451"
+  },
+  {
+    "index": 516,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.6645463,
+    "previous_hash": "2d410a0be43d09cac04ee79d619a4f0095a7742fca9a03e1e929128648243451",
+    "hash": "26409cb738c7b39455f84142567a40b7166072616135333218a1862785b1db32"
+  },
+  {
+    "index": 517,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.6764035,
+    "previous_hash": "26409cb738c7b39455f84142567a40b7166072616135333218a1862785b1db32",
+    "hash": "d81bc0f795c3ad7d0818bc94b2f7743fd86b87487b0b3c632b44afc96e48c1b3"
+  },
+  {
+    "index": 518,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.6872752,
+    "previous_hash": "d81bc0f795c3ad7d0818bc94b2f7743fd86b87487b0b3c632b44afc96e48c1b3",
+    "hash": "9999429b05f9afd2444c50badc757ea1265351c3c926c33c30d8331c6afc9219"
+  },
+  {
+    "index": 519,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.699284,
+    "previous_hash": "9999429b05f9afd2444c50badc757ea1265351c3c926c33c30d8331c6afc9219",
+    "hash": "02b5c3674e1628c2cd6ca7a0d605c9360251355931c6fd6d123e068173e1d415"
+  },
+  {
+    "index": 520,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.7111402,
+    "previous_hash": "02b5c3674e1628c2cd6ca7a0d605c9360251355931c6fd6d123e068173e1d415",
+    "hash": "976676f9e6dec82464e6c03945fa3511cc6d1314135359b030789a51d37fde82"
+  },
+  {
+    "index": 521,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.7229905,
+    "previous_hash": "976676f9e6dec82464e6c03945fa3511cc6d1314135359b030789a51d37fde82",
+    "hash": "6f98c5785c3686e88f6d42d8d4177316da54a68001272e809c4502dcb0af0d27"
+  },
+  {
+    "index": 522,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.7349918,
+    "previous_hash": "6f98c5785c3686e88f6d42d8d4177316da54a68001272e809c4502dcb0af0d27",
+    "hash": "ce844b89a9a7e8ae4084b57228d7f1cb5371266db0129a1e70fe379a480e3d6c"
+  },
+  {
+    "index": 523,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.746864,
+    "previous_hash": "ce844b89a9a7e8ae4084b57228d7f1cb5371266db0129a1e70fe379a480e3d6c",
+    "hash": "502e9c67ec0f6537a0f67c7c77692335b2508d5844b4fbbc976aec62dac593bc"
+  },
+  {
+    "index": 524,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.7574077,
+    "previous_hash": "502e9c67ec0f6537a0f67c7c77692335b2508d5844b4fbbc976aec62dac593bc",
+    "hash": "4f0741d14d00f5eec6a1f1284b712a44f56f31fb29c2ef6052caf94de27c3fff"
+  },
+  {
+    "index": 525,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.7689931,
+    "previous_hash": "4f0741d14d00f5eec6a1f1284b712a44f56f31fb29c2ef6052caf94de27c3fff",
+    "hash": "941a15916812ef4dcbbdd77436216479d230bb87c49a09d3a00f35938b4dacf1"
+  },
+  {
+    "index": 526,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.780806,
+    "previous_hash": "941a15916812ef4dcbbdd77436216479d230bb87c49a09d3a00f35938b4dacf1",
+    "hash": "97b4d145ccf3139b75bf70da7bf43316b319056734bba7248d01555fb955e329"
+  },
+  {
+    "index": 527,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.7926874,
+    "previous_hash": "97b4d145ccf3139b75bf70da7bf43316b319056734bba7248d01555fb955e329",
+    "hash": "6dd8b14a1332ba2a0b6f976dffa1ba26266bf27a139600e238a1d898a04c0766"
+  },
+  {
+    "index": 528,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.8031554,
+    "previous_hash": "6dd8b14a1332ba2a0b6f976dffa1ba26266bf27a139600e238a1d898a04c0766",
+    "hash": "d7387069f66809c307a558069efb95d6a0d6978ffc2842105bb85be2b7779708"
+  },
+  {
+    "index": 529,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.8148298,
+    "previous_hash": "d7387069f66809c307a558069efb95d6a0d6978ffc2842105bb85be2b7779708",
+    "hash": "9fb6be1972caec84d04aee155f17465e1ca5867209c05345be6d44f154f9710d"
+  },
+  {
+    "index": 530,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.826798,
+    "previous_hash": "9fb6be1972caec84d04aee155f17465e1ca5867209c05345be6d44f154f9710d",
+    "hash": "8b39e5f8e83564dd36a581f333a15b6c9955bfec88301e31cfb311933e97ae70"
+  },
+  {
+    "index": 531,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.8388855,
+    "previous_hash": "8b39e5f8e83564dd36a581f333a15b6c9955bfec88301e31cfb311933e97ae70",
+    "hash": "22831352eb8ac649a282194886ba0774f471b7164aaf9e2facde2cf1a290a082"
+  },
+  {
+    "index": 532,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.851261,
+    "previous_hash": "22831352eb8ac649a282194886ba0774f471b7164aaf9e2facde2cf1a290a082",
+    "hash": "c0a8218f07a4615cd94d36c9b094752f79144b95678602f390c5c8b9425f1a56"
+  },
+  {
+    "index": 533,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.8632727,
+    "previous_hash": "c0a8218f07a4615cd94d36c9b094752f79144b95678602f390c5c8b9425f1a56",
+    "hash": "a8f7e702f0f41fe7d5fed54f8b0c7ac022906e3d7a05c3f715784c8026e17194"
+  },
+  {
+    "index": 534,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.8754597,
+    "previous_hash": "a8f7e702f0f41fe7d5fed54f8b0c7ac022906e3d7a05c3f715784c8026e17194",
+    "hash": "ce0072f46af709c68bdf148225537cf853aa085de160ca2c4c6febc1fc61b8ac"
+  },
+  {
+    "index": 535,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.886228,
+    "previous_hash": "ce0072f46af709c68bdf148225537cf853aa085de160ca2c4c6febc1fc61b8ac",
+    "hash": "6f5a9f990167ac993fe2f0c151574265a86c232aa5da6daa2e9543486a06f0d4"
+  },
+  {
+    "index": 536,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.8972564,
+    "previous_hash": "6f5a9f990167ac993fe2f0c151574265a86c232aa5da6daa2e9543486a06f0d4",
+    "hash": "db657b245c350c2249e568dcd3a985b255e80cd397d15505543d0d82f6940e30"
+  },
+  {
+    "index": 537,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.9092257,
+    "previous_hash": "db657b245c350c2249e568dcd3a985b255e80cd397d15505543d0d82f6940e30",
+    "hash": "22f74165d91938604def1d7559dd6f7db7d41ec4ce065b077b0ce5a3441394c8"
+  },
+  {
+    "index": 538,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.9202335,
+    "previous_hash": "22f74165d91938604def1d7559dd6f7db7d41ec4ce065b077b0ce5a3441394c8",
+    "hash": "f7a5afeab71a11a4e627a68b8a573911cb164a121e3e93fefea2454c6a4df486"
+  },
+  {
+    "index": 539,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.9320846,
+    "previous_hash": "f7a5afeab71a11a4e627a68b8a573911cb164a121e3e93fefea2454c6a4df486",
+    "hash": "d3efefeb890b17cef25faa123b05681d6a64558133dbbbbfc17235138f47811f"
+  },
+  {
+    "index": 540,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.9439137,
+    "previous_hash": "d3efefeb890b17cef25faa123b05681d6a64558133dbbbbfc17235138f47811f",
+    "hash": "d6cc456b778ca0a9d95f2f68a75239af8e98694bd6d768d6956e7edb07c62d99"
+  },
+  {
+    "index": 541,
+    "action": "INTENT_BLOCKED",
+    "details": {
+      "pipeline_status": "BLOCKED_AT_INTENT_LAYER",
+      "details": {
+        "status": "REJECTED_BY_SENTINEL",
+        "reason": "Dangerous destructive pattern detected in intent: 'rm -rf'",
+        "action": "HALT"
+      }
+    },
+    "timestamp": 1792486605.961149,
+    "previous_hash": "d6cc456b778ca0a9d95f2f68a75239af8e98694bd6d768d6956e7edb07c62d99",
+    "hash": "2e4984036e4ca289d84ef587c733bb9ec6c8c0624a5f34debf8fc51be25fd5b8"
+  },
+  {
+    "index": 542,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486605.976247,
+    "previous_hash": "2e4984036e4ca289d84ef587c733bb9ec6c8c0624a5f34debf8fc51be25fd5b8",
+    "hash": "47017dd77e7a9eb500867ebbfd403b40e1d59bc59cb79c3586a4bb2f7977eb10"
+  },
+  {
+    "index": 543,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.6557617,
+    "previous_hash": "47017dd77e7a9eb500867ebbfd403b40e1d59bc59cb79c3586a4bb2f7977eb10",
+    "hash": "31a73405482c86341dd6cb2eaf83e9da6ef1393dce35bb4313803336d7764d9e"
+  },
+  {
+    "index": 544,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.6694648,
+    "previous_hash": "31a73405482c86341dd6cb2eaf83e9da6ef1393dce35bb4313803336d7764d9e",
+    "hash": "42e5b22aacc3035d0af8afd708221738981ea720b4d8b73a52425733671e431e"
+  },
+  {
+    "index": 545,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.6806817,
+    "previous_hash": "42e5b22aacc3035d0af8afd708221738981ea720b4d8b73a52425733671e431e",
+    "hash": "22cab85ac78d7368e8be2223a5fadeca17f7949454a4d7a9023ccf3685c70a3d"
+  },
+  {
+    "index": 546,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.6911318,
+    "previous_hash": "22cab85ac78d7368e8be2223a5fadeca17f7949454a4d7a9023ccf3685c70a3d",
+    "hash": "d5114db45dfd92536b1b0428c324edbb199097a1e1a5708f057e691e47025482"
+  },
+  {
+    "index": 547,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.702313,
+    "previous_hash": "d5114db45dfd92536b1b0428c324edbb199097a1e1a5708f057e691e47025482",
+    "hash": "dfbc0d5a86b2e51c3bbf2e1e61e23161664da9f6181da0c54110f9d089360d60"
+  },
+  {
+    "index": 548,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7136211,
+    "previous_hash": "dfbc0d5a86b2e51c3bbf2e1e61e23161664da9f6181da0c54110f9d089360d60",
+    "hash": "52d06e9431c65b88b740674370239746de146241f2979fa3edd820bb7239f0f4"
+  },
+  {
+    "index": 549,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7243965,
+    "previous_hash": "52d06e9431c65b88b740674370239746de146241f2979fa3edd820bb7239f0f4",
+    "hash": "a1906dc4f7e06a2a62e51310fefc08f3204fda5c552b5fd39929671e3c0ad5ee"
+  },
+  {
+    "index": 550,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7368796,
+    "previous_hash": "a1906dc4f7e06a2a62e51310fefc08f3204fda5c552b5fd39929671e3c0ad5ee",
+    "hash": "58f57316f0c5891fddecef0ca4af6423d591f5d4811d3d03ba9590d6c462b507"
+  },
+  {
+    "index": 551,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7484705,
+    "previous_hash": "58f57316f0c5891fddecef0ca4af6423d591f5d4811d3d03ba9590d6c462b507",
+    "hash": "dfbe7e796ea7b95e1c602b6f7f5c33ad56c40b8a65862c3791ff1c475b2ad2fd"
+  },
+  {
+    "index": 552,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7591698,
+    "previous_hash": "dfbe7e796ea7b95e1c602b6f7f5c33ad56c40b8a65862c3791ff1c475b2ad2fd",
+    "hash": "341a76f2ed9fd25dc8f39a15526003234f52fc886918ec707ff03d5668fc5c84"
+  },
+  {
+    "index": 553,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7694566,
+    "previous_hash": "341a76f2ed9fd25dc8f39a15526003234f52fc886918ec707ff03d5668fc5c84",
+    "hash": "02b24a18f1f15612a24f1c73ff09118f3f8f1dbbbf3d7e8c06d32275029e3710"
+  },
+  {
+    "index": 554,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7810903,
+    "previous_hash": "02b24a18f1f15612a24f1c73ff09118f3f8f1dbbbf3d7e8c06d32275029e3710",
+    "hash": "dc9ab084388702cf1aae945bd0ef5179c29316cc84fe84660cd97b3596659488"
+  },
+  {
+    "index": 555,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.7925694,
+    "previous_hash": "dc9ab084388702cf1aae945bd0ef5179c29316cc84fe84660cd97b3596659488",
+    "hash": "8b677993cbaa34232d97f2c2399620bc1ae40e9522d790337db3c9184ecc40d0"
+  },
+  {
+    "index": 556,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.802986,
+    "previous_hash": "8b677993cbaa34232d97f2c2399620bc1ae40e9522d790337db3c9184ecc40d0",
+    "hash": "795e1df1b71954c0b6f01c26be718546e5fa037c1d37e7656bc57826214cbf77"
+  },
+  {
+    "index": 557,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.814485,
+    "previous_hash": "795e1df1b71954c0b6f01c26be718546e5fa037c1d37e7656bc57826214cbf77",
+    "hash": "65ee604e6796c3a8b5be05013944b9b203d7828f4bfb60a6bf31c9205272e9e5"
+  },
+  {
+    "index": 558,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.82455,
+    "previous_hash": "65ee604e6796c3a8b5be05013944b9b203d7828f4bfb60a6bf31c9205272e9e5",
+    "hash": "be69d7997b1dd69530927a7a2d6157c76b828f07ed48d21380edebab06f79dca"
+  },
+  {
+    "index": 559,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.835665,
+    "previous_hash": "be69d7997b1dd69530927a7a2d6157c76b828f07ed48d21380edebab06f79dca",
+    "hash": "f72643824e0a9ee0ed95584137e545c228add1686027109455666456879c353f"
+  },
+  {
+    "index": 560,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.8463023,
+    "previous_hash": "f72643824e0a9ee0ed95584137e545c228add1686027109455666456879c353f",
+    "hash": "4e45ff467dcb5102dbee9c449c28b643f3ba33f1455d1c44d692b586556eb674"
+  },
+  {
+    "index": 561,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.8576307,
+    "previous_hash": "4e45ff467dcb5102dbee9c449c28b643f3ba33f1455d1c44d692b586556eb674",
+    "hash": "3f8732ecbf29180a396607de997f54520d7e6cc279f11fcd6fcf915bfb4ed314"
+  },
+  {
+    "index": 562,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.8682172,
+    "previous_hash": "3f8732ecbf29180a396607de997f54520d7e6cc279f11fcd6fcf915bfb4ed314",
+    "hash": "a0c388fae4a32cc61a04e119a8789cd07a4774d66eec8993744ba95537139c45"
+  },
+  {
+    "index": 563,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.8800201,
+    "previous_hash": "a0c388fae4a32cc61a04e119a8789cd07a4774d66eec8993744ba95537139c45",
+    "hash": "56222c3b1699337edb1040076e7094cfa7d96c99d7df765794d50cebd7e6387d"
+  },
+  {
+    "index": 564,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.8979726,
+    "previous_hash": "56222c3b1699337edb1040076e7094cfa7d96c99d7df765794d50cebd7e6387d",
+    "hash": "30fe9b2533ca580ee3b3061941ef267bf9801fa8118943a2432a56d46aaa70d8"
+  },
+  {
+    "index": 565,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.9097486,
+    "previous_hash": "30fe9b2533ca580ee3b3061941ef267bf9801fa8118943a2432a56d46aaa70d8",
+    "hash": "f1c566851f962b60f4e04d7f764052a47164ab982cacf5b55defe74ed96f9eca"
+  },
+  {
+    "index": 566,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.9202158,
+    "previous_hash": "f1c566851f962b60f4e04d7f764052a47164ab982cacf5b55defe74ed96f9eca",
+    "hash": "b51f6c84a2c8b99aa64c736ab66bde3aa686c16dd536ac507f1d1ad8ce0e1ebf"
+  },
+  {
+    "index": 567,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.9322045,
+    "previous_hash": "b51f6c84a2c8b99aa64c736ab66bde3aa686c16dd536ac507f1d1ad8ce0e1ebf",
+    "hash": "7053e6409a631e87421fc573a108498b11a5e7f5b486068647d0431fe56d2276"
+  },
+  {
+    "index": 568,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.94391,
+    "previous_hash": "7053e6409a631e87421fc573a108498b11a5e7f5b486068647d0431fe56d2276",
+    "hash": "4c0f0ae15fe40a002a1e0242323aed836a9166fea4fd2ed75b1a2eea97edda3a"
+  },
+  {
+    "index": 569,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.9541998,
+    "previous_hash": "4c0f0ae15fe40a002a1e0242323aed836a9166fea4fd2ed75b1a2eea97edda3a",
+    "hash": "014a6ed6fae28318607deaa73c73b38f82d3278de78b788e922df20635fabb92"
+  },
+  {
+    "index": 570,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.966157,
+    "previous_hash": "014a6ed6fae28318607deaa73c73b38f82d3278de78b788e922df20635fabb92",
+    "hash": "654061096cfc089b195e5cf8e8ec30f47a23c49aa03f1969487de94ccbd294db"
+  },
+  {
+    "index": 571,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.9779232,
+    "previous_hash": "654061096cfc089b195e5cf8e8ec30f47a23c49aa03f1969487de94ccbd294db",
+    "hash": "7364d0bf6273d776b4111ab2fb813f084fa84a745cc079e43ea2eec7ee930c0f"
+  },
+  {
+    "index": 572,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486700.9896443,
+    "previous_hash": "7364d0bf6273d776b4111ab2fb813f084fa84a745cc079e43ea2eec7ee930c0f",
+    "hash": "d3db72d9a7904b3a6977179e1a28dcabbe901dbaa85ad217fa626ecb56beedc4"
+  },
+  {
+    "index": 573,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.001592,
+    "previous_hash": "d3db72d9a7904b3a6977179e1a28dcabbe901dbaa85ad217fa626ecb56beedc4",
+    "hash": "18e066d26633469bb9b47a10121c1931c7934880b492a292aed8d12a7f3ec828"
+  },
+  {
+    "index": 574,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.012445,
+    "previous_hash": "18e066d26633469bb9b47a10121c1931c7934880b492a292aed8d12a7f3ec828",
+    "hash": "d35db91dd87f39c141be8300a7fab7bb799846900610904b0f414302dda4d3a1"
+  },
+  {
+    "index": 575,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.0231717,
+    "previous_hash": "d35db91dd87f39c141be8300a7fab7bb799846900610904b0f414302dda4d3a1",
+    "hash": "f5db1d2592813d3b75fdf2d0fbe5b4273084b6ebef81e126ec41ad77c6f707c0"
+  },
+  {
+    "index": 576,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.0337126,
+    "previous_hash": "f5db1d2592813d3b75fdf2d0fbe5b4273084b6ebef81e126ec41ad77c6f707c0",
+    "hash": "f6a33b9b1e5d37fd01ce4fbf87187ffbea57ec2ddce48eac652dfaceff4e4a6c"
+  },
+  {
+    "index": 577,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.0451596,
+    "previous_hash": "f6a33b9b1e5d37fd01ce4fbf87187ffbea57ec2ddce48eac652dfaceff4e4a6c",
+    "hash": "012892d498c2b322834b62c6381be43c86f2b062cd0b2bf205901ecb91d28d1b"
+  },
+  {
+    "index": 578,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.0561883,
+    "previous_hash": "012892d498c2b322834b62c6381be43c86f2b062cd0b2bf205901ecb91d28d1b",
+    "hash": "b41b3ca779530d13052ecaeb288bebb582c51424d1ba2ca146ed0b67ea3512b7"
+  },
+  {
+    "index": 579,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.06764,
+    "previous_hash": "b41b3ca779530d13052ecaeb288bebb582c51424d1ba2ca146ed0b67ea3512b7",
+    "hash": "71a402171dc214f0a0e1fc7f46dcde936f967b1cb3dec85d6127aad423f7e53f"
+  },
+  {
+    "index": 580,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.079222,
+    "previous_hash": "71a402171dc214f0a0e1fc7f46dcde936f967b1cb3dec85d6127aad423f7e53f",
+    "hash": "0689585c69cd675a8d4984ff107053e6fce975d35e4690d275db30088d4d66e0"
+  },
+  {
+    "index": 581,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.091142,
+    "previous_hash": "0689585c69cd675a8d4984ff107053e6fce975d35e4690d275db30088d4d66e0",
+    "hash": "33933d7972771e465a70c5dc366e55ecab9bf1e11e2e2fb1309ddca94395a974"
+  },
+  {
+    "index": 582,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.1029255,
+    "previous_hash": "33933d7972771e465a70c5dc366e55ecab9bf1e11e2e2fb1309ddca94395a974",
+    "hash": "b7551e2ee67192646d57b780e1faf32bc104d2e7e8da96ebc72f04ed5365a134"
+  },
+  {
+    "index": 583,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.113802,
+    "previous_hash": "b7551e2ee67192646d57b780e1faf32bc104d2e7e8da96ebc72f04ed5365a134",
+    "hash": "6e4e104e3cf1861afea9ec8914da9d325db0e4c10d9348c0b7bf2fe99767d1f0"
+  },
+  {
+    "index": 584,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.1253877,
+    "previous_hash": "6e4e104e3cf1861afea9ec8914da9d325db0e4c10d9348c0b7bf2fe99767d1f0",
+    "hash": "e2ab04cde63ffcf9076ea650fe3ddab1e3de73a99ce4306b8e3c9a9a456ac4ef"
+  },
+  {
+    "index": 585,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.137737,
+    "previous_hash": "e2ab04cde63ffcf9076ea650fe3ddab1e3de73a99ce4306b8e3c9a9a456ac4ef",
+    "hash": "d7e4dc25cd22728dc0173ec234d16e36edbfa452f1a84e9a68bab7439917b72b"
+  },
+  {
+    "index": 586,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.1499696,
+    "previous_hash": "d7e4dc25cd22728dc0173ec234d16e36edbfa452f1a84e9a68bab7439917b72b",
+    "hash": "a5ca084de4fc734fb87ac070619e332f904c240555d1475c252acf3bfed36544"
+  },
+  {
+    "index": 587,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.1616166,
+    "previous_hash": "a5ca084de4fc734fb87ac070619e332f904c240555d1475c252acf3bfed36544",
+    "hash": "ec9c535cd62a57d54ea98984cd11bbeed6c751aa1318f98d3119a1a413dfe76c"
+  },
+  {
+    "index": 588,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.1736238,
+    "previous_hash": "ec9c535cd62a57d54ea98984cd11bbeed6c751aa1318f98d3119a1a413dfe76c",
+    "hash": "4b20867898534afb6c61fb5e0e5e1a8d5f5e1e01365cee6116f6bb4c1aadec03"
+  },
+  {
+    "index": 589,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.186033,
+    "previous_hash": "4b20867898534afb6c61fb5e0e5e1a8d5f5e1e01365cee6116f6bb4c1aadec03",
+    "hash": "6c5a58dc001b50d94b05cd1519fbbc484c05f07cd43b3b6404bcc9130c8b887b"
+  },
+  {
+    "index": 590,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.1984203,
+    "previous_hash": "6c5a58dc001b50d94b05cd1519fbbc484c05f07cd43b3b6404bcc9130c8b887b",
+    "hash": "5c12047146329ea002e3743eb9ba004664096bd7d85e37c6db8d1e14ea840f8b"
+  },
+  {
+    "index": 591,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.210588,
+    "previous_hash": "5c12047146329ea002e3743eb9ba004664096bd7d85e37c6db8d1e14ea840f8b",
+    "hash": "a6dde6589757fe508b10ee5fc47d9c13883c402f7726450645ca4355ea952589"
+  },
+  {
+    "index": 592,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.2226846,
+    "previous_hash": "a6dde6589757fe508b10ee5fc47d9c13883c402f7726450645ca4355ea952589",
+    "hash": "3289a43a59119dc5c7801c1cb7119fdae6cfb9a5ce886dc57c599f77f61eae9a"
+  },
+  {
+    "index": 593,
+    "action": "INTENT_BLOCKED",
+    "details": {
+      "pipeline_status": "BLOCKED_AT_INTENT_LAYER",
+      "details": {
+        "status": "REJECTED_BY_SENTINEL",
+        "reason": "Dangerous destructive pattern detected in intent: 'rm -rf'",
+        "action": "HALT"
+      }
+    },
+    "timestamp": 1792486701.2396002,
+    "previous_hash": "3289a43a59119dc5c7801c1cb7119fdae6cfb9a5ce886dc57c599f77f61eae9a",
+    "hash": "97c1c7510bd2ac448182073cc3e5acc6ae6287219ecdf6f28b8bbe1c7e4cd3b7"
+  },
+  {
+    "index": 594,
+    "action": "EXECUTION_COMPLETED",
+    "details": {
+      "pipeline_status": "SUCCESS",
+      "execution_details": {
+        "status": "SUCCESS",
+        "code": 0,
+        "stdout": "ARCHITECTURE.md\nCHALLENGE.md\nCHANGELOG.md\nCONTRIBUTING.md\nDockerfile\nLICENSE\nMakefile\nREADME.md\nRELEASE_NOTES.md\nSECURITY.md\n__pycache__\napi_server.py\nconfig\ndist\ndocker-compose.yml\ndocs\nintegrate_stack.py\nmobile_node.py\nnomaanos_cli.py\nopenapi.json\npyproject.toml\nredteam_benchmark.json\nrequirements-dev.txt\nscripts\nsrc\ntests\ntui_dashboard.py\nweb",
+        "stderr": ""
+      }
+    },
+    "timestamp": 1792486701.254509,
+    "previous_hash": "97c1c7510bd2ac448182073cc3e5acc6ae6287219ecdf6f28b8bbe1c7e4cd3b7",
+    "hash": "63b626490ae47cb2b7e07627b8306e253d6216868ada9121b2a6a24d63e6d455"
   }
 ]

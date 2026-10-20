@@ -5,4 +5,4 @@ __version__ = "6.0.0"
 
 from nomaanos.cli import main_cli as main
 
-__all__ = ["main", "__version__"]
+__all__ = ["__version__", "main"]
