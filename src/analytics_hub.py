@@ -1,36 +1,49 @@
-import time
+from __future__ import annotations
+
+from typing import Any
+
+from nomaanos.ledger.engine import EvidenceLedger
+from nomaanos.soc.telemetry import HostTelemetryProbe
 
 
-class EnterpriseAnalyticsHub:
+class AnalyticsHub:
     """
-    NomaanOS Enterprise Performance & Telemetry Analytics Hub.
-    Computes runtime core throughput, latency benchmarks, and operational load.
+    NomaanOS Telemetry & Ledger Analytics Engine.
+    Aggregates real-time host telemetry and cryptographic ledger statistics
+    into actionable security operations center (SOC) metrics.
     """
-    def __init__(self):
-        self.hub_version = "v6.0-ENTERPRISE"
 
-    def compute_analytics(self) -> dict:
-        print("\n[!] COMPUTING ENTERPRISE PERFORMANCE ANALYTICS...")
-        print("-" * 60)
-        
-        analytics = {
-            "hub_version": self.hub_version,
-            "core_throughput_rps": 4850.25,
-            "average_latency_ms": 1.42,
-            "memory_footprint_mb": 42.8,
-            "active_security_modules": 52,
-            "analytics_status": "OPTIMIZED_AND_PEAK_PERFORMANCE",
-            "timestamp": int(time.time())
+    def __init__(self, ledger_path: str = "config/audit_trail.jsonl") -> None:
+        self.probe = HostTelemetryProbe()
+        self.ledger = EvidenceLedger(storage_path=ledger_path)
+
+    def aggregate_metrics(self) -> dict[str, Any]:
+        telemetry = self.probe.collect_metrics()
+        chain = self.ledger.chain
+
+        total_blocks = len(chain)
+        artifacts_count: dict[str, int] = {}
+        for block in chain:
+            art = block.get("artifact", "unknown")
+            artifacts_count[art] = artifacts_count.get(art, 0) + 1
+
+        mem_total = telemetry.get("mem_total_mb", 1)
+        mem_avail = telemetry.get("mem_available_mb", 0)
+        mem_used_pct = (
+            round(((mem_total - mem_avail) / mem_total) * 100, 2) if mem_total else 0.0
+        )
+
+        return {
+            "status": "OPERATIONAL",
+            "memory_utilization_pct": mem_used_pct,
+            "load_1m": telemetry.get("load_1m", 0.0),
+            "active_tasks": telemetry.get("active_processes", 0),
+            "ledger_blocks_indexed": total_blocks,
+            "ledger_integrity": self.ledger.verify_integrity(),
+            "artifact_distribution": artifacts_count,
         }
-        
-        print(f"    --> Throughput       : {analytics['core_throughput_rps']} Req/sec")
-        print(f"    --> Avg Latency      : {analytics['average_latency_ms']} ms")
-        print(f"    --> System Status    : {analytics['analytics_status']}")
-        print("-" * 60)
-        print("[+] Enterprise Analytics Computed Successfully.\n")
-        
-        return analytics
+
 
 if __name__ == "__main__":
-    hub = EnterpriseAnalyticsHub()
-    hub.compute_analytics()
+    hub = AnalyticsHub()
+    print("Analytics Snapshot:", hub.aggregate_metrics())

@@ -1,48 +1,75 @@
+from __future__ import annotations
+
 import hashlib
-import json
+import hmac
 import time
-from pathlib import Path
+from typing import Any
+
+from neural_lock import NeuralLock
+from nomaanos.ledger.engine import EvidenceLedger
 
 
-class AttestationIssuer:
+class SovereignAttestationIssuer:
     """
-    NomaanOS Cryptographic Certificate & Enclave Attestation Issuer.
-    Issues cryptographically signed root credentials for certified swarm nodes.
+    NomaanOS Sovereign Node Attestation Issuer.
+    Issues cryptographically bound hardware context tokens and ledger head
+    attestations to establish trust with external nodes.
     """
-    def __init__(self, cert_dir: str = "config/certs"):
-        self.cert_path = Path(cert_dir)
-        self.cert_path.mkdir(parents=True, exist_ok=True)
 
-    def issue_certificate(self, node_name: str = "NODE-S25-PRIME") -> dict:
-        print(f"\n[!] ISSUING CRYPTOGRAPHIC ENCLAVE CERTIFICATE FOR {node_name}...")
-        print("-" * 60)
-        
-        issued_at = int(time.time())
-        expiry = issued_at + 31536000  # 1 Year Validity
-        
-        raw_cert_data = f"{node_name}:{issued_at}:{expiry}:SOVEREIGN-ROOT-CA"
-        cert_hash = hashlib.sha256(raw_cert_data.encode()).hexdigest()
-        
-        certificate = {
-            "certificate_id": f"CERT-{cert_hash[:12].upper()}",
-            "node_name": node_name,
-            "issuer": "NomaanOS Sovereign Root CA",
-            "issued_at": issued_at,
-            "expires_at": expiry,
-            "cryptographic_fingerprint": cert_hash,
-            "status": "VALID_AND_TRUSTED"
+    def __init__(
+        self,
+        ledger_path: str = "config/audit_trail.jsonl",
+        signing_key: bytes | None = None,
+    ) -> None:
+        self.neural_lock = NeuralLock()
+        self.ledger = EvidenceLedger(storage_path=ledger_path)
+        self.signing_key = signing_key or b"NOMAANOS_SOVEREIGN_NODE_KEY_DEFAULT"
+
+    def issue_node_attestation(self, claim: str) -> dict[str, Any]:
+        node_token = self.neural_lock.generate_attestation_token(claim)
+        ledger_head = (
+            self.ledger.chain[-1]["current_hash"] if self.ledger.chain else "0" * 64
+        )
+
+        timestamp = time.time()
+        payload = f"{node_token['node_fingerprint']}:{claim}:{ledger_head}:{timestamp}"
+        signature = hmac.new(
+            self.signing_key, payload.encode("utf-8"), hashlib.sha256
+        ).hexdigest()
+
+        return {
+            "claim": claim,
+            "node_fingerprint": node_token["node_fingerprint"],
+            "ledger_head": ledger_head,
+            "ledger_blocks": len(self.ledger.chain),
+            "timestamp": timestamp,
+            "attestation_signature": signature,
+            "status": "ATTESTED",
         }
-        
-        cert_file = self.cert_path / f"{node_name}_cert.json"
-        cert_file.write_text(json.dumps(certificate, indent=2))
-        
-        print(f"    --> Certificate ID: {certificate['certificate_id']}")
-        print(f"    --> Fingerprint: {cert_hash[:24]}...")
-        print("-" * 60)
-        print("[+] Cryptographic Attestation Issued Successfully.\n")
-        
-        return certificate
+
+    def verify_attestation(self, attestation: dict[str, Any]) -> bool:
+        required_fields = [
+            "claim",
+            "node_fingerprint",
+            "ledger_head",
+            "timestamp",
+            "attestation_signature",
+        ]
+        if not all(field in attestation for field in required_fields):
+            return False
+
+        payload = (
+            f"{attestation['node_fingerprint']}:{attestation['claim']}:"
+            f"{attestation['ledger_head']}:{attestation['timestamp']}"
+        )
+        expected = hmac.new(
+            self.signing_key, payload.encode("utf-8"), hashlib.sha256
+        ).hexdigest()
+        return hmac.compare_digest(expected, attestation["attestation_signature"])
+
 
 if __name__ == "__main__":
-    issuer = AttestationIssuer()
-    issuer.issue_certificate()
+    issuer = SovereignAttestationIssuer()
+    att = issuer.issue_node_attestation("NODE_PRIMARY_BOOT")
+    print("Issued Attestation:", att)
+    print("Verification:", issuer.verify_attestation(att))

@@ -225,3 +225,35 @@ def test_real_compliance_auditor():
     assert audit["compliance_status"] in ("COMPLIANT", "NON_COMPLIANT")
     assert audit["total_controls_evaluated"] >= 4
     assert audit["controls"]["source_tree_intact"] is True
+
+
+def test_real_analytics_hub(tmp_path):
+    from analytics_hub import AnalyticsHub
+    from nomaanos.ledger.engine import EvidenceLedger
+
+    ledger_path = tmp_path / "analytics_ledger.jsonl"
+    ledger = EvidenceLedger(storage_path=str(ledger_path))
+    ledger.record_entry("core_router", "forward_packet")
+
+    hub = AnalyticsHub(ledger_path=str(ledger_path))
+    stats = hub.aggregate_metrics()
+    assert stats["status"] == "OPERATIONAL"
+    assert stats["ledger_blocks_indexed"] == 1
+    assert "memory_utilization_pct" in stats
+    assert stats["ledger_integrity"] is True
+
+
+def test_real_attestation_issuer(tmp_path):
+    from attestation_issuer import SovereignAttestationIssuer
+
+    ledger_path = tmp_path / "attest_ledger.jsonl"
+    issuer = SovereignAttestationIssuer(ledger_path=str(ledger_path))
+    attestation = issuer.issue_node_attestation("RUNTIME_HEALTHCHECK_PASS")
+    assert attestation["status"] == "ATTESTED"
+    assert len(attestation["attestation_signature"]) == 64
+    assert issuer.verify_attestation(attestation) is True
+
+    # Tampering test
+    tampered = dict(attestation)
+    tampered["claim"] = "UNAUTHORIZED_CLAIM"
+    assert issuer.verify_attestation(tampered) is False
