@@ -1,8 +1,10 @@
-"""NomaanOS - Sovereign Edge AI Kernel Package."""
 from __future__ import annotations
 
 __version__ = "6.0.0"
-
-from .cli import main_cli as main
-
 __all__ = ["__version__", "main"]
+
+
+def main() -> int:
+    from nomaanos.cli import main_cli
+
+    return main_cli()
