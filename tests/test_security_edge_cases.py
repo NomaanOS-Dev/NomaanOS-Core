@@ -491,3 +491,42 @@ def test_real_badge_generator(tmp_path):
     assert "48 passing" in tests_svg
     ledger_svg = (badge_dir / "ledger.svg").read_text(encoding="utf-8")
     assert "verified" in ledger_svg
+
+
+def test_real_sovereign_license():
+    from sovereign_license import SovereignLicenseEngine
+
+    engine = SovereignLicenseEngine()
+    lic = engine.issue_license(tenant_id="SECURE_TEST_TENANT", validity_days=30)
+    verdict = engine.verify_license(lic)
+
+    assert verdict["valid"] is True
+    assert verdict["tenant_id"] == "SECURE_TEST_TENANT"
+    assert verdict["days_remaining"] > 25
+
+    # Tampered signature test
+    tampered_lic = dict(lic)
+    tampered_lic["tenant_id"] = "TAMPERED_TENANT"
+    tampered_verdict = engine.verify_license(tampered_lic)
+    assert tampered_verdict["valid"] is False
+    assert tampered_verdict["reason"] == "CRYPTOGRAPHIC_SIGNATURE_TAMPERED"
+
+
+def test_real_summary_exporter(tmp_path):
+    from summary_exporter import SecuritySummaryExporter
+
+    report_dir = tmp_path / "reports"
+    ledger_path = tmp_path / "summary_ledger.jsonl"
+
+    exporter = SecuritySummaryExporter(
+        ledger_path=str(ledger_path), output_dir=str(report_dir)
+    )
+    res = exporter.export_summary()
+
+    assert res["status"] == "SUMMARY_EXPORTED"
+    assert (report_dir / "security_summary.json").is_file()
+    assert (report_dir / "security_summary.md").is_file()
+    assert (
+        "EXECUTIVE_SECURITY_SUMMARY"
+        in (report_dir / "security_summary.json").read_text()
+    )
