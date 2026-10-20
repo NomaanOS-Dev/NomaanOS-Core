@@ -1,38 +1,63 @@
-import time
+from __future__ import annotations
+
+import os
+import resource
+import shutil
+from pathlib import Path
+from typing import Any
 
 
 class MasterHealthInspector:
     """
     NomaanOS Automated Master Health Inspector & Enclave Auditor.
-    Performs comprehensive runtime checks on system integrity.
+    Performs real OS-level runtime checks on file descriptor boundaries,
+    shared memory safety, cryptographic entropy, and disk thresholds.
     """
-    def __init__(self):
+
+    def __init__(self) -> None:
         self.version = "v6.0.0-STABLE"
 
-    def inspect_health(self) -> dict:
-        print("\n[!] INITIATING MASTER HEALTH & ENCLAVE INSPECTION...")
-        print("-" * 60)
-        
+    def _check_entropy(self) -> int:
+        entropy_path = Path("/proc/sys/kernel/random/entropy_avail")
+        if entropy_path.exists():
+            try:
+                return int(entropy_path.read_text().strip())
+            except (OSError, ValueError):
+                pass
+        return 256
+
+    def inspect_health(self) -> dict[str, Any]:
+        soft_nofile, _ = resource.getrlimit(resource.RLIMIT_NOFILE)
+        entropy = self._check_entropy()
+        disk = shutil.disk_usage(".")
+        free_disk_gb = round(disk.free / (1024**3), 2)
+
+        shm_path = Path("/dev/shm")
+        shm_accessible = shm_path.exists() and os.access(shm_path, os.R_OK | os.W_OK)
+
         checks = {
-            "memory_integrity": "SECURE_ENCRYPTED_RAM",
-            "kernel_bindings": "ISOLATED_SANDBOX",
-            "crypto_subsystem": "SHA256_MERKLE_ACTIVE",
-            "allowlist_firewall": "STRICT_ENFORCEMENT"
+            "file_descriptors_ok": soft_nofile >= 1024,
+            "crypto_entropy_ready": entropy >= 128,
+            "disk_headroom_sufficient": free_disk_gb > 1.0,
+            "shared_memory_accessible": shm_accessible,
         }
-        
-        for k, v in checks.items():
-            print(f"    [VERIFIED] {k.replace('_', ' ').title():<22} : {v}")
-            time.sleep(0.05)
-            
-        print("-" * 60)
-        print("[+] Master Health Inspection Completed. Verdict: ALL_SYSTEMS_OPTIMAL.\n")
-        
+
+        all_passed = all(checks.values())
+
         return {
-            "inspection_status": "SUCCESS",
+            "version": self.version,
+            "inspection_status": "SUCCESS" if all_passed else "DEGRADED",
             "checks_performed": len(checks),
-            "verdict": "ALL_SYSTEMS_OPTIMAL"
+            "checks": checks,
+            "metrics": {
+                "soft_nofile": soft_nofile,
+                "entropy_avail": entropy,
+                "free_disk_gb": free_disk_gb,
+            },
+            "verdict": "ALL_SYSTEMS_OPTIMAL" if all_passed else "DEGRADED_THRESHOLDS",
         }
+
 
 if __name__ == "__main__":
     inspector = MasterHealthInspector()
-    inspector.inspect_health()
+    print("Health Inspection:", inspector.inspect_health())

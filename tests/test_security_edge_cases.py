@@ -123,3 +123,25 @@ def test_real_kernel_boot():
     assert res["status"] in ("BOOT_SUCCESS_ALL_SYSTEMS_GO", "BOOT_DEGRADED")
     assert res["phases"]["runtime_binary_valid"] is True
     assert res["phases"]["config_storage_writable"] is True
+
+
+def test_real_health_inspector():
+    from health_inspector import MasterHealthInspector
+
+    inspector = MasterHealthInspector()
+    report = inspector.inspect_health()
+    assert report["inspection_status"] in ("SUCCESS", "DEGRADED")
+    assert report["checks_performed"] >= 4
+    assert "entropy_avail" in report["metrics"]
+
+
+def test_real_enclave_bootstrapper(tmp_path):
+    from bootstrapper import EnclaveBootstrapper
+
+    bootstrapper = EnclaveBootstrapper(base_dir=str(tmp_path))
+    res = bootstrapper.bootstrap_enclave()
+    assert res["status"] == "BOOTSTRAP_COMPLETE"
+    assert res["ledger_anchor_verified"] is True
+    assert res["ledger_blocks"] >= 1
+    assert (tmp_path / "config").exists()
+    assert (tmp_path / "logs").exists()
