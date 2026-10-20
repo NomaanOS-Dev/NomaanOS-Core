@@ -1,31 +1,41 @@
+from __future__ import annotations
+
 import hashlib
-import json
-import time
+from typing import Any
+
+from nomaanos.ledger.engine import EvidenceLedger
 
 
-class SwarmSyncProtocol:
+class SwarmNodeSync:
     """
-    NomaanOS Decentralized P2P Swarm Sync & Heartbeat Protocol.
-    Manages cryptographic node discovery and ledger state synchronization across edge swarms.
+    NomaanOS Node State Synchronization Engine.
+    Generates node-level Merkle state roots across the audit ledger
+    for zero-trust consensus and multi-node ledger verification.
     """
-    def __init__(self, node_id: str = "NODE-S25-PRIMARY"):
-        self.node_id = node_id
-        self.genesis_time = time.time()
 
-    def broadcast_heartbeat(self) -> dict:
-        print(f"\n[SWARM] Broadcasting cryptographic heartbeat from {self.node_id}...")
-        payload = f"{self.node_id}:{self.genesis_time}:{time.time()}"
-        node_signature = hashlib.sha256(payload.encode()).hexdigest()
-        
-        heartbeat_packet = {
-            "node_id": self.node_id,
-            "status": "SWARM_ACTIVE",
-            "timestamp": time.time(),
-            "node_signature": node_signature
+    def __init__(self, ledger_path: str = "config/audit_trail.jsonl") -> None:
+        self.ledger = EvidenceLedger(storage_path=ledger_path)
+
+    def compute_state_root(self) -> str:
+        """Computes a unified root hash representing the entire node state."""
+        if not self.ledger.chain:
+            return "0" * 64
+
+        concatenated_hashes = "".join(b["current_hash"] for b in self.ledger.chain)
+        return hashlib.sha256(concatenated_hashes.encode("utf-8")).hexdigest()
+
+    def verify_and_sync(self) -> dict[str, Any]:
+        integrity_ok = self.ledger.verify_integrity()
+        state_root = self.compute_state_root()
+
+        return {
+            "node_state": "SYNCHRONIZED" if integrity_ok else "DESYNCHRONIZED_TAMPERED",
+            "chain_length": len(self.ledger.chain),
+            "state_root": state_root,
+            "integrity_verified": integrity_ok,
         }
-        print(f"    --> Swarm Signature Verified: {node_signature[:24]}...")
-        return heartbeat_packet
+
 
 if __name__ == "__main__":
-    swarm = SwarmSyncProtocol()
-    print(json.dumps(swarm.broadcast_heartbeat(), indent=2))
+    node = SwarmNodeSync()
+    print("Swarm Sync State:", node.verify_and_sync())

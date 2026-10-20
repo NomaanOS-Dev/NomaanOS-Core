@@ -169,3 +169,38 @@ def test_real_quantum_shield():
     assert (
         shield.verify_quantum_armor("TAMPERED_PAYLOAD", armor["armor_token"]) is False
     )
+
+
+def test_real_threat_simulator():
+    from threat_simulator import ThreatSimulator
+
+    sim = ThreatSimulator()
+    report = sim.simulate_attack_vectors()
+    assert report["verdict"] == "FAIL_CLOSED_DEFENSES_VERIFIED"
+    assert report["total_attack_vectors_tested"] == 3
+
+
+def test_real_telemetry_streamer():
+    from streamer import TelemetryStreamer
+
+    streamer = TelemetryStreamer()
+    events = list(streamer.stream_telemetry(max_samples=3))
+    assert len(events) == 3
+    assert events[0]["sequence_id"] == 1
+    assert "active_processes" in events[0]
+
+
+def test_real_swarm_sync(tmp_path):
+    from nomaanos.ledger.engine import EvidenceLedger
+    from swarm_sync import SwarmNodeSync
+
+    ledger_path = tmp_path / "sync_ledger.jsonl"
+    ledger = EvidenceLedger(storage_path=str(ledger_path))
+    ledger.record_entry("node_1", "init_tx")
+    ledger.record_entry("node_1", "state_update")
+
+    sync = SwarmNodeSync(ledger_path=str(ledger_path))
+    res = sync.verify_and_sync()
+    assert res["node_state"] == "SYNCHRONIZED"
+    assert res["chain_length"] == 2
+    assert len(res["state_root"]) == 64

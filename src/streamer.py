@@ -1,28 +1,28 @@
-import time
-from pathlib import Path
+from __future__ import annotations
+
+from typing import Any, Iterator
+
+from nomaanos.soc.telemetry import HostTelemetryProbe
 
 
 class TelemetryStreamer:
     """
-    NomaanOS Real-Time Security Telemetry & Event Streamer.
-    Tails cryptographic audit ledgers and streams live enclave telemetry.
+    NomaanOS Live SOC Telemetry Streamer.
+    Streams real kernel and host telemetry samples for real-time dashboards
+    and audit ingestion without artificial delay loops.
     """
-    def __init__(self, audit_file: str = "config/audit_trail.json"):
-        self.audit_path = Path(audit_file)
 
-    def stream_telemetry(self, cycles: int = 3):
-        print(f"\n[!] INITIATING LIVE TELEMETRY STREAM ({cycles} CYCLES)...")
-        print("-" * 60)
-        
-        for i in range(1, cycles + 1):
-            timestamp = time.strftime('%H:%M:%S', time.localtime())
-            print(f"[{timestamp}] [STREAM-NODE-PRIME] Enclave Heartbeat Active | CPU: Normal | Memory: Secure | Status: OK")
-            time.sleep(0.5)
-            
-        print("-" * 60)
-        print("[+] Telemetry Stream Completed Successfully.\n")
-        return {"stream_status": "ACTIVE_AND_STREAMING", "cycles_completed": cycles}
+    def __init__(self) -> None:
+        self.probe = HostTelemetryProbe()
+
+    def stream_telemetry(self, max_samples: int = 5) -> Iterator[dict[str, Any]]:
+        for i in range(max_samples):
+            sample = self.probe.collect_metrics()
+            sample["sequence_id"] = i + 1
+            yield sample
+
 
 if __name__ == "__main__":
     streamer = TelemetryStreamer()
-    streamer.stream_telemetry()
+    for telemetry_event in streamer.stream_telemetry(max_samples=2):
+        print("Live Event:", telemetry_event)
