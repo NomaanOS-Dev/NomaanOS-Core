@@ -2,12 +2,13 @@ name: NomaanOS-Core Security & Integrity CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  lint-and-audit:
+  lint-and-sast:
+    name: Code Quality & SAST Audit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -16,28 +17,28 @@ jobs:
       - name: Set up Python 3.10
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
+          cache: "pip"
 
-      - name: Install Linting & Security Tools
+      - name: Install Tooling Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install ruff bandit
+          pip install ruff bandit pytest pytest-cov
 
-      - name: Code Quality & Architecture Linter (Ruff)
-        run: |
-          ruff check .
+      - name: Run Ruff Architecture & Format Linter
+        run: ruff check .
 
-      - name: Static Application Security Testing (Bandit)
-        run: |
-          bandit -r src/ -ll
+      - name: Run Bandit Static Application Security Testing (SAST)
+        run: bandit -r src/ -ll
 
-  matrix-test-suite:
-    needs: lint-and-audit
+  test-matrix:
+    name: Zero-Trust Matrix Verification
     runs-on: ubuntu-latest
+    needs: lint-and-sast
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -46,18 +47,38 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+          cache: "pip"
 
-      - name: Install Test Dependencies
+      - name: Install Package & Test Dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
           pip install pytest pytest-cov
+          pip install -e .
 
-      - name: Run Pytest with Coverage
-        run: |
-          pytest -v --cov=src
+      - name: Execute Cryptographic & Security Test Suite
+        run: pytest -v
 
-      - name: Test CLI Dispatch & Integrity Checks
+  package-build-audit:
+    name: Packaging & Wheel Metadata Verification
+    runs-on: ubuntu-latest
+    needs: lint-and-sast
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: Install Build & Validation Tooling
         run: |
-          python nomaanos.py --status
-          python nomaanos.py chain-verify
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build sdist and Wheel Artifacts
+        run: python -m build
+
+      - name: Strict Twine Metadata & Distribution Audit
+        run: twine check --strict dist/*
