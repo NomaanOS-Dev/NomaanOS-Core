@@ -11,13 +11,20 @@ class TestSecurityPrimitives(unittest.TestCase):
     def test_hmac_integrity_verification(self):
         sig = hmac.new(self.secret, self.payload, hashlib.sha256).hexdigest()
         tampered_sig = hmac.new(b"wrong_key", self.payload, hashlib.sha256).hexdigest()
-        self.assertNotEqual(sig, tampered_sig, "Tampered signature should never match authentic signature")
+        self.assertNotEqual(
+            sig,
+            tampered_sig,
+            "Tampered signature should never match authentic signature",
+        )
 
     def test_tamper_detection_in_log(self):
         orig_hash = hashlib.sha256(self.payload).hexdigest()
         tampered_payload = b"audit_event_kernel_boot_modified"
         tampered_hash = hashlib.sha256(tampered_payload).hexdigest()
-        self.assertNotEqual(orig_hash, tampered_hash, "Hash mismatch must trigger anomaly alert")
+        self.assertNotEqual(
+            orig_hash, tampered_hash, "Hash mismatch must trigger anomaly alert"
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
@@ -46,3 +53,31 @@ def test_master_health_check_memory_pressure_threshold():
         assert telemetry["memory_pressure"] is True
         result = hc.run_full_attestation()
         assert result["node_attestation"] == "SUBSYSTEM_OR_RESOURCE_WARNING"
+
+
+def test_evidence_ledger_jsonl_persistence_and_reload(tmp_path):
+    from nomaanos.ledger.engine import EvidenceLedger
+
+    ledger_file = tmp_path / "test_ledger.jsonl"
+    ledger1 = EvidenceLedger(storage_path=str(ledger_file))
+    ledger1.record_entry("auth_service", "session_start")
+    ledger1.record_entry("firewall", "drop_syn_flood")
+    assert len(ledger1.chain) == 2
+    assert ledger1.verify_integrity() is True
+
+    # Re-instantiate from the same file to verify disk recovery
+    ledger2 = EvidenceLedger(storage_path=str(ledger_file))
+    assert len(ledger2.chain) == 2
+    assert ledger2.chain[1]["artifact"] == "firewall"
+    assert ledger2.verify_integrity() is True
+
+
+def test_real_telemetry_probe_metrics():
+    from nomaanos.soc.telemetry import HostTelemetryProbe
+
+    probe = HostTelemetryProbe()
+    metrics = probe.collect_metrics()
+    assert "mem_available_mb" in metrics
+    assert "active_processes" in metrics
+    assert "load_1m" in metrics
+    assert metrics["status"] in ("HEALTHY", "DEGRADED")
