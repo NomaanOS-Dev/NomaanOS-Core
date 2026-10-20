@@ -336,3 +336,35 @@ def test_real_security_fuzzer():
     assert res["status"] == "FUZZING_COMPLETED"
     assert res["total_tested"] == 8
     assert res["blocked_count"] > 0
+
+
+def test_real_log_rotator(tmp_path):
+    from log_rotator import EnclaveLogRotator
+
+    log_dir = tmp_path / "logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    active_log = log_dir / "audit.log"
+    # Write 2 KB payload
+    active_log.write_text("A" * 2048, encoding="utf-8")
+
+    # Set threshold to 1 KB to force rotation
+    rotator = EnclaveLogRotator(target_dir=str(log_dir), max_bytes=1024, max_archives=2)
+    res = rotator.rotate_file_if_needed(active_log)
+
+    assert res["rotated"] is True
+    assert active_log.read_text(encoding="utf-8") == ""
+    archives = list(log_dir.glob("audit.log.*.gz"))
+    assert len(archives) == 1
+
+
+def test_real_stress_tester(tmp_path):
+    from stress_test import EnclaveStressTester
+
+    ledger_file = tmp_path / "stress_ledger.jsonl"
+    tester = EnclaveStressTester(ledger_path=str(ledger_file))
+    res = tester.execute_stress_run(iterations=10)
+
+    assert res["status"] == "STRESS_TEST_PASSED"
+    assert res["exec_failures"] == 0
+    assert res["ledger_verified"] is True
+    assert res["p50_exec_latency_ms"] >= 0.0
