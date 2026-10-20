@@ -444,3 +444,24 @@ def test_real_release_manifest_generator(tmp_path):
     assert manifest["total_source_files"] > 0
     assert len(manifest["root_sha256"]) == 64
     assert out_file.is_file()
+
+
+def test_real_hardware_bridge():
+    from hardware_bridge import HardwareEnclaveBridge
+
+    bridge = HardwareEnclaveBridge()
+    res = bridge.inspect_enclave_hardware()
+    assert res["status"] == "HARDWARE_AUDIT_COMPLETE"
+    assert res["cpu_cores"] >= 1
+    assert "aes_ni_present" in res["hardware_crypto"]
+    assert res["security_tier"] in ("HARDWARE_ACCELERATED", "SOFTWARE_FALLBACK")
+
+
+def test_real_telemetry_dashboard():
+    from telemetry_dashboard import TelemetryDashboard
+
+    dash = TelemetryDashboard()
+    view = dash.generate_dashboard_view()
+    assert view["status"] == "ACTIVE"
+    assert view["cpu_cores"] >= 1
+    assert "mem_available_mb" in view
