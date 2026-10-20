@@ -566,3 +566,28 @@ def test_real_release_notes_generator(tmp_path):
         "# NomaanOS Sovereign Core Release Notes - v6.0.0-PROD"
         in notes_file.read_text()
     )
+
+
+def test_real_deployment_shield(tmp_path):
+    from deployment_shield import ProductionDeploymentShield
+
+    ledger_path = tmp_path / "shield_ledger.jsonl"
+    shield = ProductionDeploymentShield(ledger_path=str(ledger_path))
+    res = shield.verify_deployment_readiness()
+
+    assert "deployment_permitted" in res
+    assert "gate_seal" in res
+    assert len(res["gate_seal"]) == 64
+    assert res["checks"]["ledger_cryptographically_sound"] is True
+
+
+def test_real_deploy_verifier(tmp_path):
+    from deploy_verifier import DeployVerifier
+
+    ledger_path = tmp_path / "deploy_ledger.jsonl"
+    verifier = DeployVerifier(ledger_path=str(ledger_path))
+    report = verifier.verify_post_deploy_state()
+
+    assert report["deployment_verdict"] in ("VERIFIED_OPERATIONAL", "DEGRADED_STATE")
+    assert report["ledger_verified"] is True
+    assert "memory_headroom_mb" in report

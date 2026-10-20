@@ -1,39 +1,51 @@
-from pathlib import Path
+from __future__ import annotations
+
+from typing import Any
+
+from health_check import MasterHealthCheck
+from nomaanos.ledger.engine import EvidenceLedger
+from nomaanos.soc.telemetry import HostTelemetryProbe
 
 
-class DeploymentVerifier:
+class DeployVerifier:
     """
-    NomaanOS Automated Production Deployment & Artifact Verifier.
-    Performs final pre-flight checks before releasing nodes to production swarms.
+    NomaanOS Post-Deployment Verification & System Gatekeeper.
+    Performs runtime health attestation, ledger continuity inspection,
+    and host resource validation immediately following node startup.
     """
-    def __init__(self):
-        self.config_dir = Path("config")
-        self.release_file = self.config_dir / "release_manifest.json"
-        self.sbom_file = self.config_dir / "sbom.json"
 
-    def verify_deployment_readiness(self) -> dict:
-        print("\n[!] INITIATING DEPLOYMENT READINESS VERIFICATION...")
-        print("-" * 60)
-        
-        checks = {
-            "release_manifest_present": self.release_file.exists(),
-            "sbom_inventory_present": self.sbom_file.exists(),
-            "enclave_isolation_verified": True,
-            "cryptographic_signatures_valid": True
-        }
-        
-        ready = all(checks.values())
-        verdict = "NODE_READY_FOR_PRODUCTION_SWARM" if ready else "DEPLOYMENT_HALTED"
-        
-        print(f"    --> Deployment Verdict: {verdict}")
-        print("-" * 60)
-        print("[+] Deployment Verification Completed Successfully.\n")
-        
+    def __init__(self, ledger_path: str = "config/audit_trail.jsonl") -> None:
+        self.probe = HostTelemetryProbe()
+        self.health = MasterHealthCheck()
+        self.ledger = EvidenceLedger(storage_path=ledger_path)
+
+    def verify_post_deploy_state(self) -> dict[str, Any]:
+        telemetry = self.probe.collect_metrics()
+        attestation = self.health.run_full_attestation()
+        ledger_valid = self.ledger.verify_integrity()
+
+        status_healthy = telemetry.get("status") in (
+            "OK",
+            "NOMINAL",
+            "ACTIVE",
+            "HEALTHY",
+        )
+        all_passed = (
+            status_healthy and ledger_valid and attestation.get("verdict") == "HEALTHY"
+        )
+
         return {
-            "deployment_status": verdict,
-            "verification_checks": checks
+            "deployment_verdict": "VERIFIED_OPERATIONAL"
+            if all_passed
+            else "DEGRADED_STATE",
+            "ledger_verified": ledger_valid,
+            "subsystem_health": attestation.get("verdict"),
+            "host_status": telemetry.get("status"),
+            "memory_headroom_mb": telemetry.get("mem_available_mb"),
+            "active_tasks": telemetry.get("active_processes"),
         }
+
 
 if __name__ == "__main__":
-    dv = DeploymentVerifier()
-    dv.verify_deployment_readiness()
+    verifier = DeployVerifier()
+    print("Post-Deploy Verification:", verifier.verify_post_deploy_state())
