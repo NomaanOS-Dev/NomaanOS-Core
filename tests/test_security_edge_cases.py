@@ -81,3 +81,23 @@ def test_real_telemetry_probe_metrics():
     assert "active_processes" in metrics
     assert "load_1m" in metrics
     assert metrics["status"] in ("HEALTHY", "DEGRADED")
+
+
+def test_sentinel_agent_patrol():
+    from sentinel_agent import SentinelAgent
+
+    agent = SentinelAgent()
+    patrol = agent.patrol_enclave()
+    assert patrol["sentinel_id"] == "SENTINEL-AI-WATCHDOG-01"
+    assert "checks" in patrol
+    assert patrol["patrol_status"] in ("CLEAN", "DEGRADED")
+
+
+def test_neural_lock_dynamic_attestation():
+    from neural_lock import NeuralLock
+
+    lock = NeuralLock()
+    token_data = lock.generate_attestation_token("TEST_OP")
+    assert token_data["l5_status"] == "LOCKED_AND_VERIFIED"
+    assert len(token_data["node_fingerprint"]) >= 16
+    assert len(token_data["attestation_token"]) == 64
