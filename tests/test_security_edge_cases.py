@@ -145,3 +145,27 @@ def test_real_enclave_bootstrapper(tmp_path):
     assert res["ledger_blocks"] >= 1
     assert (tmp_path / "config").exists()
     assert (tmp_path / "logs").exists()
+
+
+def test_real_ci_runner():
+    from ci_runner import LocalCIRunner
+
+    runner = LocalCIRunner(src_dir="src/nomaanos")
+    verdict = runner.run_pipeline()
+    assert verdict["status"] == "PASSED"
+    assert verdict["syntax_verified"] is True
+    assert verdict["python_files_compiled"] > 0
+
+
+def test_real_quantum_shield():
+    from quantum_shield import QuantumShield
+
+    shield = QuantumShield()
+    payload = "SECURE_SOVEREIGN_PAYLOAD"
+    armor = shield.generate_quantum_armor(payload)
+    assert armor["quantum_resistant"] is True
+    assert len(armor["armor_token"]) == 128  # SHA3-512 produces 128 hex chars
+    assert shield.verify_quantum_armor(payload, armor["armor_token"]) is True
+    assert (
+        shield.verify_quantum_armor("TAMPERED_PAYLOAD", armor["armor_token"]) is False
+    )
