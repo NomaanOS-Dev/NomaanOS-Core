@@ -1,59 +1,82 @@
+from __future__ import annotations
+
 import hashlib
 import json
 from pathlib import Path
+from typing import Any
 
 
 class CryptographicChainVerifier:
     """
-    NomaanOS Automated Cryptographic Ledger Chain Verifier.
-    Performs full SHA-256 Merkle-style hash verification across all audit blocks.
+    NomaanOS Zero-Trust Cryptographic Ledger Chain Verifier.
+    Performs full SHA-256 Merkle-style hash verification, genesis block anchoring,
+    and schema invariant audits across all ledger blocks.
     """
-    def __init__(self, audit_file: str = "config/audit_trail.json"):
+
+    GENESIS_HASH: str = "0" * 64
+    GENESIS_KEYS: frozenset[str] = frozenset({"index", "event", "timestamp", "hash"})
+    STANDARD_KEYS: frozenset[str] = frozenset({"index", "action", "details", "timestamp", "previous_hash", "hash"})
+
+    def __init__(self, audit_file: str = "config/audit_trail.json") -> None:
         self.audit_path = Path(audit_file)
 
-    def verify_full_chain(self) -> dict:
-        print("\n[!] INITIATING CRYPTOGRAPHIC LEDGER CHAIN VERIFICATION...")
-        print("-" * 60)
-        
+    @staticmethod
+    def compute_block_hash(block: dict[str, Any]) -> str:
+        block_copy = {k: v for k, v in block.items() if k != "hash"}
+        return hashlib.sha256(json.dumps(block_copy, sort_keys=True).encode()).hexdigest()
+
+    def verify_full_chain(self) -> dict[str, Any]:
         if not self.audit_path.exists():
             return {"status": "ERROR", "reason": "Audit trail ledger missing."}
 
-        logs = json.loads(self.audit_path.read_text())
-        valid_blocks = 0
-        
+        try:
+            logs: list[dict[str, Any]] = json.loads(self.audit_path.read_text())
+        except (json.JSONDecodeError, OSError) as e:
+            return {"status": "ERROR", "reason": f"Corrupt ledger file: {e}"}
+
+        if not logs:
+            return {"status": "SUCCESS", "verified_blocks": 0, "chain_verdict": "EMPTY_CHAIN"}
+
+        # 1. Genesis Block Validation
+        genesis = logs[0]
+        if not self.GENESIS_KEYS.issubset(genesis.keys()):
+            return {"status": "SCHEMA_VIOLATION_AT_BLOCK", "block_index": 0}
+
+        if genesis.get("hash") != self.GENESIS_HASH:
+            return {"status": "INVALID_GENESIS_HASH", "block_index": 0}
+
+        # 2. Sequential Chain Validation
+        valid_blocks = 1
+        leaf_hashes: list[str] = [genesis["hash"]]
+
         for i in range(1, len(logs)):
             current = logs[i]
-            previous = logs[i-1]
-            
-            # Verify previous hash link
-            if current["previous_hash"] != previous["hash"]:
-                return {
-                    "status": "CHAIN_BROKEN_AT_BLOCK",
-                    "block_index": current["index"]
-                }
-            
-            # Verify current block hash integrity
-            block_copy = current.copy()
-            claimed_hash = block_copy.pop("hash")
-            recomputed_hash = hashlib.sha256(json.dumps(block_copy, sort_keys=True).encode()).hexdigest()
-            
-            if claimed_hash != recomputed_hash:
-                return {
-                    "status": "HASH_MISMATCH_DETECTED",
-                    "block_index": current["index"]
-                }
+            previous = logs[i - 1]
+
+            if not self.STANDARD_KEYS.issubset(current.keys()):
+                return {"status": "SCHEMA_VIOLATION_AT_BLOCK", "block_index": current.get("index", i)}
+
+            if current.get("previous_hash") != previous.get("hash"):
+                return {"status": "CHAIN_BROKEN_AT_BLOCK", "block_index": current.get("index", i)}
+
+            if current.get("hash") != self.compute_block_hash(current):
+                return {"status": "HASH_MISMATCH_DETECTED", "block_index": current.get("index", i)}
+
+            leaf_hashes.append(current["hash"])
             valid_blocks += 1
 
-        print(f"    --> Verified {valid_blocks} cryptographic blocks in append-only chain.")
-        print("    --> Chain Verdict: LEDGER_CRYPTOGRAPHIC_CHAIN_100_PERCENT_VALID")
-        print("-" * 60)
-        print("[+] Chain Verification Completed Successfully.\n")
-        
+        # 3. Merkle Aggregation
+        merkle_root = hashlib.sha256("".join(leaf_hashes).encode()).hexdigest()
+
         return {
+            "status": "SUCCESS",
             "verified_blocks": valid_blocks,
-            "chain_verdict": "LEDGER_CRYPTOGRAPHIC_CHAIN_100_PERCENT_VALID"
+            "merkle_root": merkle_root,
+            "chain_verdict": "LEDGER_CRYPTOGRAPHIC_CHAIN_100_PERCENT_VALID",
         }
+
 
 if __name__ == "__main__":
     cv = CryptographicChainVerifier()
-    cv.verify_full_chain()
+    res = cv.verify_full_chain()
+    print("Chain Verification Result:", res)
