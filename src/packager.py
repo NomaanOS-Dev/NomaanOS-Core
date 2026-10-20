@@ -1,40 +1,73 @@
-import zipfile
+from __future__ import annotations
+
+import hashlib
+import sys
 from pathlib import Path
+from typing import Any
+
+if sys.version_info >= (3, 11):
+    import tomllib
+else:
+    import tomli as tomllib
 
 
-class ReleasePackager:
+class DistributionPackager:
     """
-    NomaanOS Automated Release Packager & Artifact Archiver.
-    Bundles the entire core ecosystem into a secure distribution archive.
+    NomaanOS Secure Wheel & Distribution Packager.
+    Verifies pyproject.toml PEP 517/621 specifications and calculates
+    cryptographic SHA-256 manifests for compiled distribution wheels.
     """
-    def __init__(self, output_dir: str = "dist"):
-        self.output_path = Path(output_dir)
-        self.output_path.mkdir(parents=True, exist_ok=True)
 
-    def package_release(self) -> dict:
-        print("\n[!] INITIATING MASTER RELEASE PACKAGING & ARCHIVING...")
-        print("-" * 60)
-        
-        archive_name = self.output_path / "NomaanOS-Core-v6.0-STABLE.zip"
-        
-        with zipfile.ZipFile(archive_name, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            # Add core source files and CLI
-            for py_file in Path("src").glob("*.py"):
-                zipf.write(py_file)
-            if Path("nomaanos.py").exists():
-                zipf.write("nomaanos.py")
-                
-        print(f"    --> Created Release Archive: {archive_name}")
-        print("    --> Archive Status: 100% SECURE & PACKAGED")
-        print("-" * 60)
-        print("[+] Release Packaging Completed Successfully.\n")
-        
+    def __init__(self, pyproject_path: str = "pyproject.toml") -> None:
+        self.pyproject_path = Path(pyproject_path)
+
+    def verify_packaging_spec(self) -> dict[str, Any]:
+        if not self.pyproject_path.is_file():
+            return {"status": "ERROR", "reason": "pyproject.toml missing"}
+
+        try:
+            content = self.pyproject_path.read_text(encoding="utf-8")
+            data = tomllib.loads(content)
+            project_meta = data.get("project", {})
+
+            name = project_meta.get("name")
+            version = project_meta.get("version")
+            dependencies = project_meta.get("dependencies", [])
+
+            return {
+                "status": "VALID",
+                "project_name": name,
+                "version": version,
+                "dependency_count": len(dependencies),
+                "has_entrypoints": bool(project_meta.get("scripts")),
+            }
+        except (tomllib.TOMLDecodeError, OSError, ValueError, KeyError) as e:
+            return {"status": "ERROR", "reason": str(e)}
+
+    def audit_dist_artifacts(self, dist_dir: str = "dist") -> dict[str, Any]:
+        dist_path = Path(dist_dir)
+        if not dist_path.is_dir():
+            return {"status": "NO_DIST_DIR", "artifacts": []}
+
+        artifacts: list[dict[str, Any]] = []
+        for artifact in dist_path.glob("*.whl"):
+            digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+            artifacts.append(
+                {
+                    "filename": artifact.name,
+                    "size_bytes": artifact.stat().st_size,
+                    "sha256": digest,
+                }
+            )
+
         return {
-            "packaging_status": "SUCCESS",
-            "archive_path": str(archive_name),
-            "verdict": "READY_FOR_ENTERPRISE_DISTRIBUTION"
+            "status": "ARTIFACTS_AUDITED",
+            "artifact_count": len(artifacts),
+            "artifacts": artifacts,
         }
 
+
 if __name__ == "__main__":
-    pkg = ReleasePackager()
-    pkg.package_release()
+    packager = DistributionPackager()
+    print("Packaging Spec:", packager.verify_packaging_spec())
+    print("Dist Audit:", packager.audit_dist_artifacts())

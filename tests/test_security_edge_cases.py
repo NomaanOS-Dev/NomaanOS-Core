@@ -422,3 +422,25 @@ def test_real_sovereign_api_handler():
     handler.path = "/invalid_route"
     handler.do_GET()
     handler.send_response.assert_called_with(404)
+
+
+def test_real_distribution_packager():
+    from packager import DistributionPackager
+
+    packager = DistributionPackager()
+    spec = packager.verify_packaging_spec()
+    assert spec["status"] == "VALID"
+    assert spec["project_name"] == "nomaanos-core"
+    assert spec["has_entrypoints"] is True
+
+
+def test_real_release_manifest_generator(tmp_path):
+    from release_manifest import ReleaseManifestGenerator
+
+    out_file = tmp_path / "test_manifest.json"
+    generator = ReleaseManifestGenerator(output_path=str(out_file))
+    manifest = generator.generate_manifest(version="6.0.0-PROD")
+    assert manifest["release_version"] == "6.0.0-PROD"
+    assert manifest["total_source_files"] > 0
+    assert len(manifest["root_sha256"]) == 64
+    assert out_file.is_file()
