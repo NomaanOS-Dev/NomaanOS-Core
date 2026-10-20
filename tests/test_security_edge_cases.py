@@ -204,3 +204,24 @@ def test_real_swarm_sync(tmp_path):
     assert res["node_state"] == "SYNCHRONIZED"
     assert res["chain_length"] == 2
     assert len(res["state_root"]) == 64
+
+
+def test_real_master_dashboard_ui(capsys):
+    from master_dashboard_ui import MasterDashboardUI
+
+    ui = MasterDashboardUI()
+    snapshot = ui.render_snapshot()
+    captured = capsys.readouterr()
+    assert "NOMAANOS LIVE SOVEREIGN DASHBOARD" in captured.out
+    assert snapshot["ledger_valid"] is True
+    assert "telemetry" in snapshot
+
+
+def test_real_compliance_auditor():
+    from compliance_auditor import ComplianceAuditor
+
+    auditor = ComplianceAuditor()
+    audit = auditor.audit_security_controls()
+    assert audit["compliance_status"] in ("COMPLIANT", "NON_COMPLIANT")
+    assert audit["total_controls_evaluated"] >= 4
+    assert audit["controls"]["source_tree_intact"] is True
