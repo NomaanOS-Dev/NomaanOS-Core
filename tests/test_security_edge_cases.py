@@ -591,3 +591,22 @@ def test_real_deploy_verifier(tmp_path):
     assert report["deployment_verdict"] in ("VERIFIED_OPERATIONAL", "DEGRADED_STATE")
     assert report["ledger_verified"] is True
     assert "memory_headroom_mb" in report
+
+
+def test_real_master_seal_and_verifier(tmp_path):
+    from master_seal import MasterSealManager
+    from master_verifier import MasterSealVerifier
+
+    seal_file = tmp_path / "test_seal.json"
+    manager = MasterSealManager(output_file=str(seal_file))
+    seal = manager.generate_master_seal()
+
+    assert seal["seal_status"] == "SEALED_AND_ATTESTED"
+    assert seal["total_files_sealed"] > 0
+    assert len(seal["signature"]) == 64
+    assert seal_file.is_file()
+
+    verifier = MasterSealVerifier(seal_file=str(seal_file))
+    report = verifier.verify_live_seal()
+    assert report["valid"] is True
+    assert report["verdict"] == "REPOSITORY_INTEGRITY_VERIFIED"
