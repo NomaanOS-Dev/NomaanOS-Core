@@ -1088,3 +1088,57 @@ def test_sbom_generator_empty_inventory_branch(tmp_path):
     res = gen.generate_sbom()
     assert isinstance(res, dict)
     assert empty_out.is_file()
+
+
+def test_nomaanos_init_main_invocation(monkeypatch):
+    from unittest.mock import patch
+
+    import nomaanos
+
+    with patch("nomaanos.cli.main_cli", return_value=0) as mock_cli:
+        res = nomaanos.main()
+        assert res == 0
+        assert mock_cli.called
+
+
+def test_server_api_handler_routes():
+    import io
+    from unittest.mock import MagicMock
+
+    from server import SovereignAPIHandler
+
+    routes = ["/health", "/telemetry", "/ledger/verify", "/unknown_route"]
+
+    for path in routes:
+        handler = SovereignAPIHandler.__new__(SovereignAPIHandler)
+        handler.path = path
+        handler.wfile = io.BytesIO()
+        handler.rfile = io.BytesIO()
+        handler.send_response = MagicMock()
+        handler.send_header = MagicMock()
+        handler.end_headers = MagicMock()
+        handler.log_message = MagicMock()
+
+        handler.do_GET()
+
+        assert handler.send_response.called
+        assert handler.send_header.called
+        assert handler.end_headers.called
+        written = handler.wfile.getvalue()
+        assert len(written) > 0
+
+
+def test_sbom_generator_package_error_branch(monkeypatch):
+    from importlib import metadata
+
+    from sbom_generator import SBOMGenerator
+
+    def mock_dist_error():
+        raise OSError("Simulated metadata read failure")
+
+    monkeypatch.setattr(metadata, "distributions", mock_dist_error)
+    gen = SBOMGenerator()
+    res = gen.generate_sbom()
+    assert isinstance(res, dict)
+    assert res["bomFormat"] == "CycloneDX-Compatible"
+    assert "manifest_sha256" in res
