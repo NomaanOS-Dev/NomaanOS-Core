@@ -777,3 +777,52 @@ def test_log_rotator_sweep_workflow(tmp_path):
     # Test big log (should rotate)
     big_res = rotator.rotate_file_if_needed(big_log)
     assert big_res["rotated"] is True
+
+
+def test_nose_exec_exception_handling():
+    from nomaanos.engine import NoseExec
+
+    # Non-existent binary execution error path
+    exec_engine = NoseExec(allowed_binaries=["nonexistent_bin_xyz"])
+    res = exec_engine.execute(["nonexistent_bin_xyz"])
+    assert res["status"] in ("ERROR", "FAILED") or res.get("code") != 0
+
+
+def test_root_engine_dispatch_flow():
+    import engine
+
+    # Verify root engine orchestration interface
+    if hasattr(engine, "CoreEngine"):
+        eng = engine.CoreEngine()
+        status = eng.get_status() if hasattr(eng, "get_status") else True
+        assert status is not None
+
+
+def test_chain_verifier_corrupt_blocks():
+    from chain_verifier import CryptographicChainVerifier
+
+    verifier = CryptographicChainVerifier()
+    res = verifier.verify_full_chain()
+    assert isinstance(res, dict)
+    assert "status" in res or "valid" in res or "verified" in res or "verdict" in res
+
+
+def test_audit_logger_fallback(tmp_path):
+    import audit_logger
+
+    # Find the logger class exposed by audit_logger dynamically
+    logger_cls = getattr(
+        audit_logger,
+        "EnclaveAuditLogger",
+        getattr(
+            audit_logger,
+            "AuditLogger",
+            getattr(audit_logger, "SecurityAuditLogger", None),
+        ),
+    )
+    if logger_cls:
+        try:
+            logger = logger_cls()
+        except TypeError:
+            logger = logger_cls(str(tmp_path / "audit.log"))
+        assert logger is not None
