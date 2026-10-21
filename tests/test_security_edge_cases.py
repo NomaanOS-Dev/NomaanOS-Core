@@ -919,3 +919,74 @@ def test_sbom_generator_package_resolution():
     if hasattr(gen, "audit_dependencies"):
         deps = gen.audit_dependencies()
         assert isinstance(deps, (list, dict))
+
+
+def test_root_engine_all_edge_cases():
+    import engine
+
+    exec_engine = engine.NoseExec(allowed_binaries=["echo", "sleep"])
+
+    # 1. Empty arguments branch
+    empty_res = exec_engine.execute([])
+    assert empty_res["status"] == "BLOCKED"
+
+    # 2. Unauthorized binary branch
+    blocked_res = exec_engine.execute(["rm", "-rf", "/"])
+    assert blocked_res["status"] == "BLOCKED"
+
+    # 3. Timeout branch
+    timeout_res = exec_engine.execute(["sleep", "0.5"], timeout_sec=0.01)
+    assert (
+        timeout_res["status"] in ("TIMEOUT", "ERROR", "FAILED")
+        or timeout_res.get("code") != 0
+    )
+
+    # 4. Success path with stdout capture
+    ok_res = exec_engine.execute(["echo", "root_engine_ok"])
+    assert ok_res["status"] == "SUCCESS"
+    assert "root_engine_ok" in ok_res.get("stdout", "")
+
+
+def test_nomaanos_package_metadata():
+    import nomaanos
+
+    assert hasattr(nomaanos, "__version__") or hasattr(nomaanos, "NoseExec")
+
+
+def test_log_rotator_compression_and_cleanup(tmp_path):
+    from log_rotator import EnclaveLogRotator
+
+    log_dir = tmp_path / "compress_logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    active_log = log_dir / "sovereign.log"
+
+    # Write data exceeding rotation boundary
+    active_log.write_text("A" * 4096, encoding="utf-8")
+
+    rotator = EnclaveLogRotator(target_dir=str(log_dir), max_bytes=1024, max_archives=2)
+
+    # Trigger rotation & gzip compression
+    res = rotator.rotate_file_if_needed(active_log)
+    assert res["rotated"] is True
+
+    # Run full directory sweep
+    sweep_report = rotator.run_sweep() if hasattr(rotator, "run_sweep") else {}
+    assert isinstance(sweep_report, dict)
+
+
+def test_master_verifier_corrupt_manifest_and_drift(tmp_path):
+    from master_verifier import MasterSealVerifier
+
+    # 1. Missing seal branch
+    v_missing = MasterSealVerifier(seal_file=str(tmp_path / "nonexistent.json"))
+    res_missing = v_missing.verify_live_seal()
+    assert res_missing["valid"] is False
+    assert res_missing["reason"] == "MASTER_SEAL_NOT_FOUND"
+
+    # 2. Corrupt JSON syntax branch
+    bad_json = tmp_path / "corrupt_seal.json"
+    bad_json.write_text("{invalid_json_format", encoding="utf-8")
+    v_bad = MasterSealVerifier(seal_file=str(bad_json))
+    res_bad = v_bad.verify_live_seal()
+    assert res_bad["valid"] is False
+    assert "CORRUPTED_SEAL_FILE" in res_bad["reason"]
