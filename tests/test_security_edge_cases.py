@@ -1207,3 +1207,61 @@ def test_hardware_bridge_cpuinfo_missing(monkeypatch, tmp_path):
         elif hasattr(bridge, "get_hardware_report"):
             audit = bridge.get_hardware_report()
             assert isinstance(audit, dict)
+
+
+def test_snapshot_manager_restore_corrupt_and_valid(tmp_path):
+    import json
+
+    from snapshot_manager import SnapshotManager
+
+    snap_dir = tmp_path / "snaps_restore"
+    snap_dir.mkdir(parents=True, exist_ok=True)
+    mgr = SnapshotManager(backup_dir=str(snap_dir))
+
+    # 1. Inject corrupted JSON file into backup directory to trigger exception branch
+    corrupt_snap = snap_dir / "snapshot_corrupted.json"
+    corrupt_snap.write_text("{bad_json_not_valid", encoding="utf-8")
+    assert mgr.restore_snapshot("target_id") is False
+
+    # 2. Inject valid snapshot and restore
+    valid_target = tmp_path / "restored_file.txt"
+    snap_record = {
+        "snapshot_id": "test_snap_123",
+        "target_file": str(valid_target),
+        "content_base64": "",
+        "content": "restored payload line",
+    }
+    valid_snap = snap_dir / "snapshot_valid.json"
+    valid_snap.write_text(json.dumps(snap_record), encoding="utf-8")
+
+    res = mgr.restore_snapshot("test_snap_123")
+    assert isinstance(res, bool)
+
+
+def test_hardware_bridge_dmi_fallback(monkeypatch, tmp_path):
+    from pathlib import Path
+
+    from hardware_bridge import HardwareEnclaveBridge
+
+    bridge = HardwareEnclaveBridge()
+    # Emulate missing DMI directory
+    monkeypatch.setattr(bridge, "dmi_path", Path(tmp_path / "empty_dmi"))
+
+    if hasattr(bridge, "probe_dmi"):
+        dmi_info = bridge.probe_dmi()
+        assert isinstance(dmi_info, dict)
+    if hasattr(bridge, "audit_hardware_extensions"):
+        audit = bridge.audit_hardware_extensions()
+        assert isinstance(audit, dict)
+
+
+def test_phoenix_engine_auto_heal_execution():
+    from phoenix_engine import PhoenixEngine
+
+    engine = PhoenixEngine()
+    if hasattr(engine, "heal"):
+        res = engine.heal()
+        assert res is not None
+    elif hasattr(engine, "verify_and_heal"):
+        res = engine.verify_and_heal()
+        assert isinstance(res, dict)

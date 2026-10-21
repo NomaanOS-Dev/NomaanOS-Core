@@ -1,19 +1,224 @@
 {
-  "distribution": "NomaanOS Sovereign AI Stack (SAS)",
-  "release_version": "v6.0.0-STABLE",
-  "release_timestamp": 1790378223.1292462,
-  "architect": "Nomaan Khan (IHFC-IITD Scholar)",
-  "components_included": [
-    "NoseExec (Fail-Closed Engine)",
-    "AIAgentBridge (Intent Sanitizer)",
-    "AuditLogger (SHA-256 Ledger)",
-    "PhoenixEngine (Self-Healing)",
-    "NeuralLock (L5 Attestation)",
-    "ComplianceAuditor",
-    "ThreatSimulator",
-    "SBOMGenerator",
-    "SystemHardening",
-    "FastAPI Server"
+  "release_version": "6.0.0-PROD",
+  "timestamp": 1792571640.6567078,
+  "total_source_files": 54,
+  "source_manifest": [
+    {
+      "path": "src/agent_bridge.py",
+      "sha256": "555692b84166c627124ff76283e9292b22a88ace14e0450851d1f0464d0aa05e"
+    },
+    {
+      "path": "src/analytics_hub.py",
+      "sha256": "46db8fba523e1c262db3ae05f06c46dadbb4df0cbf5a568022d7a627e6016d21"
+    },
+    {
+      "path": "src/attestation_issuer.py",
+      "sha256": "404dd61856055432e25373fd7740642a9ffacfe59658c026d7c5650d97bb8e68"
+    },
+    {
+      "path": "src/audit_logger.py",
+      "sha256": "9b06a96efc98efa9a3185064dedfe69f1080ee44897c5f1297193c85d92c1413"
+    },
+    {
+      "path": "src/badge_generator.py",
+      "sha256": "545d03c911ff5da4d23d7df67877c4da2c1b064d0f62c72234b6673d439d8f34"
+    },
+    {
+      "path": "src/banner.py",
+      "sha256": "4dc42bedd962e768684098078f7c2ed8df18febbc838c4f65e7d23b541f6b1d3"
+    },
+    {
+      "path": "src/benchmark.py",
+      "sha256": "b20256719f87758a2eab40c392fe11b8d3d11ae435174ae574bdde6bd6ab8b3d"
+    },
+    {
+      "path": "src/bootstrapper.py",
+      "sha256": "95dc388aec7f1c49197f70facfb8007dd8741078146bc1eae77567a0677e3e3c"
+    },
+    {
+      "path": "src/chain_verifier.py",
+      "sha256": "407c0d082631e1f4a7d0498f7ce8f0de4bd6086c7463e358a123e310b63ec3ad"
+    },
+    {
+      "path": "src/ci_runner.py",
+      "sha256": "76a43c129ca7b443f558705af7006c74e09b00947e368670a18b926e653446f8"
+    },
+    {
+      "path": "src/compliance_auditor.py",
+      "sha256": "b370fd1edaaf2b82b5fbcd687be8817a7df7ff0008eb1c49c504a74c760ed8fd"
+    },
+    {
+      "path": "src/deploy_verifier.py",
+      "sha256": "22f7ba42c6fb248f9affe2d447f6923394805cd0b9167c30b52e36e939c5dfeb"
+    },
+    {
+      "path": "src/deployment_shield.py",
+      "sha256": "fde7394f541e1f3ce3a5bd54b958cfaa7e7a46e8046f45102d528304d89f0500"
+    },
+    {
+      "path": "src/diagnostics.py",
+      "sha256": "0e67d77ead1c11feb94d4933165a3b4d012ea2ae5467fe9c7d9bdff02ffae4f0"
+    },
+    {
+      "path": "src/doc_generator.py",
+      "sha256": "8761ffd70b7f4c63bc5f4c5962f8298f2a21c2fbcec5c1ae2b13551f861330b0"
+    },
+    {
+      "path": "src/engine.py",
+      "sha256": "f5f973c8cea8d60343d0952ff68f3d814584ec399dfb531ab5f03962100d7fb7"
+    },
+    {
+      "path": "src/fuzzer.py",
+      "sha256": "4e71bc46609e365414d365cb638456fa1ef3d52205fd4808c20f34849112442a"
+    },
+    {
+      "path": "src/global_publisher.py",
+      "sha256": "4df0dab58c997a200cb2aa3888c3b9fc7c3e0d4e994b7d827fca6a4b0e3c9138"
+    },
+    {
+      "path": "src/hardening.py",
+      "sha256": "65c48a386cf2f8721647a543fbc17957fa105ebfa4f82561157ae1aecf4b05c8"
+    },
+    {
+      "path": "src/hardware_bridge.py",
+      "sha256": "964b3ead8386549a9f9e5ce7d03b1e30dde94791ad43eb9f69dd704fe8664ec3"
+    },
+    {
+      "path": "src/health_check.py",
+      "sha256": "5ac99b456bf313af755c3f9044f27a5504a979e85c84c6bc9eae1cee27a94bc8"
+    },
+    {
+      "path": "src/health_inspector.py",
+      "sha256": "7793862e475db02f00449df14f34db0fef0015140ef1b00cb025fe0a86438e97"
+    },
+    {
+      "path": "src/kernel_boot.py",
+      "sha256": "a6d3de0fe24b176367f8aab6b92d3d9df1b192a8bdca55f62bdf4332d18cd99d"
+    },
+    {
+      "path": "src/log_rotator.py",
+      "sha256": "897127a5dd468579b864cbf5d97b2dec65658603131dea184ac7fb656a4c87b0"
+    },
+    {
+      "path": "src/master_dashboard_ui.py",
+      "sha256": "b16b5c9e57a7de91e06a1c359fdbece1185c02d5566d2a51d7e28f74be6d9db8"
+    },
+    {
+      "path": "src/master_seal.py",
+      "sha256": "1b920d582564f5d451f1c8541fd3b34131441617b90fcf51d1d3df4415045785"
+    },
+    {
+      "path": "src/master_verifier.py",
+      "sha256": "67f793b402fc7828ce5cf30d023dc650189f211cc9282c19ee0fb640912c5afb"
+    },
+    {
+      "path": "src/neural_lock.py",
+      "sha256": "86a728a86e09489b99eff877d33b538608848244d8e8c3e00c54c858f1a069e7"
+    },
+    {
+      "path": "src/nomaanos/__init__.py",
+      "sha256": "443d8febe342e7a476c6b6e6545c935906018d461b56f77583f42cf8d54fb152"
+    },
+    {
+      "path": "src/nomaanos/__main__.py",
+      "sha256": "dd4e14c6f276ed29253c9770de9c33d667b5042ac4a5bb910560746a80b5e0f6"
+    },
+    {
+      "path": "src/nomaanos/cli.py",
+      "sha256": "b43da9fc20d277e0282fcfe2541e4f2316b23afd14859a336803b19e80c96217"
+    },
+    {
+      "path": "src/nomaanos/engine.py",
+      "sha256": "9145cc0ac1ea3238be60b4eb3c3e5007b6b6f85d1c622e99a77c58c2f1dab183"
+    },
+    {
+      "path": "src/nomaanos/ledger/engine.py",
+      "sha256": "7d2a9fc66aed72c354441f0768016c1df7f9ef253415eda5c19014c5b25817cf"
+    },
+    {
+      "path": "src/nomaanos/soc/telemetry.py",
+      "sha256": "bc5daedc3f8b5055e35eca330ededd0009cc36ec232751d65ff14fa67cb171c2"
+    },
+    {
+      "path": "src/orchestrator.py",
+      "sha256": "6a3cab1ada5c5b6cee7f23f532a93c0202646d3975636ae011cb0a906cba115e"
+    },
+    {
+      "path": "src/packager.py",
+      "sha256": "64d874163e978d535bbcfdd98a0c266401c6100fbb550ea47f90d2bebc9b34c8"
+    },
+    {
+      "path": "src/phoenix_engine.py",
+      "sha256": "25321e999629643e0c1ad749113bdbf367dccea2c632fbfc645aea9ef7c1ef03"
+    },
+    {
+      "path": "src/quantum_shield.py",
+      "sha256": "de81647f5960f8c48ae0af4f0122b853edbf0a667d7135acddd91d3910cbbe43"
+    },
+    {
+      "path": "src/release_manifest.py",
+      "sha256": "08bfb25ca1568f6c6e4431386f1974f37fe33cb7727ab6c08aa35e0fde952eaa"
+    },
+    {
+      "path": "src/release_notes.py",
+      "sha256": "96fb4f80a9c4dc2e3ab588af8a133f4014e44e71e28d05b7aca9411a6b108772"
+    },
+    {
+      "path": "src/report_exporter.py",
+      "sha256": "9b384c79dde540756e94739139ea3a094823d404635baedd3b8970d73e568596"
+    },
+    {
+      "path": "src/sbom_generator.py",
+      "sha256": "19dbf75de413809e53d0bbd9ea27f1b61c289b2b2a428bf0dc27e65c1f60d693"
+    },
+    {
+      "path": "src/sentinel_agent.py",
+      "sha256": "a55027a49715b8833cbce13a08779cf4e6071955cebab9c38d031540686e206d"
+    },
+    {
+      "path": "src/server.py",
+      "sha256": "b96381d858eb3a045c6d2e4d0f9b970e36915439382c5f6090259d1102cc9fe8"
+    },
+    {
+      "path": "src/snapshot_manager.py",
+      "sha256": "0130612c2362324af99ab02b3604bc90848205cc24ce35bab4e0fef0b3e3a075"
+    },
+    {
+      "path": "src/sovereign_license.py",
+      "sha256": "cba4445a218d1a188eace100ac77ea08f0a4225e9a1e07074be234678252f708"
+    },
+    {
+      "path": "src/streamer.py",
+      "sha256": "9b04b6957a2e21c0676fbe4fb92d18f195e087968fefa8fefca73d13925cd16c"
+    },
+    {
+      "path": "src/stress_test.py",
+      "sha256": "28ddcdc42d1aaeaa2b10788828b3d80fc2e659ff5d711ccdd6717b30a9b06029"
+    },
+    {
+      "path": "src/summary_exporter.py",
+      "sha256": "439f703fac22c0d03733c95cf449b4c9510e64117f809744ca28e379c886eeaf"
+    },
+    {
+      "path": "src/swarm_sync.py",
+      "sha256": "0e318f6ca22088896dcc0ef7f1545c9a0473b946e15ac48cca552d2754043a6a"
+    },
+    {
+      "path": "src/telemetry_dashboard.py",
+      "sha256": "085b76758819314a5781fcac3ae53f3350752afe1a9b8df2d9d8e4f76e31a293"
+    },
+    {
+      "path": "src/threat_simulator.py",
+      "sha256": "1ca902599c7fc90c276685602f723731da17143b25bda2359e8cd58ce2258e0a"
+    },
+    {
+      "path": "src/tui.py",
+      "sha256": "aa646bf487a5cf982bafc3f0ab1bccc5672ab6e86f799dfa3aceffc5ceec6711"
+    },
+    {
+      "path": "src/webhook_hub.py",
+      "sha256": "f94e9c3eb8d798a5fe0cb5b1f3ce5da5433633434acdf84296ba7b1bd3e7f18b"
+    }
   ],
-  "release_status": "VERIFIED_AND_SIGNED"
+  "root_sha256": "956e73f09a1cecede0b2588973057ad015f89e3e214333e281c66f43e132e9ad"
 }
