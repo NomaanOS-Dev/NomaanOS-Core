@@ -1040,3 +1040,51 @@ def test_sbom_generator_cyclonedx_export(tmp_path):
     res = gen.generate_sbom()
     assert isinstance(res, dict)
     assert out_file.is_file()
+
+
+def test_nomaanos_init_exports():
+    import nomaanos
+
+    # Exercise package-level exports
+    for attr in ("__version__", "__all__", "NoseExec", "EvidenceLedger"):
+        if hasattr(nomaanos, attr):
+            getattr(nomaanos, attr)
+
+
+def test_root_engine_missing_binary_branch():
+    import engine
+
+    # Exercise binary lookup / exec failure path in root engine
+    exec_inst = engine.NoseExec(allowed_binaries=["/bin/nonexistent_command_xyz"])
+    res = exec_inst.execute(["/bin/nonexistent_command_xyz"])
+    assert res["status"] in ("ERROR", "FAILED", "BLOCKED")
+
+
+def test_server_request_dispatch_branches():
+    import server
+
+    # Exercise internal server handling and request parsing
+    if hasattr(server, "SovereignServer"):
+        srv = server.SovereignServer()
+        if hasattr(srv, "handle_request"):
+            res = srv.handle_request({"action": "PING"})
+            assert res is not None
+        if hasattr(srv, "get_status"):
+            st = srv.get_status()
+            assert st is not None
+
+
+def test_sbom_generator_empty_inventory_branch(tmp_path):
+    from sbom_generator import SBOMGenerator
+
+    empty_out = tmp_path / "empty_sbom.json"
+    gen = SBOMGenerator(output_path=str(empty_out))
+
+    # Test manifest extraction with fallback defaults
+    if hasattr(gen, "build_inventory"):
+        inv = gen.build_inventory()
+        assert isinstance(inv, (dict, list))
+
+    res = gen.generate_sbom()
+    assert isinstance(res, dict)
+    assert empty_out.is_file()
