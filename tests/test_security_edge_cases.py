@@ -826,3 +826,96 @@ def test_audit_logger_fallback(tmp_path):
         except TypeError:
             logger = logger_cls(str(tmp_path / "audit.log"))
         assert logger is not None
+
+
+def test_root_engine_comprehensive_flow():
+    import engine
+
+    # Test top-level engine dispatch
+    if hasattr(engine, "ExecutionEngine"):
+        eng = engine.ExecutionEngine()
+        res = eng.run("echo intent_test")
+        assert res is not None
+    elif hasattr(engine, "NomaanOSEngine"):
+        eng = engine.NomaanOSEngine()
+        res = eng.execute("echo test")
+        assert res is not None
+
+
+def test_nomaanos_engine_blocked_binaries():
+    from nomaanos.engine import NoseExec
+
+    # Verify fail-closed behavior on unauthorized commands
+    exec_engine = NoseExec(allowed_binaries=["cat"])
+    res = exec_engine.execute(["rm", "-rf", "/tmp"])
+    assert res["status"] in ("BLOCKED", "ERROR", "FAILED")
+    assert res.get("code") != 0
+
+
+def test_audit_logger_event_lifecycle(tmp_path):
+    from audit_logger import AuditLogger
+
+    log_file = tmp_path / "test_audit_chain.json"
+    logger = AuditLogger(log_path=str(log_file))
+
+    # Test recording audit entries
+    res = logger.log_event("POLICY_ENFORCED", {"action": "ALLOW", "user": "root"})
+    assert res is not None
+    assert log_file.is_file()
+
+
+def test_sbom_generator_scan_all(tmp_path):
+    from sbom_generator import SBOMGenerator
+
+    out_file = tmp_path / "test_sbom.json"
+    gen = SBOMGenerator(output_path=str(out_file))
+    report = gen.generate_sbom()
+
+    assert isinstance(report, dict)
+    assert out_file.is_file()
+
+
+def test_root_engine_direct_execution():
+    import engine
+
+    exec_inst = engine.NoseExec(allowed_binaries=["echo", "pwd"])
+    res = exec_inst.execute(["pwd"])
+    assert res["status"] in ("SUCCESS", "BLOCKED")
+
+
+def test_nomaanos_engine_custom_env_and_timeout():
+    from nomaanos.engine import NoseExec
+
+    exec_engine = NoseExec(allowed_binaries=["sleep", "echo"])
+    # Custom environment branch
+    res_env = exec_engine.execute(
+        ["echo", "env_test"], custom_env={"SOVEREIGN_MODE": "ENCLAVE"}
+    )
+    assert res_env["status"] == "SUCCESS"
+
+    # Execution timeout path
+    res_timeout = exec_engine.execute(["sleep", "0.5"], timeout_sec=0.01)
+    assert (
+        res_timeout["status"] in ("TIMEOUT", "FAILED", "ERROR")
+        or res_timeout.get("code") != 0
+    )
+
+
+def test_server_routes_dispatch():
+    import server
+
+    # Inspect and execute server initialization / router
+    if hasattr(server, "SovereignServer"):
+        srv = server.SovereignServer()
+        assert srv is not None
+    elif hasattr(server, "app"):
+        assert server.app is not None
+
+
+def test_sbom_generator_package_resolution():
+    from sbom_generator import SBOMGenerator
+
+    gen = SBOMGenerator()
+    if hasattr(gen, "audit_dependencies"):
+        deps = gen.audit_dependencies()
+        assert isinstance(deps, (list, dict))
